@@ -1,7 +1,5 @@
 
-Taken with Obsidian so some things dont render
-
-and images aren't linked properly wip
+Taken with Obsidian so some latex things broken and dont render on github .md, peek the source code instead
 
 Notes in this repository
 ### FALL 2025
