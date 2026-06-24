@@ -9,7 +9,7 @@
 > ****
 > Prediction: $$y^{test}\leftarrow\text{sgn}(w^\top x^{test})$$
 
-![300](Pasted%20image%2020260205101541.png)
+![300](../../pasted_images/Pasted%20image%2020260205101541.png)
 
 - **Marginal perceptron:** We want to maximize the margin between the two datasets (e.g. sit in the middle)
 - How do we find the *best* $\gamma$ automatically?
@@ -19,7 +19,7 @@ $$y_i(w^\top x_i+b)\geq 1$$
 
 # Max-margin classifiers
 ## Hard SVM
-![500](Screenshot%202026-02-05%20at%2010.27.07%20AM.png)
+![500](../../pasted_images/Screenshot%202026-02-05%20at%2010.27.07%20AM.png)
 
 We want to maximize the margin s.t. $\forall i$, 
 $$y_i(w^\top x_i+b)\geq 1$$
@@ -70,16 +70,16 @@ $$\min_{w,b}\frac{1}{2}w^\top w+C\sum_i\max(0,1-y_i(w^\top x_i+b))$$
 	- Incorrect predictions get a linearly increasing penalty
 	- Also penalize correct predictions that are too close to the margin
 	- No penalty when far away from the margin
-![400](Pasted%20image%2020260205111620.png)
+![400](../../pasted_images/Pasted%20image%2020260205111620.png)
 
 - **Other loss functions**
-![300](Pasted%20image%2020260205111744.png)
+![300](../../pasted_images/Pasted%20image%2020260205111744.png)
 
 ## Stochastic sub-gradient descent
 - Since the **hinge loss** is undifferentiable, we use its sub-gradients
-![500](Pasted%20image%2020260205114725.png)
+![500](../../pasted_images/Pasted%20image%2020260205114725.png)
 
-![400](Pasted%20image%2020260205114754.png)
+![400](../../pasted_images/Pasted%20image%2020260205114754.png)
 
 ## Perceptron vs. SVM
 - **Perceptron** uses stochastic sub-gradient descent for a different loss, but with no regularization

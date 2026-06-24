@@ -6,7 +6,7 @@ What if $f$ is not analytic?
 *Ex.* Let
 $$f(z)=\frac{e^{iaz}}{1+z^2},\quad a\in\mathbb C$$
 $R$ is large, and $D=\{z\in D(0,R):\Im z>0\}$. Consider $\int_{\partial D}f(z)dz$.
-![200](Pasted%20image%2020260529153234.png)
+![200](../pasted_images/Pasted%20image%2020260529153234.png)
 
 *Method 1.* Rewrite by factorizing $1+z^2=(z-i)(z+i)$
 $$f(z)=\frac{g(z)}{z-i},\quad g(z)=\frac{e^{iaz}}{z+i}$$
@@ -31,13 +31,13 @@ $$\text{Res}[f(z),z_0]=a_{-1}=\frac{1}{2\pi i}\oint_{|z-z_0|=r}f(z)dz$$
 for $0<r<\rho$.
 
 Then the global integral around the full boundary is equal to the integral over the small disk around the singularity:
-![300](Pasted%20image%2020260529154154.png)
+![300](../pasted_images/Pasted%20image%2020260529154154.png)
 
 **Thm (Residue Thm).** If $D$ is a bounded domain with piecewise smooth boundary and $f$ analytic on
 $$D\setminus\{z_1,z_2,\dots,z_n\}\quad(z_i\in D)$$
 and extends continuously to $\partial D$, then
 $$\int_{\partial D}f(z)dz=2\pi i\sum_{k=1}^n\text{Res}[f;z_k]=2\pi i\left(\text{Res}[f;z_1]+\text{Res}[f;z_2]+\dots+\text{Res}[f;z_n]\right)$$
-![Pasted image 20260602135014](Pasted%20image%2020260602135014.png)
+![Pasted image 20260602135014](../pasted_images/Pasted%20image%2020260602135014.png)
 - We want to find the integral over the piecewise smooth boundary, but the domain includes finite isolated singularities
 - We can draw a boundary around each singularity, then the integral over this new boundary is 0 (by Cauchy's theorem)
 	- The boundary around each singularity lies on the annulus/punctured disk centered at it, $A_{0,R}(z_0)$, which comes with a convergent Laurent series
@@ -183,7 +183,7 @@ For $\pi/2$,
 $$\cos z=0(z-\pi/2)^0+(-1)(z-\pi/2)^1+O(...)$$
 $$z=\frac{\pi}{2}(z-\pi/2)^0+1(z-\pi/2)^1$$
 Consider only the powers of the terms that give $(z-\pi/2)^{-1}$,
-![500](IMG_3579.jpeg)
+![500](../pasted_images/IMG_3579.jpeg)
 *Rm.* If $f$ and $g$ are analytic at $z_0$, where $g$ has a simple zero, then
 $$\text{Res}_{z=z_0}\frac{f(z)}{g(z)}=\lim_{z\to z_0}(z-z_0)\frac{f(z)}{g(z)}$$
 $$=\lim_{z\to z_0}\frac{f(z)}{\frac{g(z)-g(z_0)}{z-z_0}}=\frac{f(z_0)}{g'(z_0)}$$

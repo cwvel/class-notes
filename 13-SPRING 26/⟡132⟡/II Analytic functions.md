@@ -131,7 +131,7 @@ and $u,v\in C^1(D)$ (first derivative continuous on $D$)
 Key idea: If $f(z)$ is complex differentiable at $z_0$, then
 $$\lim_{\mathbb{R}\owns\Delta x\to 0}\frac{f(z_0+\Delta x)-f(z_0)}{\Delta x}=\lim_{\mathbb{R}\owns\Delta y\to 0}\frac{f(z_0+i\Delta y)-f(z_0)}{i\Delta y}$$
 The function can approach the limit from both the horizontal (real) and vertical (imaginary) line.
-![](Pasted%20image%2020260410151729.png#center|200)
+![200](../pasted_images/Pasted%20image%2020260410151729.png)
 ## Cauchy-Riemann equations
 **Thm. (Cauchy-Riemann Equations)** Suppose $f(x+iy)=u(x,y)+iv(x,y)$ is defined on some domain $D$. If $f(z)$ is differentiable at some
 $$z_0=x_0+iy_0\in D,$$
@@ -314,4 +314,4 @@ The matrix representation of $g$ is:
 $$B:=\begin{bmatrix}1&-0\\1&-(i-1)\end{bmatrix}$$
 Then the equivalent transformation is $B^{-1}A$.
 In general:
-![Pasted image 20260428163333](Pasted%20image%2020260428163333.png)
+![Pasted image 20260428163333](../pasted_images/Pasted%20image%2020260428163333.png)

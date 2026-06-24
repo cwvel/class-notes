@@ -48,7 +48,7 @@ If there exists some MST including edge e, then it is pseudocritical. Forcing Kr
 Every edge is correctly categorized into one of three lables.
 
 ## W5 additional practice
-![Pasted image 20260505112339](Pasted%20image%2020260505112339.png)
+![Pasted image 20260505112339](../pasted_images/Pasted%20image%2020260505112339.png)
 **Algorithm.**
 - Store **original**, **changed**, and **cost** as a weighted directed graph *O(n)?*
 	- Each index *j* represents an edge from **original[j]** to **changed[j]** with weight **cost[j]**
@@ -59,7 +59,7 @@ Every edge is correctly categorized into one of three lables.
 **Proof of correctness.**
 - Dijkstra's guarantees we find the minimum cost change sequence to change any letter into the target letter. If no such path in the graph exists that means the change is not possible, thus we return false.
 ### Q7
-![Pasted image 20260505113806](Pasted%20image%2020260505113806.png)
+![Pasted image 20260505113806](../pasted_images/Pasted%20image%2020260505113806.png)
 **Algorithm.**
 - Store points in the form of a graph representation where the distance between two points represents an edge with cost equal to the Manhattan distance *O(n)*
 - Use Prim's to find the minimum spanning tree *O(mlogn)*
@@ -70,9 +70,9 @@ Every edge is correctly categorized into one of three lables.
 
 ## W6: Divide and Conquer
 ### Q1
-![Pasted image 20260611175358](Pasted%20image%2020260611175358.png)
-![Pasted image 20260611175505](Pasted%20image%2020260611175505.png)
-![Pasted image 20260611175513](Pasted%20image%2020260611175513.png)
+![Pasted image 20260611175358](../pasted_images/Pasted%20image%2020260611175358.png)
+![Pasted image 20260611175505](../pasted_images/Pasted%20image%2020260611175505.png)
+![Pasted image 20260611175513](../pasted_images/Pasted%20image%2020260611175513.png)
 
 ### Q2 (Skyline)
 The algorithm splits the list of buildings into two halves, recursively computes the skyline for each half, and then merges the two skylines.
@@ -130,7 +130,7 @@ $\Rightarrow T(n)=\Theta(n\log n)$
 Bottom-up DP: We maintain a grid where each cell stores the minimum HP required before entering that room. For any given room, we look at the minimum HP needed for the rooms immediately below it and to its right, choosing the path that requires less health. We then subtract the current room's value (monster or potion) from that minimum. If a room contains a large healing item that drops the required HP to zero or negative, we reset that cell's requirement to $1$ HP, since you must always be alive to enter. We repeat this calculation back to the starting cell, and the value at the top-left corner gives the minimum initial HP needed. $O(mn)$
 
 ### Q4
-![Pasted image 20260611180450](Pasted%20image%2020260611180450.png)
+![Pasted image 20260611180450](../pasted_images/Pasted%20image%2020260611180450.png)
 The algorithm utilizes a binary search to propose a potential pair difference x and a sliding window search to find the number of pair distances that are less than or equal to x. If the number of pair distances that are less than equal to x is less than k, then we must increase the pair distance. Otherwise, we decrease the pair distance. Given that the pair distance is bounded between [0, max(nums) - min(nums)], binary search will find the kth smallest pair distance.
 
 ### Q5 (Median of medians)
@@ -197,9 +197,9 @@ def balloons(nums, opt):
 ```
 
 ### Q5
-![Pasted image 20260611181222](Pasted%20image%2020260611181222.png)
-![400](Pasted%20image%2020260611181331.png)
-![Pasted image 20260611181359](Pasted%20image%2020260611181359.png)
+![Pasted image 20260611181222](../pasted_images/Pasted%20image%2020260611181222.png)
+![400](../pasted_images/Pasted%20image%2020260611181331.png)
+![Pasted image 20260611181359](../pasted_images/Pasted%20image%2020260611181359.png)
 
 ## W9
 ### Q1

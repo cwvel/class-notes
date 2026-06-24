@@ -10,7 +10,7 @@
 - can be represented as a **phasor**:
 	- vector rotates counterclockwise with constant angular velocity $\omega$
 	- projection onto horizontal axis is the instantaneous value
-	![100](Pasted%20image%2020260228115421.png)
+	![100](../../pasted_images/Pasted%20image%2020260228115421.png)
 - **rectified average:** $I_\text{rav}=\frac{2}{\pi}I=0.637I$
 	- during any whole # cycles, total $I$ same as if the current were constant $I_\text{rav}$
 		- $2/\pi$ = average of $|\cos|$ or $|\sin|$
@@ -23,7 +23,7 @@ $$I_\text{rms}=\sqrt{(i^2)_\text{av}}=\sqrt{\frac{I^2}{2}}=\frac{I}{\sqrt2}$$
 ### 31.2 Resistance and Reactance
 - in general, the instantaneous voltage $v=V\cos(\omega t+\phi)$ between two points in an ac circuit is not *in phase* with the instantaneous current through those points
 	- $\phi$ = **phase angle** of voltage relative to current
-	![100](Pasted%20image%2020260228115637.png)
+	![100](../../pasted_images/Pasted%20image%2020260228115637.png)
 - in a **resistor**
 	- current and voltage are *in phase*
 	- $i=I\cos\omega t$, $v_R=IR\cos\omega t$
@@ -45,8 +45,8 @@ $$I_\text{rms}=\sqrt{(i^2)_\text{av}}=\sqrt{\frac{I^2}{2}}=\frac{I}{\sqrt2}$$
 	- voltage across a **capacitor**: $V_C=IX_C$
 		- **capacitive reactance:** $X_C=1/\omega C$ ($\Omega$)
 			- tend to pass high-frequency current and block low-frequency currents and dc (opposite of inductors)
-	![200](Pasted%20image%2020260228125402.png)
-![Pasted image 20260128235423](Pasted%20image%2020260128235423.png)
+	![200](../../pasted_images/Pasted%20image%2020260228125402.png)
+![Pasted image 20260128235423](../../pasted_images/Pasted%20image%2020260128235423.png)
 
 ### 31.3 Impedance and L-R-C series circuit
 - the source voltage phasor is the vector sum of $V_R$, $V_L$, $V_C$ phasors
@@ -63,7 +63,7 @@ $$Z=\sqrt{R^2+(X_L-X_C)^2}$$
 $$Z=R+jX,\qquad X=X_L-X_C$$
 - in an L-R-C series circuit, the phase angle is determined by $\omega$, $L$, $R$, $C$
 $$\tan\phi=\frac{X_L-X_C}{R}=\frac{\omega L-1/\omega C}{R}$$
-![200](Pasted%20image%2020260228131130.png)
+![200](../../pasted_images/Pasted%20image%2020260228131130.png)
 - **in a parallel RC circuit**
 	- resistor branch: $$I_{R,\text{rms}}=\frac{V_\text{rms}}{R}$$
 	- capacitor branch: $$I_{C,\text{rms}}=\frac{V_\text{rms}}{X_C}$$
@@ -117,7 +117,7 @@ $$f_0=\frac{w_0}{2\pi}$$
 - also at resonance frequency, $X_L=X_C$
 	- instantaneous voltages across $L$ and $C$ **cancel out**
 - AC circuits can be "tuned" to vary the resonance frequency
-![200](Pasted%20image%2020260206113535.png)
+![200](../../pasted_images/Pasted%20image%2020260206113535.png)
 
 ### 31.6 Transformers
 - ac source causes an **alternating current** in the primary winding $\rightarrow$ **alternating flux** in the core $\rightarrow$ **induced emf** in each windings from Faraday's law $\rightarrow$ induced emf in secondary winding causes **alternating current** in the secondary, which powers the device to which it is connected
@@ -128,7 +128,7 @@ $$\frac{\mathcal{E}_2}{\mathcal{E}_1}=\frac{N_2}{N_1}$$
 $$\frac{V_2}{V_1}=\frac{N_2}{N_1}$$
 	- where $N_1$ = # turns in primary, $N_2$ = # turns in secondary
 	- $V_1$ = primary voltage amp/rms, $V_2$ = secondary voltage amp/rms
-![200](Pasted%20image%2020260228135332.png)
+![200](../../pasted_images/Pasted%20image%2020260228135332.png)
 
 - by choosing the appropriate turns ration $N_2/N_1$, we can otain any desired secondary voltage from a given primary voltage
 	- $N_2>N_1\implies V_2>V_1\implies$ **step-up** transformer
@@ -141,7 +141,7 @@ $$\frac{V_1}{I_1}=\frac{R}{(N_2/N_1)^2}$$
 - when the secondary circuit is completed through a resistance $R$, the result is the same as if the source had been connected directly to the resistance $R$ divided by the square of the ratio, $(N_2/N_1)^2$
 - transformer "transforms" voltages, currents, and resistances - transforms the *impedance* of the network to which the secondary circuit is completed
 - **Eddy currents can cause energy loss in transformers**
-![200](Pasted%20image%2020260206114501.png)
-![200](Pasted%20image%2020260206114524.png)
+![200](../../pasted_images/Pasted%20image%2020260206114501.png)
+![200](../../pasted_images/Pasted%20image%2020260206114524.png)
 - effects can be minimized using a laminated core -- possible eddy current paths are narrower
-![200](Pasted%20image%2020260206114539.png)
+![200](../../pasted_images/Pasted%20image%2020260206114539.png)

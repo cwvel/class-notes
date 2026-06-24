@@ -21,7 +21,7 @@
 	- Responding to change over following a strict plan
 
 ### Scrum Process
-![Pasted image 20251207143843](Pasted%20image%2020251207143843.png)
+![Pasted image 20251207143843](../../Pasted%20images/Pasted%20image%2020251207143843.png)
 
 ### Planning poker
 - Consensus-based technique for estimating effort/size of user stories by voting simultaneously and discussing differences

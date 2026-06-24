@@ -108,7 +108,7 @@ $$f(z)=\frac{1}{3}\sum_{n=0}^\infty (z^2)^n-\frac{1}{12}\sum_{n=0}^\infty\left(\
 ## 2. Isolated singularities of an analytic function
 **Def.** We say $f$ has an **isolated singularity** at $z_0$ if there is some $R>0$ such that $f$ is analytic on the punctured disk $\mathring D(z_0,R)=A_{0,R}(z_0)$ but not defined at $z_0$.
 - Note that $\sqrt z$, $\log z$ don't have *isolated singularities* at $z=0$ since they cannot be defined continuously on any punctured disk at 0
-![300](Pasted%20image%2020260602133830.png)
+![300](../pasted_images/Pasted%20image%2020260602133830.png)
 ### Types of singularities
 If $z_0$ is an isolated singularity of $f(z)$, we can consider its Laurent series centered at $z_0$:
 $$\sum_{k=-\infty}^\infty a_k(z-z_0)^k,\quad 0<|z-z_0|<r$$

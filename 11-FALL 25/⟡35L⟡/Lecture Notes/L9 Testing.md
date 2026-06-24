@@ -54,7 +54,7 @@ Unit tests aren't always enough: components that work well in isolation might br
 3. **SYSTEM TESTING (END-TO-END TESTING)**: Tests whether the complete application from user input to output works correctly
 
 ## Indirect Inputs and Outputs
-![Pasted image 20251124010137](Pasted%20image%2020251124010137.png)
+![Pasted image 20251124010137](../../Pasted%20images/Pasted%20image%2020251124010137.png)
 
 ### Test Doubles
 #### Mock object

@@ -90,12 +90,12 @@ $$=g'(b)\cdot f'(a)=f'(f(a))f'(a)$$
 >3. [Product rule] $$(fg)'(a)=f(a)g'(a)+f'(a)g(a)$$
 >4. [Quotient rule] $$(f/g)'(a)=\frac{g(a)f'(a)-f(a)g'(a)}{g^2(a)}$$ if $g(a)\neq 0$
 
-![600](Pasted%20image%2020260307160825.png)
-![600](Pasted%20image%2020260307160832.png)
+![600](../pasted_images/Pasted%20image%2020260307160825.png)
+![600](../pasted_images/Pasted%20image%2020260307160832.png)
 
 >[!theorem] Theorem 28.4 (Chain Rule)
 >If $f$ is differentiable at $a$ and $g$ differentiable at $f(a)$, then the composite function $g\circ f$ is differentiable at $a$ and we have
 >$$(g\circ f)'(a)=g'(f(a))\cdot f'(a)$$
 
-![600](Screenshot%202026-03-07%20at%204.11.34%20PM.png)
-![Screenshot 2026-03-07 at 4.11.55 PM](Screenshot%202026-03-07%20at%204.11.55%20PM.png)
+![600](../pasted_images/Screenshot%202026-03-07%20at%204.11.34%20PM.png)
+![Screenshot 2026-03-07 at 4.11.55 PM](../pasted_images/Screenshot%202026-03-07%20at%204.11.55%20PM.png)

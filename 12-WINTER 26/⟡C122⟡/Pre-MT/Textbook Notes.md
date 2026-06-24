@@ -2,10 +2,10 @@
 ## De Bruijn Graphs
 - Each node is a $(k-1)$-mer, and each edge between two nodes is represented by the $k$-mer that overlaps both nodes
 ### Condensed De Bruijn Graphs (CDB)
-![500](Pasted%20image%2020260205141126.png)
+![500](../../pasted_images/Pasted%20image%2020260205141126.png)
 Created by "condensing" each **non-branching path** in the De Bruijn graph into a single edge
 Non-branching paths have exactly 1 incoming edge and 1 outgoing edge. On the other hand a **junction** has more than one on each side
-![500](Pasted%20image%2020260205141457.png)
+![500](../../pasted_images/Pasted%20image%2020260205141457.png)
 The degree of a node in the de Bruijn graph can be checked by asking $4+4$ kmer queries ("does this kmer occur in the genome")
 
 ### CBDs with Bloom Filter

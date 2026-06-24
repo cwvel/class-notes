@@ -23,7 +23,7 @@ A matching can be modelled with a **bipartite graph**
 In other words, it is a pair that is unmatched but given the opportunity, both $h$ and $s$ would agree to switch.
 
 *Ex.*
-![](Pasted%20image%2020260331164238.png#center|400)
+![400](../pasted_images/Pasted%20image%2020260331164238.png)
 Emory-Y is unstable because Emory prefers X over Y (?).
 MGH-X is stable because MGH is Xavier's top choice.
 MGH-Z is unstable because MGH prefers X or Y over Z and Z prefers Emory over MGH(?).
@@ -428,7 +428,7 @@ For each node in the graph, keep a list of all of its neighbors (can be represen
 - Checking if an edge exists takes $O(\text{degree}(u))$ time
 - Identifying all edges takes $O(m+n)$ time
 - Getting the adjacency list for each node is $O(1)$
-![Pasted image 20260415234848](Pasted%20image%2020260415234848.png)
+![Pasted image 20260415234848](../pasted_images/Pasted%20image%2020260415234848.png)
 
 For a dense graph (most edges are connected) then the adjacency matrix is more efficient (runtime-wise). For a sparse graph (most nodes have very few edges) the adjacency list is more efficient in terms of speed and space.
 - $O(m+n)$ vs. $O(n^2)$
@@ -487,7 +487,7 @@ This can be done without assuming the rest of the graph is connected to each oth
 
 **Rooted trees.**
 Given a tree $T$, choose a root node $r$ and orient each edge away from $r$.
-![Pasted image 20260416004013](Pasted%20image%2020260416004013.png)
+![Pasted image 20260416004013](../pasted_images/Pasted%20image%2020260416004013.png)
 ## Graph traversals
 ### Breadth-first search
 **Algorithm.** 
@@ -665,7 +665,7 @@ $G$ is an undirected graph, $s$ is a vertex in $G$. All vertices in $G$ are unco
 - Correctness follows immediately from previous lemma.
 
 **Def.** A **strong component** is a maximal subset of mutually reachable nodes.
-![300](Pasted%20image%2020260417140512.png)
+![300](../pasted_images/Pasted%20image%2020260417140512.png)
 
 **Strongly connected component algorithm.** Can find all the strongly connected components in $O(m+n)$ time.
 
@@ -673,7 +673,7 @@ $G$ is an undirected graph, $s$ is a vertex in $G$. All vertices in $G$ are unco
 **Def.** A **DAG (directed acyclic graph)** is a directed graph that contains no directed cycles.
 
 **Def.** A **topological order** of a directed graph $G=(V,E)$ is an ordering of its nodes, $v_1,\dots,v_n$ so that for every edge $(v_i,v_j)$ we have $i<j$.  
-![500](Pasted%20image%2020260417141447.png)
+![500](../pasted_images/Pasted%20image%2020260417141447.png)
 
 **Precedence constraints.** Edge $(v_i,v_j)$ means task $v_i$ must occur before $v_j$.
 - If there is a cycle in the prerequisite graph, the constraints can never be satisfied.
@@ -731,7 +731,7 @@ A greedy algorithm makes a locally optimal choice, and prove it leads to a globa
 	- If we use a bit array we will need an extra variable to track $f^*$
 #### Proof of optimality
 **Thm.** The earliest-finish-time-first algorithm is optimal.
-![500](Pasted%20image%2020260423101522.png)
+![500](../pasted_images/Pasted%20image%2020260423101522.png)
 
 *Pf.* Proof by contradiction. Assume that $S$ from the algorithm is not optimal.
 - Let $S=\{i_1,i_2,\dots,i_k\}$ and there exists $S^*=\{j_1,j_2,\dots,j_m\}$ where $m>k$, so $|S^*|>|S|$, $S^*$ is the optimal set
@@ -739,7 +739,7 @@ A greedy algorithm makes a locally optimal choice, and prove it leads to a globa
 - Then we can swap $i_{r+1}$ and $j_{r+1}$ in $S^*$. But if we swap them, $r$ is not the largest number of jobs on which $S$ and $S^*$ agree, thus a contradiction.
 	- Since $s_{j_{r+2}}$'s start time is guaranteed to be after $j_{r+1}$ ends, we can swap them without conflicting with any later jobs in $S^*$.
 	- If we keep on doing this we will eventually end up with the same jobs in both $S$ and $S^*$.
-![400](Pasted%20image%2020260423102023.png)
+![400](../pasted_images/Pasted%20image%2020260423102023.png)
 **Extended interval scheduling.** Suppose each job also has a positive weight and the goal is to find a maximum weight subset of mutually compatible intervals. Is the earliest-finish-time-first algorithm still optimal?
 - No. You could assign a huge weight to a job that overlaps the job with the earliest finish time.
 - Our earlier proof of correctness collapses if the job we were swapping out had a lower weight.
@@ -747,7 +747,7 @@ A greedy algorithm makes a locally optimal choice, and prove it leads to a globa
 **Problem definition: Interval partitioning.**
 - Lecture $j$ starts at $s_j$ and finishes at $f_j$
 - Goal: Find the minimum number of classrooms to schedule all lectures so that no two lectures occur at the same time in the same room.
-![300](Pasted%20image%2020260423102820.png)
+![300](../pasted_images/Pasted%20image%2020260423102820.png)
 
 Modelling the problem using graphs:
 - Connect two classes with an edge if they overlap
@@ -759,7 +759,7 @@ Greedy strategy for lecture order:
 - Counterexamples for:
 	- Earliest finish time first
 	- Shortest interval first
-![300](Pasted%20image%2020260423104112.png)
+![300](../pasted_images/Pasted%20image%2020260423104112.png)
 
 **Earliest-start-time-first algorithm.**
 - **Sort** lectures by start times, renumber so $s_1\le s_2\le\dots\le s_n$.
@@ -790,7 +790,7 @@ Greedy strategy for lecture order:
 - Depth = maximum number of concurrent lectures
 Observation: Number of classrooms needed $\ge$ depth, and you can't use fewer classrooms than the depth, thus depth $\le$ # classrooms $\le$ depth and
 - Minimum number of classrooms needed = depth
-![400](Pasted%20image%2020260423123620.png)
+![400](../pasted_images/Pasted%20image%2020260423123620.png)
 
 **Observation.** The earliest-start-time-first algorithm never schedules two incompatible lectures in the same classroom.
 
@@ -824,16 +824,16 @@ Which natural order minimizes the maximum lateness?
 #### Proof of optimality
 - There exists an optimal schedule with no *idle time*.
 - The earliest-deadline-first schedule has no idle time.
-![500](Pasted%20image%2020260423124931.png)
+![500](../pasted_images/Pasted%20image%2020260423124931.png)
 
 **Def.** Given a schedule $S$, an inversion is a pair of jobs $i$ and $j$ such that $d_i<d_j$ but $j$ is scheduled before $i$.
-![400](Pasted%20image%2020260423124959.png)
+![400](../pasted_images/Pasted%20image%2020260423124959.png)
 
 - The earliest-deadline-first schedule is the *unique* idle-free schedule with no inversions (because we process jobs in order of deadline)
 - If an idle-free schedule has an inversion, then it has an adjacent inversion (pair of inverted jobs are always scheduled consecutively)
 
 **Claim.** Exchanging two adjacent, inverted jobs $i$ and $j$ reduces the number of inversions by 1 and does not increase the max lateness.
-![400](Pasted%20image%2020260423125208.png)
+![400](../pasted_images/Pasted%20image%2020260423125208.png)
 
 **Thm.** The earliest-deadline-first schedule $S$ is optimal.
 *Pf.* *Exchange argument.*
@@ -852,7 +852,7 @@ We found a property in the potential schedule where if another optimal solution 
 ## Graph algorithms
 ### Dijkstra's algorithm
 **Single-pair shortest path problem.** Given a digraph $G=(V,E)$, edge lengths $\mathscr{l}_e\ge0$, source $s\in V$, and destination $t\in V$, find a shortest directed path from $s$ to $t$.
-![300](Pasted%20image%2020260423160913.png)
+![300](../pasted_images/Pasted%20image%2020260423160913.png)
 
 Modifying edge weights: Suppose that you change the length of every edge of $G$ as follows. For which every shortest path in $G$ is a shortest path in $G'$?
 - Multiplying all paths applies equally to all paths, so it preserves the shortest path guarantee. However, adding to all paths depends on how many edges we traverse.
@@ -926,7 +926,7 @@ How to solve the single-source shortest path problem in *undirected graphs* with
 - We can either replace each undirected edge with two antiparallel edges of the same lengths and run Dijkstra's on this digraph, or
 - Consider all incident edges at each step instead of just outgoing neighbors
 #### Proof of correctness
-![300](Pasted%20image%2020260423170617.png)
+![300](../pasted_images/Pasted%20image%2020260423170617.png)
 **Invariant.** For each node $u\in S$: $d[u]$ = length of shortest $s\to u$ path.
 *Pf.* Proof by induction on $|S|$.
 Base case:
@@ -954,7 +954,7 @@ In an undirected connected graph $G$, a **spanning tree** is a subgraph that is 
 - DFS and BFS on connected graphs both produce spanning trees of the graphs.
 
 **Def.** Let $H=(V,T)$ be a subgraph of an undirected graph $G=(V,E)$. $H$ is a **spanning tree** of $G$ if $H$ is both *acyclic* and *connected*.
-![300](Pasted%20image%2020260423173122.png)
+![300](../pasted_images/Pasted%20image%2020260423173122.png)
 
 Properties of spanning trees
 **Prop.** Let $H=(V,T)$ be a subgraph of an undirected graph $G=(V,E)$. Then the following are equivalent.

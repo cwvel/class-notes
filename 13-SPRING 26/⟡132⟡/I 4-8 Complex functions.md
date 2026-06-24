@@ -30,7 +30,7 @@ $D$ is open $\iff$ for every $z_0\in D$, we can find a *disk neighborhood* $D(z_
 ## Square function
 $$f(x+iy)=(x+iy)^2=(x^2-y^2)+i(2xy)$$
 $$f(r(cos\theta+i\sin\theta)=r^2(cos(2\theta)+i\sin(2\theta))$$
-![](Pasted%20image%2020260405223448.png#center)
+![](../pasted_images/Pasted%20image%2020260405223448.png)
 
 Inverse function: **Square root function**
 

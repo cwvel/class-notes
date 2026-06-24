@@ -30,7 +30,7 @@ After $k$ iterations, our box size will be $(1-\rho)^k(b-a)$.
 Can we do better than two $f$ evaluations per iteration? In particular, can we recycle some?
 
 **Approach.** Try to coincide $a_1$ with $b_2$ (assuming $f(a_1)<f(b_1)$).
-![](Pasted%20image%2020260406133209.png#center|500%5C)
+![500%5C](../pasted_images/Pasted%20image%2020260406133209.png)
 Picking $\rho$:
 Assume our initial iteration's interval has length 1, so $b_0-a_0=1$.
 Then picking the subintervals with length $\rho$, we know $a_1-a_0=b_0-b_1=\rho$, so 

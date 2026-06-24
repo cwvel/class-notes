@@ -8,7 +8,7 @@ $$0 \text{ or } N\lambda$$
 $$(N+\frac{1}{2})\lambda$$
 - relative to the other, one is shifted by half a wavelength
 
-![300](Pasted%20image%2020260303171515.png)
+![300](../pasted_images/Pasted%20image%2020260303171515.png)
 
 if two sources are separated by distance $d$ and are very far from point $P$, with line to $P$ making an angle $\theta$, they travel almost parallel directions at an angle $\theta$,
 - **path length** (extra distance travelled by one wave) is
@@ -21,7 +21,7 @@ $$d\sin\theta=(m+\frac{1}{2})\lambda$$
 $$y_m=R\frac{m\lambda}{d}$$
 - and the position $y_\min$ of the $m$-th minimum from the center (which is technically the $m=0$-th minimum) is
 $$y_\min=R\frac{(m-\frac{1}{2})\lambda}{d}$$
-![200](Pasted%20image%2020260303183059.png)
+![200](../pasted_images/Pasted%20image%2020260303183059.png)
 - the distance between adjacent bright bands in the pattern is *inversely proportional* to $d$ (distance between slits)
 
 # intensity in interference patterns

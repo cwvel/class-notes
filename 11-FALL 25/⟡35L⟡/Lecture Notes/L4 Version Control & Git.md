@@ -1,5 +1,5 @@
 # Git
-![Pasted image 20251207182722](Pasted%20image%2020251207182722.png)
+![Pasted image 20251207182722](../../Pasted%20images/Pasted%20image%2020251207182722.png)
 
 - `git config` = sets name, email, etc. at the beginning
 - **Tree structures**
@@ -35,5 +35,5 @@
 	- `-A` vs `-u` vs `.`
 
 ## Centralized vs. Distributed
-![Pasted image 20251207182837](Pasted%20image%2020251207182837.png)
-![Pasted image 20251207182856](Pasted%20image%2020251207182856.png)
+![Pasted image 20251207182837](../../Pasted%20images/Pasted%20image%2020251207182837.png)
+![Pasted image 20251207182856](../../Pasted%20images/Pasted%20image%2020251207182856.png)

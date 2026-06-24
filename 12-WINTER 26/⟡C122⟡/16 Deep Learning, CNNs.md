@@ -6,7 +6,7 @@
 	- For any value of *k*, there are $4^k$ possible substrings
 	- Small *k* might not be informative enough to capture motifs, but large *k* may mean that frequency counts are very low, and can be hard to scale
 - **Extending kmer features**
-	![200](Pasted%20image%2020260226145244.png)
+	![200](../pasted_images/Pasted%20image%2020260226145244.png)
 	- **Gapped kmer features**
 		- For transcription factors there are degenerate positions between informative positions
 		- Define gapped k-mers:

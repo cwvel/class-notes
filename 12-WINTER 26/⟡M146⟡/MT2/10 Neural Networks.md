@@ -1,14 +1,14 @@
 # Neural network model
 - Can model a non-linear decision boundary
 - **Linear model** (logistic regression):
-![350](Pasted%20image%2020260221175056.png)
+![350](../../pasted_images/Pasted%20image%2020260221175056.png)
 - **Neural network**
 	- $\Theta^{(j)}$ is the **weight matrix** mapping layer $j$ to $j+1$
 	- $g(z)$ is the **activation function**
 		- This function must be *non-linear*, otherwise $g(z)=z$ will turn the entire model into a linear model (same as running linear regression)
 	- $a_i^{(j)}$ is the **activation** of unit $i$ in layer $j$, results from applying the activation function to $\Theta x$
 
-![Pasted image 20260210102734](Pasted%20image%2020260210102734.png)
+![Pasted image 20260210102734](../../pasted_images/Pasted%20image%2020260210102734.png)
 - Each neuron is a linear combination of the previous layer:
 	- Each $a_i$ is the $i$-th row times $x$
 ## Feed-forward steps:
@@ -36,19 +36,19 @@ $$h_{\Theta}(x)=a^{(3)}=g(z^{(3)})$$
 ### Activation functions
 - **Sigmoid** 
 $$\sigma(x)=\frac{1}{1+e^{-x}}$$
-![300](Pasted%20image%2020260210110050.png)
+![300](../../pasted_images/Pasted%20image%2020260210110050.png)
 - **Tanh**
 $$\tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$$
-![300](Pasted%20image%2020260210110129.png)
+![300](../../pasted_images/Pasted%20image%2020260210110129.png)
 - **ReLU** (rectified linear unit)
 $$\text{ReLU}(x)=\max(0,x)$$
-![300](Pasted%20image%2020260210110205.png)
+![300](../../pasted_images/Pasted%20image%2020260210110205.png)
 - **ELU** (exponential limear unit)
 $$f(x)=\begin{cases}x\qquad x>0\\\alpha(e^x-1)\enspace x\leq 0\end{cases}$$
-![300](Pasted%20image%2020260210110332.png)
+![300](../../pasted_images/Pasted%20image%2020260210110332.png)
 - **Step function**
 $$f(x)=\begin{cases}1\quad\text{if }x\geq0\\0\quad\text{if }x<0\end{cases}$$
-![300](Pasted%20image%2020260210110411.png)
+![300](../../pasted_images/Pasted%20image%2020260210110411.png)
 - Bad in practice: discontinuous, and gradient is always 0 (cannot use gradient descent)
 # Neural network learning objective
 ## Maximum likelihood (binary)
@@ -109,8 +109,8 @@ $$\implies \frac{\partial s}{\partial z}=\frac{\partial s}{\partial h}\cdot \fra
 - Local gradient: derivative of current operation
 - Upstream gradient: gradient passed to earlier layers
 
-![400](Pasted%20image%2020260210113552.png)
+![400](../../pasted_images/Pasted%20image%2020260210113552.png)
 
-![400](Pasted%20image%2020260210113700.png)
+![400](../../pasted_images/Pasted%20image%2020260210113700.png)
 
 - Backpropagation may not work well with functions with "vanishing" gradients, like the sigmoid function (derivative is 0 at tails)

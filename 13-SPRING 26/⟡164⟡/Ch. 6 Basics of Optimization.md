@@ -7,7 +7,7 @@ The set $\Omega\subset\mathbb{R}^n$ is the **constraint set** or **feasible set*
 The optimization problem aims to find the "best" vector: one that results in the smallest value of the objective function, called the **minimizer** of $f$ over $\Omega$ (there may be many minimziers, in which case finding any of them will suffice).
 This is an example of a **constrained** optimization problem. If $\Omega=\mathbb{R}^n$ then it is an **unconstrained** optimization problem.
 ***
-![](Pasted%20image%2020260403131806.png#center|300)
+![300](../pasted_images/Pasted%20image%2020260403131806.png)
 
 **Def.** Suppose $f:\mathbb{R}^n\to\mathbb{R}$ defined on $\Omega\subset\mathbb{R}^n$. A point $x^*\in\Omega$ is a **local minimizer** of $f$ over $\Omega$ if there exists $\varepsilon>0$ s.t.
 $$f(x)\ge f(x^*)$$
@@ -26,7 +26,7 @@ $$x+\alpha d\in\Omega$$
 for all $\alpha\in[0,\alpha_0]$. 
 Then the **directional derivative** of $f$ in the direction $d$, if $\|d\|=1$, is
 $$\frac{\partial f}{\partial d}(x)=\langle\nabla f(x),d\rangle=d^\top\nabla f(x)$$
-![Pasted image 20260402223921](Pasted%20image%2020260402223921.png)
+![Pasted image 20260402223921](../pasted_images/Pasted%20image%2020260402223921.png)
 ***
 **Thm. First-Order-Necessary Condition (FONC)** Let $\Omega\subset\mathbb{R}^n$ and $f\in C^1$ (continuously differentiable) a function on $\Omega$. If $x^*$ is a local minimizer of $f$ over $\Omega$, then for any feasible direction $d$ at $x^*$, we have
 $$d^\top\nabla f(x^*)\ge0$$

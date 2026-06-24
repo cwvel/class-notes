@@ -22,7 +22,7 @@ A matching can be modelled with a **bipartite graph**
 In other words, it is a pair that is unmatched but given the opportunity, both $h$ and $s$ would agree to switch.
 
 *Ex.*
-![](Pasted%20image%2020260331164238.png#center|600)
+![600](../pasted_images/Pasted%20image%2020260331164238.png)
 Emory-Y is unstable because Emory prefers X over Y (?).
 MGH-X is stable because MGH is Xavier's top choice.
 MGH-Z is unstable because MGH prefers X or Y over Z and Z prefers Emory over MGH(?).
@@ -36,10 +36,10 @@ MGH-Z is unstable because MGH prefers X or Y over Z and Z prefers Emory over MGH
 - Assign roommate pairs so that there are no unstable pairs.
 
 Do stable matchings always exist?
-![](Pasted%20image%2020260331165834.png#center|200)
+![200](../pasted_images/Pasted%20image%2020260331165834.png)
 Stable matching: A-B, C-D
 
-![](Pasted%20image%2020260331165727.png#center|200)
+![200](../pasted_images/Pasted%20image%2020260331165727.png)
 Looking at all possible pairings:
 - A-B, C-D
 	- Unstable because B-C prefer each other

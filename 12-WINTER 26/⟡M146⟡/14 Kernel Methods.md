@@ -1,7 +1,7 @@
 - Another way to generate non-linear decision functions
 # Feature mapping
 - ex. some data is not linearly separable in one dimension. But if we map it to 2-dimensions it can be separated: mapping it to $\langle x,x^2\rangle$ space
-![150](Pasted%20image%2020260304214608.png)
+![150](../pasted_images/Pasted%20image%2020260304214608.png)
 
 - In the original model there is no way to linearly separate the data, but we make it more complex it can always become linearly separable
 - Data transformation in 2D example:
@@ -11,7 +11,7 @@ $$x=(x_1,x_2)\implies \phi(x)=(x_1^2,x_2^2)$$
 - with decision boundary
 $$f(\phi(x))=1\iff \phi(x)_1+\phi(x)_2\leq1$$
 - Generalizing the transform as $\phi(x)$, we can define the perceptron algorithm:
-![400](Screenshot%202026-03-04%20at%2010.00.42%20PM.png)
+![400](../pasted_images/Screenshot%202026-03-04%20at%2010.00.42%20PM.png)
 
 With $\phi$ we can map the input to an infinite dimensional space, e.g.
 $$\phi(x)=e^{-\gamma x^2}\left[1,\sqrt{\frac{2\gamma}{1!}}x,\sqrt{\frac{(2\gamma)^2}{2!}}x^2,\dots\right]^\top$$
@@ -31,7 +31,7 @@ $$w^\top\phi(x)=\phi(x_i)^\top\phi(x_j)$$
 - Instead of storing and operating on $w$ (which can be infinite-dimensional) we store and operate on $\alpha$
 	- we no longer need $w$
 **Dual perceptron algorithm:**
-![400](Pasted%20image%2020260304220735.png)
+![400](../pasted_images/Pasted%20image%2020260304220735.png)
 
 # Dot products in high-dimensional spaces
 - If $\phi(x)$ maps $x$ to a high-dimensional space, we define
@@ -59,7 +59,7 @@ $$k(x_m,x_n)=k(x_n,x_m)$$
 $$k(x_m,x_n)=\phi(x_m)^\top\phi(x_n)$$
  - ex. $(x_n^\top x_m)^2$ is a kernel from earlier
 $K$ is called the **kernel (gram) matrix**:
-![400](Pasted%20image%2020260304224119.png)
+![400](../pasted_images/Pasted%20image%2020260304224119.png)
 - $K$ is symmetric ($K_{mn}=K_{nm}$)
 - $K$ is positive semidefinite: for any vector $a$,
 $$a^\top Ka=(\phi^\top a)^\top(\phi^\top a)\geq0$$
@@ -99,7 +99,7 @@ $$d(\phi(x_m),\phi(x_n))=k(x_m,x_m)+k(x_n,x_n)-2k(x_m,x_n)$$
 
 # Kernel SVM
 **Soft-SVM**
-![300](Screenshot%202026-03-04%20at%2011.26.28%20PM.png)
+![300](../pasted_images/Screenshot%202026-03-04%20at%2011.26.28%20PM.png)
 
 **Dual SVM problem**
 - $w$ may be infinite variables

@@ -7,20 +7,20 @@
 		- k-mer with at most d mismatches
 - Since the ideal motif is unknown, we attempt to select a k-mer from each string and score them depending on how similar they are *to each other*
 - **Motif matrix:** select the most frequently occurring nucleotide at each position
-![300](Pasted%20image%2020260220102331.png)
+![300](../pasted_images/Pasted%20image%2020260220102331.png)
 - Choosing different kmers from each sequence results in different motif matrices
 	- We want to choose the most *conserved* motif matrix (has the most uppercase - most frequently occurring - letters)
 	- In other words we want to find the collection of kmers that minimizes the `score` = # of unpopular (lowercase) letters
 - **Count matrix** counts the number of occurrences of each nucleotide in each column of the motif matrix
 - Dividing all the elements in the count matrix by the number of rows results in the **profile matrix**, which stores the *frequency* of each nucleotide in each position
-![300](Pasted%20image%2020260220102807.png)
+![300](../pasted_images/Pasted%20image%2020260220102807.png)
 - From the matrix we can form a **consensus string**, which is the *ideal candidate regulatory motif* for these regions
 - Each column in the matrix corresponds to a **probability distribution** for each base
 	- **Entropy** measures the uncertainty of the probability distribution:
 $$H(p_1,\dots,p_N)=-\sum_{i=1}^Np_i\cdot \log_e p_i$$
 - The **entropy of a motif matrix** is defined as the sum of the entropies of its columns
 - A **motif logo** is a diagram for visualizing motif conservation, where relative size of each nucleotide indicates their frequency
-![300](Pasted%20image%2020260220103147.png)
+![300](../pasted_images/Pasted%20image%2020260220103147.png)
 
 - ==**Motif finding problem**==
 	- Given a collection of strings, find a set of kmers, one from each string, that minimizes the score of the resulting motif

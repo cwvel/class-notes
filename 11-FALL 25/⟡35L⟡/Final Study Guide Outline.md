@@ -82,7 +82,7 @@
 inheritance ("pull up" shared methods), extract methods
 
 ## Git commands
-![500](Pasted%20image%2020251207182722.png)
+![500](../Pasted%20images/Pasted%20image%2020251207182722.png)
 **basic**
 `git push` local -> remote
 `git fetch` receive changes from remote + `git merge` applies changes (`git pull` fetch+merge)

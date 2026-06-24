@@ -18,7 +18,7 @@ Reductions classify problems according to *relative difficulty.*
 **Independent-set.** Given a graph $G=(V,E)$ and an integer $k$, is there a subset of $k$ (or more) vertices s.t. no two are adjacent?
 
 **Vertex-cover.** Is there a subset of $k$ (or fewer) vertices s.t. each edge is incident to at least one vertex in the subset?
-![400](Pasted%20image%2020260530173338.png)
+![400](../pasted_images/Pasted%20image%2020260530173338.png)
 
 **Thm.** Independent-set $\equiv_P$ Vertex-cover
 *Pf.* We show $S$ is an independent set of size $k$ if and only if $V-S$ is a vertex cover of size $n-k$.
@@ -36,14 +36,14 @@ $$\Phi= C_1\land C_2\land C_3\land C_4$$
 **SAT.** Given a CNF formula $\Phi$, does it have a satisfying truth assignment?
 
 **3SAT.** SAT where each clause contains exactly 3 literals, each corresponding to a different variable
-![400](Pasted%20image%2020260530173911.png)
+![400](../pasted_images/Pasted%20image%2020260530173911.png)
 
 There does not exist a poly-time algorithm for 3-SAT. 
 - This hypothesis is equivalent to a $P\ne NP$ conjecture
 
 **Thm.** 3SAT $\le_P$ Independent-set
 *Pf.* Given an instance $\Phi$ of 3SAT we can construct an instance $(G,k)$ of independent-set of size $k=|\Phi|$ if and only if $\Phi$ is satisfiable.
-![Pasted image 20260609154911](Pasted%20image%2020260609154911.png)
+![Pasted image 20260609154911](../pasted_images/Pasted%20image%2020260609154911.png)
 *Lemma.* $\Phi$ is satisfiable if and only if $G$ contains an independent set of size $k=|\Phi|$
 *Pf.* 
 - $(\Rightarrow)$ Suppose $\Phi$ is satisfiable. Consider a satisfying truth assignment, i.e. give each literal value T or F. Each clause must have at least 1 literal true in the satisfying assignment. Choose 1 true literal from each clause or triangle, these form an independent set of size $k=|\Phi|$.
@@ -73,7 +73,7 @@ $$A(s)=\begin{cases}yes&\text{if }s\in X\\no&\text{if }s\not\in X\end{cases}$$
 
 **Certifier.** Check that $\pi$ contains each node in $V$ exactly once, and that $G$ contains an edge between each pair of adjacent nodes.
 
-![Pasted image 20260530193301](Pasted%20image%2020260530193301.png)
+![Pasted image 20260530193301](../pasted_images/Pasted%20image%2020260530193301.png)
 
 *Conclusion.* Hamilton-Path $\in\mathbf{NP}$
 
@@ -87,7 +87,7 @@ $$A(s)=\begin{cases}yes&\text{if }s\in X\\no&\text{if }s\not\in X\end{cases}$$
 - $\mathbf{P}\subseteq\mathbf{NP}$
 
 Thus we $\mathbf P\ne \mathbf{EXP}\Rightarrow$ so either $\mathbf P\ne\mathbf{NP}$, or $\mathbf{NP}\ne\mathbf{EXP}$, or both.
-![400](Pasted%20image%2020260530202508.png)
+![400](../pasted_images/Pasted%20image%2020260530202508.png)
 
 #### P vs. NP
 How to solve an instance of 3SAT with $n$ variables?
@@ -126,7 +126,7 @@ Let $(x_1\lor\dots\lor x_n)$ be a clause with $n\ge4$, we introduce new variable
 $$(x_1\lor\dots\lor x_n)\Leftrightarrow$$
 $$(x_1\lor x_2\lor y_1)\land(x_3\lor y_2\lor \overline{y_1})\dots(x_i\lor y_{i-1}\lor\overline{y_{i-2}})\dots(x_{n-2}\lor y_{n-3}\lor\overline{y_{n-4}})\land(x_{n-1}\lor x_n\lor\overline{y_{n-3}})$$
 In the original clause in SAT, it was satisfiable if at least 1 of the literals were true. If there is a satisfying assignment of $x$'s for SAT then at least one $x_i$ must be true. Assign $y_j=T$ for $j<i-1$, $y_j=F$ for $j\ge i-1$ (let $y_j$ be true for all variables before the $i$-th and false after)
-![400](Pasted%20image%2020260609163545.png)
+![400](../pasted_images/Pasted%20image%2020260609163545.png)
 - For clauses of 1 or 2 literals,
 $$(x)\Leftrightarrow(x\lor y_1\lor y_2)\land(x\lor y_1\lor\overline{y_2})\lor(x\lor \overline{y_1}\lor y_2)(x\lor\overline{y_1}\lor\overline{y_2})$$
 $$(w\lor x)\Leftrightarrow(w\lor x\lor y)\land(w\lor x\lor\overline y)$$
@@ -140,7 +140,7 @@ $$x_1=T\Rightarrow y_1\dots=y_{n-3}=F$$
 - Then we can set all $y_j=F$, so all $\bar y_j$ are true and we get one true literal per clause.
 $(\Rightarrow)$ If 3SAT instance is satisfiable, then SAT clause is satisfiable. Proof by contradiction: Assume 3SAT subformula is satisfiable and SAT clause is not satisfiable.
 - Since SAT clause is not satisfiable, none of the $x_i$ are true. Then all $y_j$ (padding variables) were set to true.
-![400](Pasted%20image%2020260609163656.png)
+![400](../pasted_images/Pasted%20image%2020260609163656.png)
 - Then all clauses are true, while the last clause is false, so 3SAT was not satisfiable (contradiction)
 ****
 Reduction is linear in the length of the SAT instance, thus the reduction is polytime. Since SAT is NP-complete, so is 3SAT.
@@ -167,8 +167,8 @@ Certifier $C(G,t)$ will run in $O(m+n)$ time:
 3) Create 3 new nodes, $T$, $F$, $B$, connect in a triangle
 4) Connect each literal to $B$
 5) For each clause $C_j$, add a gadget of 6 nodes and 13 edges
-![Pasted image 20260602162744](Pasted%20image%2020260602162744.png)
-![Pasted image 20260602163021](Pasted%20image%2020260602163021.png)
+![Pasted image 20260602162744](../pasted_images/Pasted%20image%2020260602162744.png)
+![Pasted image 20260602163021](../pasted_images/Pasted%20image%2020260602163021.png)
 *Lemma.* Graph $G$ is 3-colorable if and only if $\Phi$ is satisfiable.
 *Pf.* $\Rightarrow$ Suppose graph $G$ is 3-colorable.
 Literal true will be black, false will be white
@@ -177,12 +177,12 @@ Literal true will be black, false will be white
 - Connection to B node ensures that each literal and its negation must not be black/white (true/false)
 - Connecting each literal to its negation ensures different colors
 Now consider the gadget, which ensures that at least 1 literal is True (Black) in each clause.
-![Pasted image 20260602163841](Pasted%20image%2020260602163841.png)
+![Pasted image 20260602163841](../pasted_images/Pasted%20image%2020260602163841.png)
 - Suppose graph is 3-colorable and $\Phi$ is not satisfiable.
 - Then there exists a clause where all literals are false.
 - The layer of nodes beneath the (white) literals must all be blue since they are connected, and in coloring the final row we run into a contradiction: The final node is connected to three nodes of different colors. Thus all three literals cannot be false.
 *Pf.* $(\Leftarrow)$ Suppose $\Phi$ is satisfiable.
-![Pasted image 20260602164411](Pasted%20image%2020260602164411.png)
+![Pasted image 20260602164411](../pasted_images/Pasted%20image%2020260602164411.png)
 - Pick the true literal and color it black, and the node below white
 - Color the false literals white and the nodes below blue
 - Alternate colors starting at white until we need the blue node under the true literal, which we are guaranteed to have
@@ -194,9 +194,9 @@ Now consider the gadget, which ensures that at least 1 literal is True (Black) i
 
 **Thm.** Directed-Hamilton-Cycle $\le_P$ Hamilton-Cycle.
 *Pf.* Given a directed graph $G=(V,E)$, construct a graph $G'$ with $3n$ nodes.
-![Pasted image 20260602170141](Pasted%20image%2020260602170141.png)
+![Pasted image 20260602170141](../pasted_images/Pasted%20image%2020260602170141.png)
 *Lemma.* $G$ has a directed Hamilton cycle if and only if $G'$ has a Hamilton cycle.
-![500](Pasted%20image%2020260602170525.png)
+![500](../pasted_images/Pasted%20image%2020260602170525.png)
 
 **Directed-Hamilton-Cycle** is in NP.
 *Pf.* 
@@ -212,9 +212,9 @@ Now consider the gadget, which ensures that at least 1 literal is True (Black) i
 *Pf.* Given an instance $\Phi$ of 3SAT, we construct an instance $G$ of D-H-C that has a Hamilton cycle if and only if $\Phi$ is satisfiable.
 *Construction.* Let $n$ = number of variables in $\Phi$, we construct a graph $G$ with $2^n$ Hamilton cycles, with each cycle corresponding to one of the $2^n$ possible truth assignments.
 - Each row corresponds to one literal, and the direction we traverse it in (bidirectional row) determines if we set it to true or false (left to right $\iff$ $x_i =T$). This gives us $2^n$ total Hamiltonian cycles going from $s\to t$
-![Pasted image 20260609171225](Pasted%20image%2020260609171225.png)
+![Pasted image 20260609171225](../pasted_images/Pasted%20image%2020260609171225.png)
 - For each clause, add a node and two edges per literal
 	- This construction allows us to make sure we satisfy each clause
-![Pasted image 20260609171505](Pasted%20image%2020260609171505.png)
-![Pasted image 20260609171539](Pasted%20image%2020260609171539.png)
+![Pasted image 20260609171505](../pasted_images/Pasted%20image%2020260609171505.png)
+![Pasted image 20260609171539](../pasted_images/Pasted%20image%2020260609171539.png)
 *Prove $\Phi$ satisfiable iff $G$ has a Hamiltonian cycle.*

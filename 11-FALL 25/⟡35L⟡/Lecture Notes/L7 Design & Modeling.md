@@ -1,14 +1,14 @@
 ## Different views visualize different aspects of software
-![Pasted image 20251207180507](Pasted%20image%2020251207180507.png)
+![Pasted image 20251207180507](../../Pasted%20images/Pasted%20image%2020251207180507.png)
 
 
 ## Class diagrams visualize the code view
-![Pasted image 20251207180607](Pasted%20image%2020251207180607.png)
+![Pasted image 20251207180607](../../Pasted%20images/Pasted%20image%2020251207180607.png)
 - **Visibility**: (+) = public, (-) = private
 
 ### Associations
-![Pasted image 20251207180654](Pasted%20image%2020251207180654.png)
-![Pasted image 20251207180702](Pasted%20image%2020251207180702.png)
+![Pasted image 20251207180654](../../Pasted%20images/Pasted%20image%2020251207180654.png)
+![Pasted image 20251207180702](../../Pasted%20images/Pasted%20image%2020251207180702.png)
 - **Navigable**
 	- Employee - Boss
 	- Vote - Politician
@@ -20,16 +20,16 @@
 	- House *HAS-A* (needs) a Room
 
 ## Entity-Relation Diagrams (ERDs) visualize data view
-![Pasted image 20251207180920](Pasted%20image%2020251207180920.png)
+![Pasted image 20251207180920](../../Pasted%20images/Pasted%20image%2020251207180920.png)
 
 ## Component Diagrams visualize runtime view
 - **Components** are independently deployable runtime units (e.g. processes)
 - Components execute over a prolonged period (not just a function that instantly returns, nor packages of code)
-![Pasted image 20251207181020](Pasted%20image%2020251207181020.png)
+![Pasted image 20251207181020](../../Pasted%20images/Pasted%20image%2020251207181020.png)
 
 ## Sequence Diagrams visualize behavioral view
 - Show examples of interactions between objects and component instances
-![Pasted image 20251207181104](Pasted%20image%2020251207181104.png)
+![Pasted image 20251207181104](../../Pasted%20images/Pasted%20image%2020251207181104.png)
 - Support **fragments** to show multiple execution paths
 	- **Alt** (book found, else)
 		- Executes exactly one of the cases based on conditions
@@ -39,7 +39,7 @@
 		- Only executed if conditions are true
 
 ## State Machine Diagrams visualize behavioral view
-![Pasted image 20251207181232](Pasted%20image%2020251207181232.png)
+![Pasted image 20251207181232](../../Pasted%20images/Pasted%20image%2020251207181232.png)
 
 # SOLID design principles
 ## Single Responsibility Principle

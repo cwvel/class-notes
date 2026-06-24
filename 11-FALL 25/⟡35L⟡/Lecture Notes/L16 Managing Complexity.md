@@ -9,14 +9,14 @@
 	- Can be changed freely without affecting the rest of the system as long as the interface remains the same
 	- *ex.* Data structures and formats, algorithms and logic, dependencies on libraries/frameworks
 #### Deep vs. Shallow modules
-![Pasted image 20251203000803](Pasted%20image%2020251203000803.png)
+![Pasted image 20251203000803](../../Pasted%20images/Pasted%20image%2020251203000803.png)
 
 #### Coupling and cohesion
 - **Coupling**: Dependencies **between** modules
 	- High coupling: changes in one module ripple through the entire system
 	- Low coupling: Changes are localized and modules are independent
 - **Cohesion**: Dependencies **within** modules
-![Pasted image 20251203000934](Pasted%20image%2020251203000934.png)
+![Pasted image 20251203000934](../../Pasted%20images/Pasted%20image%2020251203000934.png)
 
 #### Dependencies
 - **Syntactic dependencies:** A cannot be compiled/interpreted without B

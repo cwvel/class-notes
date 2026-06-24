@@ -11,7 +11,7 @@ where $\mathbf c\in\mathbb{R}^n$, $\mathbf b\in\mathbb R^m$, $\mathbf A\in\mathb
 
 ## 15.3 2D linear programs
 Can be solved graphically: The optimal straight line intersects the shaded region and the optimal point lies on the boundary. If there ever is more than one point of intersection then all these points have the same optimal value.
-![300](Pasted%20image%2020260518125502.png)
+![300](../pasted_images/Pasted%20image%2020260518125502.png)
 More generally, linear programs are optimization problems over convex polytopes
 - Solutions are on the vertices, edges, or faces of these polytopes
 - Solutions don't always have to exist
@@ -24,13 +24,13 @@ $$\begin{align}
 &\mathbf x\ge0
 \end{align}$$
 Other forms can be converted tothe standard form, e.g. if we have $\mathbf{Ax}\ge \mathbf b$ we introduce *surplus variables* $y_i$ to write
-![300](Pasted%20image%2020260518133600.png)
+![300](../pasted_images/Pasted%20image%2020260518133600.png)
 On the other hand if we have $\mathbf{Ax}\le\mathbf b$, we introduce *slack variables* $y_i$ to convert the constraints:
-![250](Pasted%20image%2020260518133638.png)
+![250](../pasted_images/Pasted%20image%2020260518133638.png)
 Note that neither surplus nor slack variables contribute to the objective function $\mathbf c^\top\mathbf x$.
 A solution to each problem implies a solution to the other, as we can consider the projection of one onto the other.
 $$\mathbf{Ax}\ge \mathbf b\iff\mathbf{Ax-I}_m\mathbf y=\mathbf b$$
-![300](Pasted%20image%2020260518133830.png)
+![300](../pasted_images/Pasted%20image%2020260518133830.png)
 We also assume that for $A\in\mathbb{R}^{m\times n}$ we have $m<n$ (more variables than equations) and $R(A)=m$ (full row rank, surjective), and that $b\ge0$ (otherwise we can just multiply the row with -1)
 
 *Ex.* Rewriting in standard form: Consider the problem

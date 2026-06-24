@@ -28,7 +28,7 @@ Runtime analysis:
 
 ### Proof of optimality
 **Thm.** The earliest-finish-time-first algorithm is optimal.
-![500](Pasted%20image%2020260423101522.png)
+![500](../pasted_images/Pasted%20image%2020260423101522.png)
 
 *Pf.* Proof by contradiction. Assume that $S$ from the algorithm is not optimal.
 - Let $S=\{i_1,i_2,\dots,i_k\}$ and there exists $S^*=\{j_1,j_2,\dots,j_m\}$ where $m>k$, so $|S^*|>|S|$, $S^*$ is the optimal set
@@ -36,7 +36,7 @@ Runtime analysis:
 - Then we can swap $i_{r+1}$ and $j_{r+1}$ in $S^*$. But if we swap them, $r$ is not the largest number of jobs on which $S$ and $S^*$ agree, thus a contradiction.
 	- Since $s_{j_{r+2}}$'s start time is guaranteed to be after $j_{r+1}$ ends, we can swap them without conflicting with any later jobs in $S^*$.
 	- If we keep on doing this we will eventually end up with the same jobs in both $S$ and $S^*$.
-![500](Pasted%20image%2020260423102023.png)
+![500](../pasted_images/Pasted%20image%2020260423102023.png)
 
 **Extended interval scheduling.** Suppose each job also has a positive weight and the goal is to find a maximum weight subset of mutually compatible intervals. Is the earliest-finish-time-first algorithm still optimal?
 - No. You could assign a huge weight to a job that overlaps the job with the earliest finish time.
@@ -46,7 +46,7 @@ Runtime analysis:
 **Problem definition: Interval partitioning.**
 - Lecture $j$ starts at $s_j$ and finishes at $f_j$
 - Goal: Find the minimum number of classrooms to schedule all lectures so that no two lectures occur at the same time in the same room.
-![500](Pasted%20image%2020260423102820.png)
+![500](../pasted_images/Pasted%20image%2020260423102820.png)
 
 Modelling the problem using graphs:
 - Connect two classes with an edge if they overlap
@@ -58,7 +58,7 @@ Greedy strategy for lecture order:
 - Counterexamples for:
 	- Earliest finish time first
 	- Shortest interval first
-![400](Pasted%20image%2020260423104112.png)
+![400](../pasted_images/Pasted%20image%2020260423104112.png)
 
 ### Algorithm
 **Earliest-start-time-first algorithm.**
@@ -92,7 +92,7 @@ Checking compatibility:
 - Depth = maximum number of concurrent lectures
 Observation: Number of classrooms needed $\ge$ depth, and you can't use fewer classrooms than the depth, thus depth $\le$ # classrooms $\le$ depth and
 - Minimum number of classrooms needed = depth
-![500](Pasted%20image%2020260423123620.png)
+![500](../pasted_images/Pasted%20image%2020260423123620.png)
 
 **Observation.** The earliest-start-time-first algorithm never schedules two incompatible lectures in the same classroom.
 
@@ -129,16 +129,16 @@ Which natural order minimizes the maximum lateness?
 **Observations.**
 - There exists an optimal schedule with no *idle time*.
 - The earliest-deadline-first schedule has no idle time.
-![500](Pasted%20image%2020260423124931.png)
+![500](../pasted_images/Pasted%20image%2020260423124931.png)
 
 **Def.** Given a schedule $S$, an inversion is a pair of jobs $i$ and $j$ such that $d_i<d_j$ but $j$ is scheduled before $i$.
-![500](Pasted%20image%2020260423124959.png)
+![500](../pasted_images/Pasted%20image%2020260423124959.png)
 
 - The earliest-deadline-first schedule is the *unique* idle-free schedule with no inversions (because we process jobs in order of deadline)
 - If an idle-free schedule has an inversion, then it has an adjacent inversion (pair of inverted jobs are always scheduled consecutively)
 
 **Claim.** Exchanging two adjacent, inverted jobs $i$ and $j$ reduces the number of inversions by 1 and does not increase the max lateness.
-![500](Pasted%20image%2020260423125208.png)
+![500](../pasted_images/Pasted%20image%2020260423125208.png)
 
 **Thm.** The earliest-deadline-first schedule $S$ is optimal.
 *Pf.* *Exchange argument.*

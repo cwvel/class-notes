@@ -41,7 +41,7 @@ Counterexample: $F_2$ over $\mathbb{R}$, $\mathbb{Q}$ over $\mathbb{R}$
 **#3.** Consider $f:R^{2\times 2}\rightarrow R^{2\times 2}$ by $f(A)=A-A^T$. Prove $f$ is a linear transformation.
 (a b // c d) (a c // b d) = (a-a b-c // c-b d-d) = (0 b-c // c-b 0)
 Check that $f$ is closed under linear combinations:
-![Pasted image 20251016154845](Pasted%20image%2020251016154845.png)
+![Pasted image 20251016154845](../Pasted%20images/Pasted%20image%2020251016154845.png)
 
 **#4.** Let $B=\begin{pmatrix}1&0\\-1&1\end{pmatrix}$ in $\mathbb{R}^{2\times 2}$. Consider $W=\{A\in\mathbb{R}^{2\times 2}:AB=BA\}$. What is $\dim W$?
 

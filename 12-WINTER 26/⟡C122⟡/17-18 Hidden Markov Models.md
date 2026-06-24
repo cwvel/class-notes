@@ -27,7 +27,7 @@ Extends Markov chains by allowing states to "emit" observations with different p
 	- Each **edge** connecting nodes are labeled with the **transition probability** of moving from one state the other
 - **Dashed nodes** representing each possible symbols from the alphabet $\Sigma$
 	- Dashed edges connecting each state to each dashed node, labeled by the **emission probability** of emitting the symbol while in the state
-![300](Pasted%20image%2020260305105036.png)
+![300](../pasted_images/Pasted%20image%2020260305105036.png)
 - A **hidden path** $\pi=\pi_1\dots\pi_n$ is the sequence of states the HMM passes through (corresponding to the solid edges)
 - The probability that the HMM follows the hidden path $\pi$ and emits the string $x=x_1\dots x_n$ is
 $$P(x,\pi)$$
@@ -95,9 +95,9 @@ Forward and backward probabilities can be computed efficiently using dynamic pro
 ### Viterbi graph
 Problem: We want to find an optimal hidden path in an HMM given a string of its emitted symbols
 For an HMM emitting a string of $n$ symbols $x=x_1\dots x_n$, its nodes can be represented in the graph:
-![100](Pasted%20image%2020260305133336.png)
+![100](../pasted_images/Pasted%20image%2020260305133336.png)
 
-![400](Pasted%20image%2020260305133328.png)
+![400](../pasted_images/Pasted%20image%2020260305133328.png)
 - Node $(k,i)$ represents state $k$ and the $i$-th symbol
 - Traversing the graph from left to right equates to a hidden path $\pi=\pi_1\dots\pi_n$
 - The edge connecting two nodes $(l\rightarrow k)$ from one column to the next $(i-1\rightarrow i)$ is assigned the weight:
@@ -105,8 +105,8 @@ $$\text{Weight}_i(l,k)=\text{transition}_{\pi_{i-1},\pi_i}\cdot\text{emission}_{
 - The **product weight** of a path in the Viterbi graph is the product of all its edge weights, from the leftmost to rightmost column (total $n-1$ terms)
 - To model the initial state (transitionining from $\pi_0$ to $\pi_1$) add the *source* node. To model the terminal state add the *sink* node
 - Additionally, if there are any edges that don't exist in the HMM (forbidden transitions) we can remove them from the graph:
-![100](Pasted%20image%2020260305162831.png)
-![400](Pasted%20image%2020260305162823.png)
+![100](../pasted_images/Pasted%20image%2020260305162831.png)
+![400](../pasted_images/Pasted%20image%2020260305162823.png)
 
 ### Viterbi algorithm
 - Define $s_{k,i}$ as the product weight of an optimal path (maximum product weight) from *source* to node $(k,i)$
@@ -136,13 +136,13 @@ $$\text{forward}_{k,i}=\sum_{\text{all states } l}\text{forward}_{l,i-1}\cdot\te
 We can find the likelihood of a specific outcome by computing $\text{forward}_\text{sink}$.
 
 $P(\pi_i=k,x)$ is the probability that a path will pass through $k$ at time $i$ and will emit $x$. This is the sum of the product weights $P(\pi,x)$ of all paths $\pi$ through the graph for $x$ that pass through node $(k,i)$.
-![400](Pasted%20image%2020260309121557.png)
+![400](../pasted_images/Pasted%20image%2020260309121557.png)
 Breaking it into subgraphs, we have the subpath $forward_{k,i}$ = total probability from *source* to $(k,i)$ and $backward_{k,i}$ = total probability from $(k,i)$ to *sink*, then:
 $$P(\pi_i=k,x)=forward_{k,i}\cdot backward_{k,i}$$
 To compute $backward_{k,i}$ we can reverse the direction of all edges in the graph and apply the same dp algorithm we used to compute $forward_{k,i}$: 
 *From earlier:*
 $$forward_{k,i}=\sum_{\text{all states } l}forward_{l,i-1}\cdot\text{Weight}_i(l,k)$$
-![400](Pasted%20image%2020260309122003.png)
+![400](../pasted_images/Pasted%20image%2020260309122003.png)
 *Now we have:*
 $$backward_{k,i}=\sum_{\text{all states }l}forward_{l,i-1}\cdot\text{Weight}_i(l,k)$$
 # Profile HMMs for Sequence Alignment
@@ -152,23 +152,23 @@ Given a seed alignment *Alignment* with corresponding profile matrix *Profile(Al
 - A simple HMM treats the columns of *Alignment* as $k$ **match states**, and at each match state it emits symbol $x_i$ with probability equal to its frequency in *Profile(Alignment)*'s $i$-th column
 	- It then moves to the next match state *Match(i+1)* with transition probability 1.
 - **Similarity score** for *Alignment* and *Text* is the probability that the HMM emits *Text*, equal to the product of frequencies in *Profile*
-![450](Pasted%20image%2020260306003027.png)
+![450](../pasted_images/Pasted%20image%2020260306003027.png)
 - Limitations of this simple HMM:
 	- Doesn't account for indels, can only align *Text* if it is exactly the right length
 
 A **profile HMM** has more states to account for indels, in addition to the $k$ match states
 - $k+1$ **insertion states**
-![400](Pasted%20image%2020260306003500.png)
+![400](../pasted_images/Pasted%20image%2020260306003500.png)
 - To model **deletions** we add $k$ silent **deletion states** that allow the HMM to skip a match without emitting a symbol
-![400](Pasted%20image%2020260306003633.png)
+![400](../pasted_images/Pasted%20image%2020260306003633.png)
 - Finally, add edges connecting the insertion states to deletion states and vice versa, as well as the initial state $S$ and terminal state $E$
-![450](Pasted%20image%2020260306003711.png)
+![450](../pasted_images/Pasted%20image%2020260306003711.png)
 - Traversals corresponding to each row in the alignment:
-![450](Pasted%20image%2020260306003847.png)
+![450](../pasted_images/Pasted%20image%2020260306003847.png)
 - From this we can assign the emission probability for symbol $b$ from state $k$, 
 $$\text{emission}_k(b)=\frac{\text{\# times $b$ emitted from $k$}}{\text{total \# symbols emitted from $k$}}$$
 
-![450](Pasted%20image%2020260308145548.png)
+![450](../pasted_images/Pasted%20image%2020260308145548.png)
 
 - Similarly, we add pseudocounts $\sigma$ to the matrix of transition/emission probabilities and normalize the resulting matrix.
 

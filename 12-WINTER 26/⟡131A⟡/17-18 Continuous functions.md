@@ -2,8 +2,8 @@
 >[!definition]
 >A function $f:S\rightarrow\mathbb{R}$ takes $x\in S$ and maps it to $f(x)\in\mathbb{R}$, where $S\subset\mathbb{R}$ is a subset called $\text{dom}(f)$.
 
-![500](Pasted%20image%2020260211103945.png)
-![500](IMG_2618.jpeg)
+![500](../pasted_images/Pasted%20image%2020260211103945.png)
+![500](../pasted_images/IMG_2618.jpeg)
 *If you perturb the input a little bit, the output should be mostly the same.*
 
 Note if we take a sequence $\{x_n\}$ with $x_n\rightarrow1$,
@@ -25,7 +25,7 @@ but for a non-continuous function, $g(x_n)\nrightarrow g(1)$
 - *If input within $\delta$ of $x_0$, then the output is within $\varepsilon$ of $f(x_0)$. The function is insensitive to small changes in $x$.*
 
 
-![400](IMG_2619.jpeg)
+![400](../pasted_images/IMG_2619.jpeg)
 
 ***Proof.***
 (1.) : $f$ is continuous at $x_0$
@@ -140,7 +140,7 @@ For supremum
 >If $y\in[f(c),f(d)]$, then there exists some $x\in[c,d]$ such that $f(x)=y$.
 
 *The function $f$ changes continuously from $f(c)$ to $f(d)$ so it must cover every point between them.*
-![300](Pasted%20image%2020260213094655.png)
+![300](../pasted_images/Pasted%20image%2020260213094655.png)
 
 ***Proof.***
 - $S=\{x\in[c,d]\mid f(x)\leq y\}$

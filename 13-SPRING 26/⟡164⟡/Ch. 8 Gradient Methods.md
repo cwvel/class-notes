@@ -23,7 +23,7 @@ At each step, starting from $x^{(k)}$, we conduct a line search in the direction
 **Prop.** If $\{x^{(k)}\}^\infty_{k=0}$ is a steepest descent sequence for a given $f:\mathbb{R}^n\to\mathbb{R}$, then for each $k$,
 $$x^{(k+1)}-x^{(k)}\perp x^{(k+2)}-x^{(k+1)}$$
 In other words the method of steepest descent moves in orthogonal steps.
-![400](Pasted%20image%2020260412231234.png)
+![400](../pasted_images/Pasted%20image%2020260412231234.png)
 
 ## Stopping criterion
 Check if the norm of the gradient is less than a prespecified threshold:

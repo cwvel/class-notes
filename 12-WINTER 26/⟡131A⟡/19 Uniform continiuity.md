@@ -120,7 +120,7 @@ $$z_n=\begin{cases}z_{2k}=x_k,\enspace k\in\mathbb{N}\\\\ z_{2k+1}=y_k,\enspace 
 
 # HW 7 textbook reading
 >[!theorem] Discussion 19.3: Uniform continuity and the integrability of continuous functions on closed intervals
->![400](Pasted%20image%2020260222161019.png)
+>![400](../pasted_images/Pasted%20image%2020260222161019.png)
 >- Let $M_{i,n}$ be the supremum of $f(x)$ in the interval and $m_{i,n}$ be the infinum of $f(x)$ in the interval, then
 >- the sum of the areas of rectangles in (a) is
 $$U_n=\frac{1}{n}\sum_{i=0}^{n-1}M_{i,n}$$

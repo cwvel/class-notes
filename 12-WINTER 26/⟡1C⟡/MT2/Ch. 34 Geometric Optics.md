@@ -9,14 +9,14 @@ $$s=-s'$$
 	- **image distance** is positive if on the same side as outgoing light
 		- virtual = negative, real = positive
 	- radius of curvature $R$ is positive if center of curvature $C$ is on the same side as outgoing light
-![250](Pasted%20image%2020260219103814.png)
+![250](../../pasted_images/Pasted%20image%2020260219103814.png)
 - **lateral magnification:** when $m$ is negative the image is inverted
-![Pasted image 20260219104453](Pasted%20image%2020260219104453.png)
+![Pasted image 20260219104453](../../pasted_images/Pasted%20image%2020260219104453.png)
 
 ### 34.2 reflection at a spherical surface
 - **optic axis** is the line from the center of curvature to the vertex (center) of the mirror
 
-![300](Pasted%20image%2020260219111043.png)
+![300](../../pasted_images/Pasted%20image%2020260219111043.png)
 - a concave spherical mirror (converging mirror) forms a *real* image $P'$ on the optic axis (since all rays actually pass through it)
 	- all rays from $P$ that make sufficiently small angles $\alpha$ with the axis intersect at $P'$ after they are reflected - these are **paraxial rays**
 	- object-image relationship for spherical mirror:
@@ -36,16 +36,16 @@ $$f=\frac{R}{2}$$
 	- *in a convex mirror:*
 		- paraxial rays incident diverge from virtual focal point
 		- rays aimed at the virtual focal point are parallel after reflection
-![150](Pasted%20image%2020260219132032.png) ![200](Pasted%20image%2020260219132054.png)
+![150](../../pasted_images/Pasted%20image%2020260219132032.png) ![200](../../pasted_images/Pasted%20image%2020260219132054.png)
 
 #### lateral magnification
-![400](Pasted%20image%2020260219112433.png)
+![400](../../pasted_images/Pasted%20image%2020260219112433.png)
 - lateral magnification for an extended object in a spherical mirror:
 $$m=\frac{y'}{y}=-\frac{s'}{s}$$
 	- when $|m|<1$, the image is *smaller* than the actual objet
 - if an object lies inside the focal point of the concave mirror ($s<f$) the resulting image is virtual, erect, and larger
 	- ex. makeup mirrors
-![200](Pasted%20image%2020260219165306.png)
+![200](../../pasted_images/Pasted%20image%2020260219165306.png)
 #### graphical methods for mirrors
 - draw 4 principal rays
 	1. **ray parallel to axis** after reflection:
@@ -59,14 +59,14 @@ $$m=\frac{y'}{y}=-\frac{s'}{s}$$
 		- reflected forming equal angles with optic axis
 - all of these rays pass through the image point
 
-![400](Pasted%20image%2020260219132338.png)
-![400](Pasted%20image%2020260219132344.png)
+![400](../../pasted_images/Pasted%20image%2020260219132338.png)
+![400](../../pasted_images/Pasted%20image%2020260219132344.png)
 
 ### # 34.3 refraction at a spherical surface
-![400](Pasted%20image%2020260219133151.png)
+![400](../../pasted_images/Pasted%20image%2020260219133151.png)
 - if the angle $\alpha$ is small, all rays from $P$ intersect at $P'$ (*real image* of $P$)
 - construction for finding the height of an image:
-![400](Pasted%20image%2020260219133723.png)
+![400](../../pasted_images/Pasted%20image%2020260219133723.png)
 #### object-image relationships summary
 - for paraxial rays only
 - **plane mirror**
@@ -87,26 +87,26 @@ $$m=\frac{y'}{y}=-\frac{s'}{s}$$
 - when a beam of rays parallel to the axis passes through the lens, they converge to a point $F_2$ (*second focal point*) and form a *real image*
 	- image is real if **object distance > focal length**, otherwise it is virtual
 - rays passing through $F_1$ (*first focal point*) emerge from the lens as a beam of parallel rays
-![200](Pasted%20image%2020260219163142.png)
-![200](Pasted%20image%2020260219163148.png)
+![200](../../pasted_images/Pasted%20image%2020260219163142.png)
+![200](../../pasted_images/Pasted%20image%2020260219163148.png)
 - the two focal lengths are always equal, even if the two sides have different curvatures
-![Pasted image 20260219163302](Pasted%20image%2020260219163302.png)
+![Pasted image 20260219163302](../../pasted_images/Pasted%20image%2020260219163302.png)
 
 - the real image formed by the converging lens is *inverted* but not reversed
-![400](Pasted%20image%2020260219163336.png)
+![400](../../pasted_images/Pasted%20image%2020260219163336.png)
 
 #### diverging lenses
 - focal length is *negative*, and focal points are reversed relative to a positive lens
 - diverging lens **never forms a real image**?
 - same relationship to a converging lens as a convex mirror has to a concave mirror
-![200](Pasted%20image%2020260219163505.png)
-![200](Pasted%20image%2020260219163518.png)
+![200](../../pasted_images/Pasted%20image%2020260219163505.png)
+![200](../../pasted_images/Pasted%20image%2020260219163518.png)
 
 #### lensmaker's equation
-![Pasted image 20260219163707](Pasted%20image%2020260219163707.png)
+![Pasted image 20260219163707](../../pasted_images/Pasted%20image%2020260219163707.png)
 - in not-air, replace $n$ with $n_{lens}/n_{surrounding}$
 
-![400](Pasted%20image%2020260219163729.png)
+![400](../../pasted_images/Pasted%20image%2020260219163729.png)
 - a lens is converging if it is thicker in the middle
 - a lens is diverging if it is thicker on the edges
 
@@ -118,8 +118,8 @@ $$m=\frac{y'}{y}=-\frac{s'}{s}$$
 		- (diverging) appears to come from $F_2$
 	- **ray through center** reflected back in same direction
 	- **ray through/toward $F_1$** emerges parallel to the axis
-![400](Pasted%20image%2020260219163924.png)
-![400](Pasted%20image%2020260219163929.png)
+![400](../../pasted_images/Pasted%20image%2020260219163924.png)
+![400](../../pasted_images/Pasted%20image%2020260219163929.png)
 
 - for a converging lens, as the object gets closer to the focal point, the image gets further away
 	- when object is at the focal point, the image is at infinity

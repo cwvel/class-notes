@@ -5,7 +5,7 @@ Alice and Bob want to independently select kmers and *maximize* the number of sh
 - Strategy: Choose the *n* smallest minimizers
 
 # Seed-and-chain approach
-![Pasted image 20260210133239](Pasted%20image%2020260210133239.png)
+![Pasted image 20260210133239](../../pasted_images/Pasted%20image%2020260210133239.png)
 **Seed-and-chain approach** for aligning two long strings:
 - **Seeds** are pairs of identical kmers in both strings
 - **Chaining** is the way to optimally combine multiple seeds together

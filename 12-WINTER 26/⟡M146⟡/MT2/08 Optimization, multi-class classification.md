@@ -146,7 +146,7 @@ $$P(y)=\frac{\exp(s(y))}{\sum_{y'\in\{1,2,\dots,K\}}\exp(s(y))}$$
 		- As $\sigma\rightarrow0$, softmax $\rightarrow$ "hard" max
 		- As $\sigma\rightarrow\infty$, distribution $\rightarrow$ uniform distribution
 $$P(y\mid \sigma)=\frac{\exp(s(y)/\sigma)}{\sum_{y'\in\{1,2,\dots,K\}}\exp(s(y)/\sigma)}$$
-![400](Pasted%20image%2020260220215607.png)
+![400](../../pasted_images/Pasted%20image%2020260220215607.png)
 
 - **Maximum log-likelihood estimation**
 	- Training can be done by maximum log-likelihood estimation

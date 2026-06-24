@@ -15,7 +15,7 @@
 		- *(k,d)*-motifs: kmer and all kmers with at most *d* mismatches from it
 	- **Degenerate sequence codes**
 		- IUPAC nucleotide code
-		- Different letters represent different combinations of the possible bases that can be present ![200](Pasted%20image%2020260219142824.png)
+		- Different letters represent different combinations of the possible bases that can be present ![200](../pasted_images/Pasted%20image%2020260219142824.png)
 	- **Positional weight matrix (PWM/profile matrix)**
 		- Assuming columns are not correlated with each other
 			- However the tradeoff between the simplicity vs. the information lost is usually worth it
@@ -23,7 +23,7 @@
 		- The scoring system assumes that each nucleotide is a priorit equally likely
 
 ## Positional weight matrix
-![300](Pasted%20image%2020260219142854.png)
+![300](../pasted_images/Pasted%20image%2020260219142854.png)
 - **Background models**
 	- Probability evaluated relative to background 
 $$\log\frac{P(sequence\mid PWM)}{P(sequence\mid Background)}$$
@@ -63,7 +63,7 @@ $$\max_{PWM,w}\sum_{i=1}^t\log\left(\sum_{j=1}^{n-k+1}w_{i,j}P(S_{i,j:(j+k-1)}\m
 			- Assume for now that $w_{i,j}=1$ exactly once per sequence
 ## Brute force strategies
 - **Brute force over positions**
-	- ![Pasted image 20260219151420](Pasted%20image%2020260219151420.png)
+	- ![Pasted image 20260219151420](../pasted_images/Pasted%20image%2020260219151420.png)
 	- Consider every possible combination of motif instance position in each sequence
 	- For each combination, build corresponding motif (PWM with pseudocounts) and use it to score the motif instances
 	- Select highest scoring combination

@@ -1,7 +1,7 @@
 # L08 Minimum spanning trees
 ## Dijkstra's algorithm
 **Single-pair shortest path problem.** Given a digraph $G=(V,E)$, edge lengths $\mathscr{l}_e\ge0$, source $s\in V$, and destination $t\in V$, find a shortest directed path from $s$ to $t$.
-![500](Pasted%20image%2020260423160913.png)
+![500](../pasted_images/Pasted%20image%2020260423160913.png)
 
 Modifying edge weights: Suppose that you change the length of every edge of $G$ as follows. For which every shortest path in $G$ is a shortest path in $G'$?
 - Multiplying all paths applies equally to all paths, so it preserves the shortest path guarantee. However, adding to all paths depends on how many edges we traverse.
@@ -78,7 +78,7 @@ How to solve the single-source shortest path problem in *undirected graphs* with
 - Consider all incident edges at each step instead of just outgoing neighbors
 
 ### Proof of correctness
-![300](Pasted%20image%2020260423170617.png)
+![300](../pasted_images/Pasted%20image%2020260423170617.png)
 **Invariant.** For each node $u\in S$: $d[u]$ = length of shortest $s\to u$ path.
 *Pf.* Proof by induction on $|S|$.
 Base case:
@@ -109,7 +109,7 @@ In an undirected connected graph $G$, a **spanning tree** is a subgraph that is 
 - DFS and BFS on connected graphs both produce spanning trees of the graphs.
 
 **Def.** Let $H=(V,T)$ be a subgraph of an undirected graph $G=(V,E)$. $H$ is a **spanning tree** of $G$ if $H$ is both *acyclic* and *connected*.
-![300](Pasted%20image%2020260423173122.png)
+![300](../pasted_images/Pasted%20image%2020260423173122.png)
 
 Properties of spanning trees
 **Prop.** Let $H=(V,T)$ be a subgraph of an undirected graph $G=(V,E)$. Then the following are equivalent.

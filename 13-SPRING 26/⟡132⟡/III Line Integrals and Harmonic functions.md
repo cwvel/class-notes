@@ -3,7 +3,7 @@
 **Path.** A path from $A$ to $B$ is a continuous function $t\mapsto\gamma(t)$ on some interval $a\le t\le b$ such that $\gamma(a)=A$ and $\gamma(b)=B$.
 - The path is **simple** if $\gamma(s)\ne\gamma(t)$ when $s\ne t$.
 - The path is **closed** if $\gamma(a)=\gamma(b)$.
-![500](Pasted%20image%2020260422185352.png)
+![500](../pasted_images/Pasted%20image%2020260422185352.png)
 - Any reparametrization of $\gamma$ can be regarded as the same path.
 - A **smooth path** can be represented in the form $\gamma(t)=(x(t),y(t))$, $a\le t\le b$, where $x(t)$ and $y(t)$ are smooth (have as many derivatives as necessary)
 ****

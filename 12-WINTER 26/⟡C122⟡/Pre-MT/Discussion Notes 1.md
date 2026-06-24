@@ -9,7 +9,7 @@ Over time, the lagging strand "loses" Cs.
 - Increasing along forward (leading) strand (?)
 - Decreasing along reverse (lagging) strand
 The minimum skew value should be achieved at the replication origin. This is where the identity of leading vs lagging strand flips (therefore the direction of GC bias flips), creating a "turning point" in the cumulative skew curve.
-![400](Pasted%20image%2020260111185134.png)
+![400](../../pasted_images/Pasted%20image%2020260111185134.png)
 The **skew diagram** is defined by plotting Skew$_0$(Genome), with $i$ ranging from 0 to |Genome|, where Skew$_0$(Genome) $=0$.
 - Given Skew$_i$ we can calculate Skew$_{i+1}$: 
 	- If the nucleotide at position $i$ is $G$, then Skew$_{i+1}=$Skew$_i+1$
@@ -46,7 +46,7 @@ Each $(k-1)$-mer $\text{Pattern}'\in$ Neighbors(suffix(Pattern), $d$) has a Hamm
 ## Alignment
 ### Global alignment (Needleman-Wunsch)
 - Given two sequences, find an alignment of the strings whose score is maximized (among all possible alignments,  with substitutions, insertions, indels)
-![Pasted image 20260205001515](Pasted%20image%2020260205001515.png)
+![Pasted image 20260205001515](../../pasted_images/Pasted%20image%2020260205001515.png)
 - **Start** at top left 0, **terminate** at bottom right
 - At each cell, take the maximum of the 3 directions
 - Store traceback information
@@ -54,7 +54,7 @@ Each $(k-1)$-mer $\text{Pattern}'\in$ Neighbors(suffix(Pattern), $d$) has a Hamm
 - Given two sequences, find an alignment over a **subsequence** of both sequences to maximize the alignment score (with substitutions, insertions, indels)
 - Provide a zero-weight edge from the source to every node
 	- This way you can start at any point in the sequence
-![300](Pasted%20image%2020260205003002.png)
+![300](../../pasted_images/Pasted%20image%2020260205003002.png)
 - Can terminate anywhere
 - The largest value anywhere in the matrix corresponds to the optimal local alignment score
 	- That cell marks the end point of the best matching subsequence
@@ -72,7 +72,7 @@ Space complexity of alignment algorithm is O(mn) if the lengths of our sequences
 - Use it to divide the graph into two smaller graphs
 - Use divide-and-conquer on the two smaller graphs
 - etc.
-![300](Pasted%20image%2020260205004019.png)
+![300](../../pasted_images/Pasted%20image%2020260205004019.png)
 
 ## Global alignment using edit distance matrix
 - Each cell represents the edit distance between the prefixes of the sequences

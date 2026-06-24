@@ -25,7 +25,7 @@ implies that if $g_j(x^*)<0$, then $\mu_j^*=0$, i.e. for all $j\not\in J(x^*)$, 
 - KKT multipliers corresponding to inactive constraitns are zero, and the other KKT multipliers may or may not be zero
 ****
 *Ex.* Graphical interpretation of KKT
-![400](Pasted%20image%2020260603171932.png)
+![400](../pasted_images/Pasted%20image%2020260603171932.png)
 Constraint $g_3$ is inactive, so $\mu_3^*=0$
 By KKT then we have
 $$\nabla f(x^*)+\mu_1^*\nabla g_1(x^*)+\mu_2^*\nabla g_2(x^*)=0$$
@@ -90,8 +90,8 @@ $$\mathbf L(x,\lambda,\mu)=\mathbf F(x)+[\lambda\mathbf H(x)]+[\mu\mathbf G(x)]$
 where $\mathbf F(x)$ is the Hessian of $f$ at $x$, and $[\lambda\mathbf H(x)]$ represents
 $$[\lambda\mathbf H(x)]=\lambda_1\mathbf H_1(x)+\dots+\lambda_m\mathbf H_m(x)$$
 and similarly for $[\mu\mathbf G(x)]$, where $\mathbf G_k(x)$ is the Hessian of $g_k$ at $x$:
-![250](Pasted%20image%2020260531204122.png)
-![Pasted image 20260531204144](Pasted%20image%2020260531204144.png)
+![250](../pasted_images/Pasted%20image%2020260531204122.png)
+![Pasted image 20260531204144](../pasted_images/Pasted%20image%2020260531204144.png)
 
 **Thm 21.2 (SONCs).** Let $x^*$ be a local minimizer of $f:\mathbb{R}^n\to\mathbb{R}$ subject to $h(x)=0$, $g(x)\le0$, $h:\mathbb{R}^n\to\mathbb{R}^m$, $m\le n$, $g:\mathbb{R}^n\to\mathbb{R}^p$, and $f,h,g\in \mathcal C^2$. Suppose that $x^*$ is regular. Then there exists $\lambda^*\in\mathbb{R}^m$ and $\mu^*\in\mathbb{R}^p$ such that
 1) First-order conditions:
@@ -131,7 +131,7 @@ $$\begin{align}\min\quad&f(x)\\\text{s.t.}\quad&x\in\Omega\end{align}$$
 
 ### Projection methods
 For some nonlinear equality constraints, there may not be any feasible directions. For $x\in\Omega$, there might not exist $d\ne0$ s.t. $x+\alpha d\in\Omega$ $\forall\alpha\in[0,1]$.
-![300](Pasted%20image%2020260604160043.png)
+![300](../pasted_images/Pasted%20image%2020260604160043.png)
 One way of solving this is through **projecting** $x+\alpha$ back onto $\Omega$.
 $$x^{k+1}=\Pi(x^k+\alpha_kd^k)$$
 where $\Pi(x)=\arg\min_{z\in\Omega}\|z-x\|^2$.

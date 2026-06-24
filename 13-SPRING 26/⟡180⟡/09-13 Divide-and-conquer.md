@@ -25,7 +25,7 @@ Examples: Mergesort, quicksort, closest pair, Karatsuba's (integer multiplicatio
 	- If $a_1\le b_j$, append $a_i$ to $C$
 		- No larger than any remaining element in $B$
 	- If $a_1>b_j$, append $b_j$ to $C$ (smaller than every remaining element in $A$)
-![400](Pasted%20image%2020260429103614.png)
+![400](../pasted_images/Pasted%20image%2020260429103614.png)
 
 ### Implementation
 **Merge-Sort**$(L)$
@@ -51,7 +51,7 @@ $$T(n)\le\begin{cases}0\text{ (or constant)}&\text{if }n=1\\\\2T(n/2)+n&\text{if
 **Soln.** $T(n)$ is $O(n\log_2 n)$.
 
 Build the **recurrence tree**:
-![500](Pasted%20image%2020260430104922.png)
+![500](../pasted_images/Pasted%20image%2020260430104922.png)
 At the bottom of the recurrence tree ($n$ leaf nodes) we hit the base case, where each input is size 1.
 The depth of the tree is $\log n$.
 Work being done on each level: $n$ (on each level, $n/c$ work done on $c$ nodes)
@@ -79,7 +79,7 @@ When $n$ is not a power of 2, we must consider the ceiling and the floor of $n/2
 Use a **comparison tree** (for 3 distinct a, b, c):
 Number of leaf nodes = total number of permutations is $3!=6$
 - Since we have to go through all elements to get to the bottom
-![400](Pasted%20image%2020260430105746.png)
+![400](../pasted_images/Pasted%20image%2020260430105746.png)
 
 *Pf.* (Sketch) The height of the tree is the worst-case number of compares. 
 $$h\ge n\log n$$
@@ -93,7 +93,7 @@ $\Rightarrow$ The number of comparisons any comparison-based sorting algorithm m
 
 ## More recurrence relations
 ### Binary search
-![400](Pasted%20image%2020260429231800.png)
+![400](../pasted_images/Pasted%20image%2020260429231800.png)
 
 Let $n$ be the number of integers in `data[]` array. Assuming data is sorted.
 Running time:
@@ -107,7 +107,7 @@ Then we have
 Solving the recurrence relation,
 **Using a recurrence tree:**
 - Note that the tree is degenerate (just a straight line)
-![200](Pasted%20image%2020260514120921.png)
+![200](../pasted_images/Pasted%20image%2020260514120921.png)
 - Height is $\log_2 n$
 Thus $T(n)=c\log_2 n=O(\log n)$
 
@@ -120,7 +120,7 @@ $$=c(\log n+ 1)=O(\log n)$$
 Then we can formally prove this with induction.
 
 ### Psearch
-![400](Pasted%20image%2020260429231829.png)
+![400](../pasted_images/Pasted%20image%2020260429231829.png)
 Let $n$ be the size of the input. Note that here we have $cn$ work from the print statement.
 $T(1)=c$
 $T(n)=T(n/2)+cn$ (if we just want an upper bound this is in $O(n\log n)$)
@@ -138,7 +138,7 @@ Thus
 $$T(n)\le c2n=O(n)$$
 
 ### Adder
-![400](Pasted%20image%2020260429231838.png)
+![400](../pasted_images/Pasted%20image%2020260429231838.png)
 Work done:
 - For loop = *(R-L)n ~ cn*
 - Each call makes 4 recursive calls
@@ -195,7 +195,7 @@ Thus
 $$T(n)=c\left(\frac{2^n-1}{2-1}\right)=c(2^n-1)$$
 **Alternative method:**
 Consider the recurrence tree
-![400](Pasted%20image%2020260514125402.png)
+![400](../pasted_images/Pasted%20image%2020260514125402.png)
 The height of the tree is $n-1$.
 $$T(n)=c+2c+4c+\dots+2^kc$$
 where $k=n-1$. Then
@@ -214,7 +214,7 @@ If one ranking is $1,2,\dots,n$, and another is $a_1,a_2,\dots,a_n$. Songs $i$ a
 - *Conquer:* Recursively count inversions in each list
 - *Combine:* Count inversions $(a,b)$ with $a\in A$ and $b\in B$
 - Return sum of three counts
-![300](Pasted%20image%2020260514002839.png)
+![300](../pasted_images/Pasted%20image%2020260514002839.png)
 
 How to count inversions?
 - Sort $A$ and $B$
@@ -230,7 +230,7 @@ How to combine two subproblems? Count inversions $(a,b)$ with $a\in A$ and $b\in
 ### Implementation
 Input: List $L$
 Output: Number of inversions in $L$ and $L$ in sorted order
-![400](Pasted%20image%2020260514130933.png)
+![400](../pasted_images/Pasted%20image%2020260514130933.png)
 We return the sorted copy because the recursive calls would lose the inversions otherwise.
 
 ### Analysis
@@ -254,7 +254,7 @@ $$T(n)=\begin{cases}\Theta(1)&\text{if }n=1\\ T(\lfloor n/2\rfloor)+T(\lceil n/2
 How to combine? Finding closest pair with one point in each side, assuming distance $<\delta$, we only need to consider points within $\delta$ of line $L$.
 - Sort points in $2\delta$-strip by $y$-coordinate
 - Check distnaces of only those points within 7 positions in sorted list
-![400](Pasted%20image%2020260514004249.png)
+![400](../pasted_images/Pasted%20image%2020260514004249.png)
 
 **Def.** Let $s_i$ be the point in the $2\delta$-strip with the $i$-th smallest $y$-coordinate.
 *Claim.* If $|j-i|>7$ then the distance between $s_i$ and $s_j$ is at least $\delta$.
@@ -264,11 +264,11 @@ How to combine? Finding closest pair with one point in each side, assuming dista
 - Subdividing $R$ into 8 squares, there can be at most 1 point per square
 	- We cannot have 2 points within a $\delta/2$ square on the same side, distance would be $<\delta$ and $\delta$ is the smallest
 - Thus at most 7 points other than $s_i$ can be in $R$
-![150](Pasted%20image%2020260514004434.png)
+![150](../pasted_images/Pasted%20image%2020260514004434.png)
 
 ### Closest pair divide-and-conquer algorithm
 Assume we have a sorting of points by $x$ and $y$ coordinates, $P_x$ and $P_y$
-![Pasted image 20260514004740](Pasted%20image%2020260514004740.png)
+![Pasted image 20260514004740](../pasted_images/Pasted%20image%2020260514004740.png)
 
 ### Analysis
 **Thm.** The algorithm can be implemented in $O(n\log^2 n)$ time.
@@ -292,9 +292,9 @@ Assuming $n$ is a power of $b$,
 - $n/b^i$ = size of subproblem at level $i$
 
 Suppose $T(n)$ satisfies $T(n)=aT(n/b)+n^c$ with $T(1)=1$ for $n$ a power of $b.$
-![Pasted image 20260514132343](Pasted%20image%2020260514132343.png)
+![Pasted image 20260514132343](../pasted_images/Pasted%20image%2020260514132343.png)
 Let $r=a/b^c$, note that $r<1\Leftrightarrow c>\log_ba$.
-![Pasted image 20260514132507](Pasted%20image%2020260514132507.png)
+![Pasted image 20260514132507](../pasted_images/Pasted%20image%2020260514132507.png)
 
 **Geometric series.**
 $$
@@ -327,4 +327,4 @@ with $T(0)=0$ and $T(1)=\Theta(1)$, where $n/b$ means either $\lfloor n/b\rfloor
 - $T(n)=\Theta(\log^{\log_23})=O(n^{1.58})$
 
 **Gaps in master theorem.**
-![400](Pasted%20image%2020260514142251.png)
+![400](../pasted_images/Pasted%20image%2020260514142251.png)

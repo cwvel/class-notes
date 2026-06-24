@@ -10,7 +10,7 @@ Each hyperplane divides the space into positive and negative **half-spaces**, $H
 $$H_+=\{x\in\mathbb{R}^n\mid u\cdot x\geq v\}$$
 $$H_-=\{x\in\mathbb{R}^n\mid u\cdot x\le v\}$$
 A half-space may not be a subspace of $\mathbb{R}^n$, since it does not have to include 0.
-![](IMG_2956.jpeg#center|200)
+![200](../pasted_images/IMG_2956.jpeg)
 For an arbitrary point of the hyperplane $H$, $\vec a=[a_1,a_2,\dots,a_n]^\top$, we can write
 $$u^\top a-v=0$$
 thus we can write
@@ -36,7 +36,7 @@ for a specifc $\alpha\in[0,1]$ is called a **convex combination** of the points 
 **Def.** A set $S$ is convex if
 $$\alpha x+(1-\alpha)y\in S$$
 for all $x,y\in S,\alpha\in[0,1]$. In other words the line segment between any $x,y\in S$ is in $S$.
-![](Pasted%20image%2020260401203651.png#center|400)
+![400](../pasted_images/Pasted%20image%2020260401203651.png)
 *Examples:*
 - Line segments
 - Linear subspaces
@@ -46,7 +46,7 @@ for all $x,y\in S,\alpha\in[0,1]$. In other words the line segment between any $
 - Intersections of complex sets
 ### Polytopes and polyhedra
 **Def.** A **polytope** is a set that can be written as an intersection of half spaces.
-![](Pasted%20image%2020260401205831.png#center|400)
+![400](../pasted_images/Pasted%20image%2020260401205831.png)
 *Ex.* A triangle is a half-space.
 *Rm.* A bounded polytope is called a **polyhedron**, with *faces* and *vertices*.
 ## Calculus
@@ -94,10 +94,10 @@ Level sets are used to visualize multivariable functions.
 $$\{x\in\mathbb{R}^n\mid f(x)=c\}$$
 
 *Ex.* If we have $f(x)=x^\top Ax$, for $A=I$, we get a series of concentric circles.
-![](Pasted%20image%2020260401134436.png#center|300)
+![300](../pasted_images/Pasted%20image%2020260401134436.png)
 *Rm.* The gradient of $f$ is always orthogonal to the level sets.
 $$\nabla f(x)\perp\text{level sets}$$
-![](IMG_2958.jpeg#center|200)
+![200](../pasted_images/IMG_2958.jpeg)
 
 ## Taylor series
 $f:\mathbb{R}^n\to\mathbb{R}$

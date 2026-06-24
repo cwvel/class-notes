@@ -40,7 +40,7 @@ Then we can consider the polar coordinates of the point:
 ## Polar form
 **Def.** The **polar form** of a complex number $a+ib$ is $$r(\cos\theta+i\sin\theta)$$where $r=|z|$ (absolute value), $\theta=\arg z$ (argument)
 
-![](Pasted%20image%2020260330153031.png#center|200)
+![200](../pasted_images/Pasted%20image%2020260330153031.png)
 
 ### Principal argument
 Since there are often infinitely many arguments, we define the **principal argument**:
@@ -72,7 +72,7 @@ $$z^3=1\iff z^3-1=0$$
 ## Complex conjugation
 **Def.** If $z=a+ib$, then its **complex conjugate** is $\bar z=a-ib$, obtained by reflecting across the $x$-axis.
 
-![](Pasted%20image%2020260330154948.png#center|300)
+![300](../pasted_images/Pasted%20image%2020260330154948.png)
 
 ***
 *Rm.* If $z=r(\cos\theta+i\sin\theta)$, then
@@ -106,7 +106,7 @@ $$|z_1-z_2|\geq|z_1|-|z_2|\qquad(2)$$
 1) $z_1=0$ or $z_2=0$
 2) $z_1$ and $z_2$ are **colinear** (point in the same direction, forming a degenerate triangle)
 
-![](IMG_2959.jpeg#center|300)
+![300](../pasted_images/IMG_2959.jpeg)
 
 Note that
 $$(2)\iff|z_2|+|z_1-z_2|\geq|z_2+(z_1-z_2)|=|z_1|$$

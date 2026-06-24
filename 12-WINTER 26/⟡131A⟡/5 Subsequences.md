@@ -121,7 +121,7 @@ $\implies \limsup x_n=\liminf x_n=x\implies \lim x_n=x$
 If $\{y_n\}\subset \mathcal{S}$ s.t. $\lim y_n=y\in\mathbb{R}$, then $y\in\mathcal{S}$.
 Equivalently: If $\exists\{x^{(m)}_{n_k}\}_{k\in\mathbb{N}}$ subsequence s.t. $\lim_{k\rightarrow\infty} x^{(m)}_{n_k}=y_m$, and $\lim y_m=y$ then $\exists\{x_{n_k}\}$ s.t. $\lim_{k\rightarrow\infty}x_{n_k}=y$.
 *We want to pick a sequence that converges to $y$. We know $y_n$ converges to $y$, and that each $y_n$ is the limit of a subsequence. Therefore we can pick terms from each subsequence that will also converge to $y$.*
-![200](IMG_2423.jpeg)
+![200](../pasted_images/IMG_2423.jpeg)
 Goal: $\forall\varepsilon>0$, find $n(\varepsilon)$ s.t. $|x_{n(\varepsilon)}-y|<\varepsilon$.
 Since $y_m\rightarrow y$, $\exists M\in\mathbb{N}$ s.t. $|y_m-y|<\frac{\varepsilon}{2}\enspace \forall m\geq M$.
 Since $x^{(M)}_{n_k}\rightarrow y_M$, then $\exists K_m\in\mathbb{N}$ s.t. $X^{(M)}_{n_k}-y_M\mid <\frac{\varepsilon}{2}\enspace\forall k\geq K_M$

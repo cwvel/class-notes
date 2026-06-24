@@ -90,7 +90,7 @@ $$\arg\min_w (-\log P(w, D))$$
 ## Convolutional neural networks
 - **Convolution layer** introduces *local connectivity* and *parameter sharing*
 - The convolution of an image $x$ with kernel $k$ is
-![300](Screenshot%202026-02-12%20at%2010.37.56%20AM.png)
+![300](../../pasted_images/Screenshot%202026-02-12%20at%2010.37.56%20AM.png)
 - *Padding* of 0 allows overlapping the boundary
 - *Stride* controls how much the filter moves between applications
 - **Pooling layer** inserted between successive convolutional layers, reducing the size of the representation

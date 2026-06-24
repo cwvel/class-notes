@@ -10,7 +10,7 @@
 >[!definition]
 >A sequence $\{X_n\}\subset\mathbb{R}$ is **bounded** if $\{X_n:n\in\mathbb{N}\}$ as a subset of $\mathbb{R}$ is bounded. (i.e. there exists an $M\in\mathbb{R}$ such that $|X_n|\leq M\quad\forall n\in\mathbb{N}$).
 
-![400](Pasted%20image%2020260119220054.png)
+![400](../pasted_images/Pasted%20image%2020260119220054.png)
 
 >[!definition]
 >$$\lim_{n\rightarrow\infty}X_u=X$$
@@ -22,7 +22,7 @@
 >$$\forall\epsilon>0,\quad\exists N\in\mathbb{N}\quad\text{s.t.}\quad|X_n-X|<\epsilon,\quad\text{for all }n\geq N.$$
 
 Any small positive epsilon, defines a small "tube" where every value in the function after $n>N$ fits inside the tube of height $+\epsilon/-\epsilon$.
-![400](Pasted%20image%2020260119220135.png)
+![400](../pasted_images/Pasted%20image%2020260119220135.png)
 
 ## $\epsilon-N$ (convergence) proofs
 **General $\epsilon-N$ proof format:** "If I want the sequence to be within $\epsilon$, I must require $n$ to be at least $N$". $N$ usually depends on $\epsilon$, e.g. $N=$ some function of $\epsilon$.
@@ -106,7 +106,7 @@ $$|X_n|\leq\max\{M,|X|+1\}\enspace\forall n\in\mathbb{N}$$
 >A sequence $\{X_n\}\subset\mathbb{R}$ is **decreasing** if $X_n\geq X_{n+1}$ for all $n\in\mathbb{N}$.
 >A sequence is **monotone** if it is either increasing or decreasing.
 
-![400](Pasted%20image%2020260119220439.png)
+![400](../pasted_images/Pasted%20image%2020260119220439.png)
 
 >[!theorem] Prop.
 >If $\{X_n\}\subset\mathbb{R}$ is increasing/decreasing **and** bounded, then $\{X_n\}$ is convergent.

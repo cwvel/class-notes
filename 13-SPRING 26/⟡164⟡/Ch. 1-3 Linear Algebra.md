@@ -25,7 +25,7 @@ $$x\cdot y=0$$
 ****
 Let $V\subset\mathbb{R}^n$ be a **linear subspace** (for all $x,y\in V$, $ax+by\in V$). Its **orthogonal complement** is
 $$V^\perp:=\{x\in\mathbb{R}^n:x\cdot v=0,\forall v\in V\}$$
-![](Pasted%20image%2020260330132612.png#center|200)
+![200](../pasted_images/Pasted%20image%2020260330132612.png)
 We can always decompose
 $$\mathbb{R}^n=V\oplus V^\perp$$
 where for any $x\in\mathbb{R^n}$,

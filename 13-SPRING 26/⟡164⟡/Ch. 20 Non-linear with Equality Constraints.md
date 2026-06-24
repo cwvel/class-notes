@@ -25,7 +25,7 @@ $$\begin{align}
 \text{s.t.}\quad&x_2-x_1=1\\
 &x_1+x_2\le 2
 \end{align}$$
-![300](Pasted%20image%2020260531133628.png)
+![300](../pasted_images/Pasted%20image%2020260531133628.png)
 The feasible set is the bolded solid line, and the parabolas are the level sets of $f$.
 We want to find the lowest level set that intersects the feasible set, which lies on the level set with $f=-1/4$ at $x^*=[1/2,3/2]^\top$.
 
@@ -49,7 +49,7 @@ $$D\mathbf h(x^*)=\begin{bmatrix}Dh_1(x^*)\\\vdots\\Dh_m(x^*)\end{bmatrix}=\begi
 $x^*$ is regular if and only if rank $Dh(x^*)=m$ (it is full rank).
 - The gradient $\nabla h_i(x^*)$ is perpendicular to the constraint surface (level set) $h_i(x) = 0$, meaning any feasible direction $d$ must be tangent to the surface. To remain on all constraint surfaces simultaneously, your direction must be perpendicular to every gradient, satisfying $Dh(x^*)d = 0$.
 
-![300](Pasted%20image%2020260531000157.png)
+![300](../pasted_images/Pasted%20image%2020260531000157.png)
 
 ## 20.3 Tangent and normal spaces
 **Def.** A **curve** $C$ on a surface $S$ is a set of points
@@ -58,19 +58,19 @@ continuously parametrized by $t\in(a,b)$, that is, $x:(a,b)\to S$ is a continuou
 - All the points on the curve satisfy the equation describing the surface
 - $C$ passes through $x^*$ if there exists $t^*\in(a,b)$ s.t. $x(t*)=x^*$
 - We can think of a curve as the path traversed by a point $x$ travelling on the surface $S$, whose position is given by $x(t)$ at time $t$
-![300](Pasted%20image%2020260531134819.png)
+![300](../pasted_images/Pasted%20image%2020260531134819.png)
 
 **Def.** The **tangent space** at a point $x^*$ on the surface 
 $$S=\{x\in\mathbb{R}^n:h(x)=0\}$$
 is the set 
 $$T(x^*)=\{y:Dh(x^*)y=0\}$$
 Note that the tangent space $T(x^*)$ is the *nullspace* of the matrix $Dh(x^*)$. Therefore the tangent space is a subspace of $\mathbb{R}^n$.
-![200](Pasted%20image%2020260531114703.png)
+![200](../pasted_images/Pasted%20image%2020260531114703.png)
 
 Assuming that $x^*$ is regular, the dimension of the tangent space is $n-m$, where $m$ is the number of equality constraints.
 We define the **tangent plane** to $x^*$ to be the set
 $$TP(x^*)=T(x^*)+x^*=\{x+x^*:x\in T(x^*)\}$$
-![Pasted image 20260531135708](Pasted%20image%2020260531135708.png)
+![Pasted image 20260531135708](../pasted_images/Pasted%20image%2020260531135708.png)
 
 **Thm 20.1.** Suppose $x^*\in S$ is a regular point, then $\mathbf y\in T(x^*)$ if and only if there exists a differentiable curve in $S$ passing through $x^*$ with derivative $\mathbf y$ at $x^*$.
 ****
@@ -93,7 +93,7 @@ $$NP(x^*)=N(x^*)+x^*=\{x+x^*\in\mathbb{R}^n:x\in N(x^*)\}$$
 ****
 **Lemma 20.1.** We have $T(x^*)=N(x^*)^\perp$ and $T(x^*)^\perp=N(x^*)$.
 - The tangent space and normal space are *orthogonal complements* of each other.
-![400](Pasted%20image%2020260531140127.png)
+![400](../pasted_images/Pasted%20image%2020260531140127.png)
 
 ## 20.4 Lagrange condition
 *Generalize the idea of first-order optimality conditions to the constraint case*
@@ -108,14 +108,14 @@ $$\implies\nabla f(x(t^*))\perp \dot x(t^*)$$
 So at the minimizing $x^*=x(t^*)$ we must have that $\nabla f(x^*)$ is parallel to $\nabla h(x^*)$, since they're both perpendicular to the curve.
 Thus if $x^*$ is a minimizer and $\nabla h(x^*)\ne0$, there must exist a $\lambda^*\in\mathbb{R}$ s.t.
 $$\nabla f(x^*)+\lambda^*\nabla h(x^*)=0$$
-![Pasted image 20260531140805](Pasted%20image%2020260531140805.png)
+![Pasted image 20260531140805](../pasted_images/Pasted%20image%2020260531140805.png)
 From this we get the first-order optimality conditions (necessary but not sufficient)
 $$\nabla f(x^*)+\lambda^*\nabla h(x^*)=0$$
 $$h(x^*)=0$$
 **Thm 20.2 (Lagrange's thm for $n-2,m=1$).** Let $x^*$ be a minimizer of $f:\mathbb{R}^2\to\mathbb{R}$ subject to constraint $h(x)=0$, $h:\mathbb{R}^2\to\mathbb{R}$. Then $\nabla f(x^*)$ and $\nabla h(x^*)$ are parallel. That is, if $\nabla h(x^*)\ne0$, there exists a scalar $\lambda^*$ s.t.
 $$\nabla f(x^*)+\lambda^*\nabla h(x^*)=0$$
 where $\lambda^*$ is called the *Lagrange multiplier*.
-![300](Pasted%20image%2020260531143101.png)
+![300](../pasted_images/Pasted%20image%2020260531143101.png)
 This theorem provides the first-order necessary (but not sufficient) conditions for a local minimizer **(FONC)**:
 $$\begin{align}\nabla f(x^*)+\lambda^*\nabla h(x^*)&=\mathbf 0\\\\h(x^*)&=0\end{align}$$
 We now generalize for the case where $f:\mathbb{R}^n\to\mathbb{R}$ and $h:\mathbb{R}^n\to\mathbb{R}^m$, $m\le n$:
@@ -126,7 +126,7 @@ $$Df(x^*)+\lambda^{*\top}Dh(x^*)=0$$
 or equivalently
 $$\nabla f(x^*)+\sum_{i}^m\nabla h_i(x^*)\lambda_i^*=0$$
 (More generally)
-![Pasted image 20260531144733](Pasted%20image%2020260531144733.png)
+![Pasted image 20260531144733](../pasted_images/Pasted%20image%2020260531144733.png)
 If $x^*$ is an extremizer, then the gradient of $f$ can be expressed as a linear combination of the gradients of the constraints.
 ****
 Regularity is an important assumption, as illustrated in the example:
@@ -143,7 +143,7 @@ However, $x^*$ is not a regular point, which is why the theorem does not apply h
 $$\begin{align}\min\quad&x_1^2+x_2^2\\\text{s.t.}\quad&x_1^2+2x_2^2-1=0\end{align}$$
 We define $f(x)=x_1^2+x_2^2$ and $h(x)=x_1^2+2x_2^2-1$
 Graphical soln:
-![300](Pasted%20image%2020260531005947.png)
+![300](../pasted_images/Pasted%20image%2020260531005947.png)
 Numerical soln:
 We have
 $$\nabla f(x)=[2x_1,2x_2]^\top,\quad\nabla h(x)=[2x_1,4x_2]^\top$$

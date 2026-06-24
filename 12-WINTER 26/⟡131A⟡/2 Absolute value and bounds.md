@@ -5,8 +5,8 @@
 >2. The distance between $a,b\in\mathbb{R}$ is $|a-b|$.
 >$\quad$
 
-![400](Pasted%20image%2020260111172057.png)
-![400](Pasted%20image%2020260111172129.png)
+![400](../pasted_images/Pasted%20image%2020260111172057.png)
+![400](../pasted_images/Pasted%20image%2020260111172129.png)
 ## Properties & Triangle Inequality
 >[!theorem] Properties
 >1) $|a|\leq b$ if and only if $b\leq a\leq b$
@@ -15,7 +15,7 @@
 >$\quad$
 
 ***Proof (1):***
-![400](Screenshot%202026-01-11%20at%205.29.28%20PM.png)
+![400](../pasted_images/Screenshot%202026-01-11%20at%205.29.28%20PM.png)
 $(\implies)$
 If $-b\leq a\leq b$, then we have $a\leq b$ and $-b\leq a$.
 This implies both $a\leq b$ and $-a\leq b$.
@@ -31,7 +31,7 @@ In either case, the conclusion is that we have $-b\leq a\leq b$.
 
 
 ***Proof (2):***
-![400](Pasted%20image%2020260111173541.png)
+![400](../pasted_images/Pasted%20image%2020260111173541.png)
 *The case where $|a+b|\leq|a|+|b|$ is not a normal equality is when $a$ is positive and $b$ is negative. Then because $|a-b|$ is the distance between $a$ and $b$ we can think of $|a+b|$ as the distance between $a$ and $-b$ (which is positive assuming $b$ is negative).*
 Since $|a|\leq|a|$, by (1.), we have $-|a|\leq a\leq |a|$. Similarly, we have $-|b|\leq b\leq |b|$.
 Taking the sum, we have 
@@ -53,7 +53,7 @@ Thus $|a-c|\leq |a-b|+|b-c|$.
 >$$M\geq n\quad\forall n\in \mathcal{S}$$
 >A number $m\in\mathbb{R}$ is a **lower bound** of $\mathcal{S}$ if $$m\leq n\quad\forall n\in \mathcal{S}$$
 
-![400](Pasted%20image%2020260111172655.png)
+![400](../pasted_images/Pasted%20image%2020260111172655.png)
 
 >[!definition]
 >A number $M\in\mathbb{R}$ is the **least upper bound** of $\mathcal{S}$ if for any other upper bound $M'$ of $\mathcal{S}$, we have $$M\leq M'.$$

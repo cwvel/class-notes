@@ -33,7 +33,7 @@ $\alpha_0=\arg\min\phi_0(\alpha)$, where $\phi_0(\alpha)=f(x^{(0)}+\alpha d^{(0)
 **Lemma.** In the conjugate direction algorithm,
 $$g^{(k+1)\top}d^{(i)}=0$$
 for all $k,0\le k\le n-1$, and $0\le i\le k$. In other words at each step $k+1$, the gradient $g^{(k+1)}$ is orthogonal to all previous Q-conjugate search directions $d^0,\dots,d^k$.
-![300](Pasted%20image%2020260503150535.png)
+![300](../pasted_images/Pasted%20image%2020260503150535.png)
 
 In each iteration, we choose the minimum along one direction,
 $$f(x^{(k+1)})=\min_\alpha f(x^{(k)}+\alpha d^{(k)})$$

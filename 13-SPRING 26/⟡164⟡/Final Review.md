@@ -161,9 +161,9 @@ Original problem has a feasible region if and only if we can have $I_m^\top y=0$
 
 ## Ch. 17 Duality
 
-![Pasted image 20260606163753](Pasted%20image%2020260606163753.png)
-![Pasted image 20260607212543](Pasted%20image%2020260607212543.png)
-![Pasted image 20260607212551](Pasted%20image%2020260607212551.png)
+![Pasted image 20260606163753](../pasted_images/Pasted%20image%2020260606163753.png)
+![Pasted image 20260607212543](../pasted_images/Pasted%20image%2020260607212543.png)
+![Pasted image 20260607212551](../pasted_images/Pasted%20image%2020260607212551.png)
 (if going from $\max$ to $\min$ then flip the direction of the inequality)
 If one problem is *unbounded* $\implies$ the other is infeasible
 If one is *infeasible* $\implies$ the other is either infeasible or unbounded

@@ -139,7 +139,7 @@ The sum of the series of $\frac{1}{n}$ is greater than the area under the curve 
 $$\sum\frac{1}{n}>\sum_1^\infty\frac{1}{x}dx=\lim_{t\rightarrow\infty}\int_1^t\frac{1}{x}dx=\lim_{t\rightarrow\infty}\log t=+\infty$$
 Thus $\sum\frac{1}{n}$ is not convergent, since it is greater than a function that diverges to infinity.
 
-![400](IMG_2610.jpeg)
+![400](../pasted_images/IMG_2610.jpeg)
 Each rectangle has area above the curve
 
 *ex.* $\sum\frac{1}{n^2}$

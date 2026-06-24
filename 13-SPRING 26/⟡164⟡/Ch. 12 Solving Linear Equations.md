@@ -31,7 +31,7 @@ Then if $x\ne x^*$ we have $\|A(x-x^*)\|^2>0$ because $R(A)=n$, so $x^*$ must be
 - If $m=n$, then $b\in R(A)$ is always true, and the solution is $x^*=A^{-1}b$. 
 - If $m>n$, we can assume $b\not\in R(A)$. We want to find the point $h\in R(A)$ that is "closest" to $b$. 
 	- $h$ should be a point such that the error vector $e=h-b$ is *orthogonal* to the subspace $R(A)$, called the **orthogonal projection** of $b$ onto the subspace $R(A)$
-![400](Pasted%20image%2020260505235127.png)
+![400](../pasted_images/Pasted%20image%2020260505235127.png)
 We get that
 $$h=Ax^*=A(A^\top A)^{-1}A^\top b$$
 so the vector $h\in R(A)A$ minimizing $\|b-h\|$ is exactly the orthogonal projection of $b$ onto $R(A)$. In other words, $x^*=\min\|Ax-b\|$ is exactly the vector that makes $Ax-b$ orthogonal to $R(A)$.
@@ -88,7 +88,7 @@ $$x^*=(A^\top A)^{-1}A^\top b$$
 Now we consider the case where $n\ge m$ (more columns than rows). We still require $R(A)=m$ (full rank).
 Now we have infinitely many solutions. We want to pick the solution closest to the origin, i.e. with *minimal norm*,
 $$\min_{x\in\mathbb{R}^n}\|x\|,\quad Ax=b$$
-![200](Pasted%20image%2020260506131006.png)
+![200](../pasted_images/Pasted%20image%2020260506131006.png)
 
 **Thm.** The unique solution to $\min\|x\|, Ax=b$ is
 $$x^*=A^\top(AA^\top)^{-1}b$$
@@ -115,7 +115,7 @@ $$x^{(im+j)}=x^{(in+j-1)}+\mu(b_i-a_j^\top x^{(im+j-1)})\frac{a_j}{a_j^\top a_j}
 
 *Rm.* For $x^0\ne0$, the algorithm converges to the point in $\{x:Ax=b\}$ minimizing $\|x-x^0\|$.
 
-![300](Pasted%20image%2020260506133124.png)
+![300](../pasted_images/Pasted%20image%2020260506133124.png)
 
 ## 12.5 Solving linear systems in general
 $$Ax=b,\quad A\in\mathbb{R}^{m\times n},\quad R(A)=r\le\min(m,n)$$

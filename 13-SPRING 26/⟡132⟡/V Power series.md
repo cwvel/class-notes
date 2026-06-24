@@ -65,7 +65,7 @@ $$f_n(z)\rightrightarrows f(z)$$
 - Uniform convergence means the entire function $f_n$ stays close to the limit $f$ when $n$ is large enough
 - A sequence of functions approaches the limit at a consistent "speed" across the entire surface, ensuring no "jumps" or discontinuities
 - (Thus the resulting limit function is analytic)
-![300](Pasted%20image%2020260514183552.png)
+![300](../pasted_images/Pasted%20image%2020260514183552.png)
 *Rm.* pointwise holds only for one point, uniform convergence means it holds for all points. it is a stronger condition that implies pointwise,
 $$(f_j)\text{ converges uniformly to $f$ on $E$}\Rightarrow(f_j)\text{ converges pointwise to $f$ on $E$}$$
 ****
@@ -138,7 +138,7 @@ Since $z_n$ is bounded by a convergent sequence $M_n$, we can conclude that $\su
 $f_n(z)$ converges to 0 normally on $D$. For any such $\overline{D(z_0,r)}\subseteq D$ we may define a fixed $R<1$ such that $\overline{D(z_0,r)}\subseteq\overline{D(0,R)}$, even though near the boundary $|z|=1$ we don't have uniform convergence.
 
 If $K=\partial R$ ($R$ is a closed rectangle in $D$) or more generally if $K$ is any piecewise smooth curve to $f_n\rightrightarrows f$ on $\partial R$, it follows that if $(f_n)$ are analytic and converges normally to $f$ then $f$ is analytic.
-![300](Pasted%20image%2020260514201741.png)
+![300](../pasted_images/Pasted%20image%2020260514201741.png)
 *Key reason.* 
 - A closed rectangle $R$ is a compact set so we can cover the entire rectangle (interior and boundary) with a finite number of "uniform convergence disks". 
 - If we have uniform convergence on each of the closed disks we have uniform convergence on their union. 
@@ -159,7 +159,7 @@ We saw a previous example of the power series, $\sum_{k=0}^\infty z^k$, which co
 1) $D(z_0,R)$: normal convergence
 2) Outside of $\overline{D(z_0,R)}$: divergence
 3) On $\partial D(z_0,R)$: can be either
-![200](Pasted%20image%2020260515140343.png)
+![200](../pasted_images/Pasted%20image%2020260515140343.png)
 $R$ is known as the **radius of convergence** for the power series.
 - $\sum a_kz^k$ converges absolutely if $|z|<R$
 - $\sum a_kz^k$ does not converge if $|z|>R$

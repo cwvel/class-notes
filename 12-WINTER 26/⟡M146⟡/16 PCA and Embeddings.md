@@ -3,16 +3,16 @@
 	- Can contain duplicated features
 	- Curse of dimensionality
 - **PCA** allows us to learn lower-dimensional representations of the data
-![300](Pasted%20image%2020260305101825.png)
+![300](../pasted_images/Pasted%20image%2020260305101825.png)
 - Goal: minimizing **reconstruction (approximation) error**
 	- Minimize the Euclidean distances between the original point and its projection onto the line (this measures the information loss)
-![150](Pasted%20image%2020260305101908.png)
+![150](../pasted_images/Pasted%20image%2020260305101908.png)
 - Equivalent goal: maximizing **variance** after projection
 	- Pick the directions of maximum variance
 	- Want points to be the most compact on the representation
-![300](Pasted%20image%2020260305102345.png)
+![300](../pasted_images/Pasted%20image%2020260305102345.png)
 ## PCA formulation
-![150](Pasted%20image%2020260305102204.png)
+![150](../pasted_images/Pasted%20image%2020260305102204.png)
 - $X\in\mathbb{R}^{n\times d}$ = raw data
 - $Z=XP$ is an $n\times k$ matrix, with $k<<d$
 - $P$ is a $d\times k$ matrix, specifying the projection
@@ -41,14 +41,14 @@ Singular value decomposition (low rank approximation)
 $$X=U\Sigma V^\top=\sum_{i=1}^r\sigma_iu_iv_i^\top$$
 - $r$ = rank of $X$, $u_i$, $v_i$ are orthonormal vectors
 - Picking top $d$ dimensions
-![300](Pasted%20image%2020260305105719.png)
+![300](../pasted_images/Pasted%20image%2020260305105719.png)
 
 Then the eigenvectors of $C_X=\frac{1}{n}X^\top X$ are
 $$X^\top X=(U\Sigma V^\top)^\top(U\Sigma V^\top)=V\Sigma^2V^\top$$
 - Eigenvectors of $V$ = right singular vectors of $X$
 - Eigenvalues of $V$ = $\frac{1}{n}\times(\text{singular values of X})^2$
 
-![300](Pasted%20image%2020260305105933.png)
+![300](../pasted_images/Pasted%20image%2020260305105933.png)
 
 - PCA is not scale invariant, if we scale one dimension then it will dominate the PCA direction
 - PCA assumptions of linearity and orthogonality are not always appropriate
@@ -64,15 +64,15 @@ Training embeddings
 
 - Matrix factorization for recommendation system
 	- Want to predict the missing elements
-![300](Pasted%20image%2020260305112754.png)
+![300](../pasted_images/Pasted%20image%2020260305112754.png)
 - Want to factorize into $W$ and $H^\top$
 	- $W$ = lower dimension embedding of users
 	- $H$ = lower dimension embedding of movies
 - The inner product of $W$ and $H$ can be used to predict the "unseen" data for recommendations
-![300](Pasted%20image%2020260305112905.png)
+![300](../pasted_images/Pasted%20image%2020260305112905.png)
 
-![400](Pasted%20image%2020260305112718.png)
+![400](../pasted_images/Pasted%20image%2020260305112718.png)
 - Latent feature space:
-![300](Pasted%20image%2020260305113414.png)
-![400](Pasted%20image%2020260305112824.png)
+![300](../pasted_images/Pasted%20image%2020260305113414.png)
+![400](../pasted_images/Pasted%20image%2020260305112824.png)
 - Can be solved by SGD

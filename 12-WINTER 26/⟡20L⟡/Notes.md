@@ -32,9 +32,9 @@ $$\text{transmittance} =T= \frac{I}{I_0}=10^{-\varepsilon LC}$$
 $$\text{absorbance}=A=\varepsilon LC$$
 $$A=-\log T$$
 - $\varepsilon$ constant when $A$ is between 0.1 and 1.0
-![250](Pasted%20image%2020260313135815.png)
+![250](../pasted_images/Pasted%20image%2020260313135815.png)
 - optimal wavelength: choose at **highest absorbance**
-![250](Pasted%20image%2020260313135850.png)
+![250](../pasted_images/Pasted%20image%2020260313135850.png)
 - blanking for background interference: **blank solution** should contain all chemical species except for the one being measured
 	- incorrect blank solution $\to$ y-intercept will not be at 0
 
@@ -79,10 +79,10 @@ $$N_\text{base}\times V_\text{base}=N_\text{acid}\times V_\text{acid}\qquad\text
 - soap molecule (natural surfactant)
 	- has a polar ionic group (hydrophilic) and a large non-polar hydrocarbon group (hydrophobic)
 	- the non-polar group will "stick" to grease/oil while the polar group interacts with the aqueous phase
-![250](Pasted%20image%2020260313143745.png)
+![250](../pasted_images/Pasted%20image%2020260313143745.png)
 - detergent (synthetic surfactant)
 	- modified polar group, does not form insoluble precipitates with calcium and magnesium (found in hard water)
-![300](Pasted%20image%2020260313143945.png)
+![300](../pasted_images/Pasted%20image%2020260313143945.png)
 
 ### equivalent weight
 - for an acid: weight (grams) of compound containing ONE equivalent of an *acidic proton*
@@ -119,12 +119,12 @@ for an **elementary (single-step) reaction:**
 $$aA+bB\longrightarrow\text{products}$$
 $$\text{rate}=k[A]^a[B]^b$$
 - rate law for a mechanism is dependent on the **rate-determining step**
-![500](Pasted%20image%2020260313145955.png)
+![500](../pasted_images/Pasted%20image%2020260313145955.png)
 
 ### method 1: instantaneous initial rates
 - hold all initial concentrations fixed except for one
 	- then we know change in concentration of one reactant / change in time
-![400](Pasted%20image%2020260313150154.png)
+![400](../pasted_images/Pasted%20image%2020260313150154.png)
 comparing trial ratios:
 $$\frac{\text{trial \#2 rate}}{\text{trial \#1 rate}}=\frac{k[NO]^x[O_2]^y}{k[NO]^x[O_2]^y}$$
 - $[O_2]$ $\times 3$ $\implies$ rate $\times 3$

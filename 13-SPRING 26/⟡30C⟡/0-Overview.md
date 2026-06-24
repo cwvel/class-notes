@@ -1,4 +1,4 @@
-![Pasted image 20260401141329](Pasted%20image%2020260401141329.png)
+![Pasted image 20260401141329](../pasted_images/Pasted%20image%2020260401141329.png)
 ## Ch. 25
  - [ ] 25.1 and 2, first
  - [ ] 4, 3, 5, and 6

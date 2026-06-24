@@ -73,7 +73,7 @@ $\Downarrow$ *error reaches system boundary*
 - Alternative to **merge**: merges a feature branch, but instead of a merge commit with two parents, you just "copy" the individual commits
 - `git rebase f` combines the patches from all commits on the feature branch into one instead of creating a merge commit with two parents
 
-![500](Pasted%20image%2020251124144125.png)
+![500](../../Pasted%20images/Pasted%20image%2020251124144125.png)
 
 
 ### `git merge --squash`: Squash merge

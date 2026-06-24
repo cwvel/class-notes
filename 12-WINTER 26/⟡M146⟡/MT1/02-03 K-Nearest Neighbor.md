@@ -1,7 +1,7 @@
 # K-Nearest Neighbors Prediction
 **Learning**: Store all training examples as vectors $x_i$
 **Prediction (Nearest Neighbor)**: For a new example $x$, find the $x_i$ that is **closest** to $x$, and predict its label $y_i$ for $x$
-![300](Screenshot%202026-01-30%20at%204.55.07%20PM.png)
+![300](../../pasted_images/Screenshot%202026-01-30%20at%204.55.07%20PM.png)
 
 **Prediction (K-Nearest Neighbor)**: Find the $k$ **closest** training examples to $x$ and construct the prediction using these $k$ points
 
@@ -24,32 +24,32 @@ Hamming distance = # of bits/features that are different
 - Weighted vote (weigh by distances)
 # Evaluation metrics
 ## Confusion matrix
-![400](Screenshot%202026-01-30%20at%205.01.00%20PM.png)
+![400](../../pasted_images/Screenshot%202026-01-30%20at%205.01.00%20PM.png)
 - True positive (TP) = predicted TRUE when TRUE
 - False negative (FN) = predicted FALSE  when TRUE
 - False positive (FP) = predicted TRUE when FALSE
 - True negative (TN) = predicted FALSE when FALSE
 **Accuracy** measures the proportion of correct predictions
-![300](Pasted%20image%2020260130170224.png)
+![300](../../pasted_images/Pasted%20image%2020260130170224.png)
 
 ## Precision and recall
 **Precision** = proportion of predicted positives that are correct
 **Recall** = proportion of actual positives that are correctly identified
-![Screenshot 2026-01-30 at 5.03.14 PM](Screenshot%202026-01-30%20at%205.03.14%20PM.png)
+![Screenshot 2026-01-30 at 5.03.14 PM](../../pasted_images/Screenshot%202026-01-30%20at%205.03.14%20PM.png)
 
 ## F1 = harmonic mean of precision and recall
 $$F_1=\frac{2}{\frac{1}{\text{Precision}}+\frac{1}{\text{Recall}}}=\frac{2(\text{Precision})(\text{Recall})}{\text{Precision}+\text{Recall}}$$
-![400](Screenshot%202026-01-30%20at%206.40.25%20PM.png)
+![400](../../pasted_images/Screenshot%202026-01-30%20at%206.40.25%20PM.png)
 
 # Parameter tuning
 ## Train/Dev/Test splits
-![400](Screenshot%202026-01-30%20at%206.47.02%20PM.png)
+![400](../../pasted_images/Screenshot%202026-01-30%20at%206.47.02%20PM.png)
 Training data, developmental data (Validation set to find the best parameters)
 ## N-fold cross validation
-![400](Screenshot%202026-01-30%20at%206.48.02%20PM.png)
+![400](../../pasted_images/Screenshot%202026-01-30%20at%206.48.02%20PM.png)
 
 ### Parameter tuning using cross validation
-![400](Screenshot%202026-01-30%20at%206.58.20%20PM.png)
+![400](../../pasted_images/Screenshot%202026-01-30%20at%206.58.20%20PM.png)
 - Given $D^{TRAIN}$ and $D^{TEST}$, for each possible hyperparameter value, conduct cross-validation on $D^{TRAIN}$
 - Choose the model parameter with best cross-validation performance
 - *(Optional)* Re-train the model on $D^{TRAIN}$ with the best parameter set

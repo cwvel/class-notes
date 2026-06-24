@@ -3,7 +3,7 @@
 - **plane wave:** at any instant, the fields are uniform over any plane perpendicular to the direction of propagation
 	- direction of propagation: $\vec E\times \vec B$
 
-![200](Pasted%20image%2020260209190220.png)
+![200](../../pasted_images/Pasted%20image%2020260209190220.png)
 
 - electromagnetic wave in a vacuum:
 	- ratio between magnitudes of electric and magnetic field: $E=cB$
@@ -14,7 +14,7 @@ $$c=\frac{1}{\sqrt{\epsilon_0\mu_0}}$$
 	1. *transverse:* both $\vec E$ and $\vec B$ perpendicular to the direction of propagation, and to each other (direction of propagation = $\vec E\times\vec B$)
 	2. wave travels in a *vacuum* with definite and constant speed
 - **right-hand-rule**
-![250](Pasted%20image%2020260209190511.png)
+![250](../../pasted_images/Pasted%20image%2020260209190511.png)
 
 ### 32.2 sinusoidal electromagnetic waves
 - a sinusoidal plan em-wave traveling in vacuum in $+x$ direction
@@ -23,7 +23,7 @@ $$c=\frac{1}{\sqrt{\epsilon_0\mu_0}}$$
 $$\vec E(x,t)=E_\text{max}\cos(kx-\omega t)\hat j$$
 $$\vec B(x,y)=B_\text{max}\cos(kx-\omega t)\hat k$$
 $$E_\text{max}=cB_\text{max}$$
-![200](Pasted%20image%2020260228141140.png)
+![200](../../pasted_images/Pasted%20image%2020260228141140.png)
 ### 32.3 electromagnetic waves in matter
 - when the em wave travels through a *dielectric* the wave speed $v$ is less than $c$
 $$v=\frac{1}{\sqrt{\epsilon\mu}}=\frac{c}{\sqrt{KK_m}}$$
@@ -53,7 +53,7 @@ $$u_B=\frac{1}{2}\epsilon_0E^2=\frac{B^2}{2\mu_0}$$
 	- average energy density (note, average value of $\sin^2(\alpha)=1/2$):
 $$\langle u\rangle=\langle u_E\rangle+\langle u_B\rangle$$
 - **poynting vector of a resistor**
-![200](Pasted%20image%2020260213105747.png)
+![200](../../pasted_images/Pasted%20image%2020260213105747.png)
 - at the surface: $B=\frac{\mu_0i}{2\pi r_0}$, $E=\frac{iR}{l}$ $\implies |\vec S|=\frac{i^2R}{l2\pi r_0}$
 - integrated across the surface of the resistor (multiplying by the surface area) gives the **power dissipated in a resistor** $P=Ri^2$
 - **total power radiated:** integrated over a closed surface, for a sphere:
@@ -68,7 +68,7 @@ $$P=I\times 4\pi r^2$$
 ### 32.5 Standing Electromagnetic Waves
 **standing wave.** superposition of an incident wave and a reflected wave (like on a string)
 
-![300](Pasted%20image%2020260213110018.png)
+![300](../../pasted_images/Pasted%20image%2020260213110018.png)
 
 **superposition principle of waves principle.**
 $$E_y(x,t)=-2E_{max}\sin kx\sin \omega t$$

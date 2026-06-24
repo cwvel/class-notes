@@ -16,21 +16,21 @@ Single-cell technology allows you to measure expression of genes in individual c
 How should we determine distance between two clusters when one has more than one point?
 - Single linkage clustering
 	- Minimum distance between any two points
-![200](Screenshot%202026-01-20%20at%202.45.23%20PM.png)
+![200](../../pasted_images/Screenshot%202026-01-20%20at%202.45.23%20PM.png)
 - Complete linkage clustering
 	- Maximum distance between any two points
-![200](Screenshot%202026-01-20%20at%202.45.49%20PM.png)
+![200](../../pasted_images/Screenshot%202026-01-20%20at%202.45.49%20PM.png)
 - Average linkage clustering
-![200](Pasted%20image%2020260120144623.png)
+![200](../../pasted_images/Pasted%20image%2020260120144623.png)
 - Centroid linkage clustering
-![200](Pasted%20image%2020260120144642.png)
+![200](../../pasted_images/Pasted%20image%2020260120144642.png)
 
 - Hierarchical clustering does not uniquely determine an ordering of leaves (rows). However not all row orders are consistent with the dendogram.
 
 ### Optimal ordering leaves
 Order leaves of hierarchical clustering dendrogram to minimize total distance between adjacent leaves (or equivalently, maximize similarity of neighboring leaves).
 Can be done in O(n$^3$) time.
-![Pasted image 20260120150039](Pasted%20image%2020260120150039.png)
+![Pasted image 20260120150039](../../pasted_images/Pasted%20image%2020260120150039.png)
 
 ## K-means clustering
 ### Lloyd's algorithm:
@@ -40,7 +40,7 @@ Can be done in O(n$^3$) time.
 4. Each Center moves to the centroid of all the points it "owns"
 5. Repeat 3-4.
 ### K-means objective function
-![400](Pasted%20image%2020260120152839.png)
+![400](../../pasted_images/Pasted%20image%2020260120152839.png)
 The algorithm is guaranteed to converge, but not to find an optimal solution.
 The initialization of the original Center locations is random. How to address this:
 - Multiple random initializations and take the best one
@@ -68,7 +68,7 @@ Some limitations of K-means:
 - There could be cluster shapes not captured based on partitioning space based on distance
 
 ## Using probabilistic soft assignments
-![500](Pasted%20image%2020260209213642.png)
+![500](../../pasted_images/Pasted%20image%2020260209213642.png)
 - We can **estimate assignment probabilities** assuming a gene is equally likely to be in any of the three groups. In general: $$\frac{\pi_kf(x\mid\mu_k,\sigma_k^2)}{\sum_{i=1}^K\pi_if(x\mid\mu_i,\sigma_i^2)}$$where $\pi_i$ is the cluster prior (prior probabilty before seeing the data) and $f$ is a gaussian density with mean $\mu$ and variance $\sigma^2$
 - We can **estimate the mean** when given the *assignment probabilities:* $$\mu_i=\frac{\sum_{j=1}^Nw_{ij}x_j}{\sum_{j=1}^Nw_{ij}}$$where $w_{ij}$ is the soft assignment probability for datapoint $x_j$ to cluster $i$. We can also estimate the **variance**
 - **Cluster prior estimate** for cluster $i$ when estimating from data:
@@ -86,5 +86,5 @@ $$\pi_i=\frac{\sum_{j=1}^Nw_{ij}}{N}$$
 **Gaussian mixture models** can be generalized to multiple dimensions -- multidimensional gaussians. However they still do not capture all shapes, only spherical/oval shapes.
 
 # Clustering short time-series data
-![Pasted image 20260209221956](Pasted%20image%2020260209221956.png)
+![Pasted image 20260209221956](../../pasted_images/Pasted%20image%2020260209221956.png)
 

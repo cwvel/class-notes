@@ -1,5 +1,5 @@
 # Least Squares Method for regression
-![400](Pasted%20image%2020260218221815.png)
+![400](../../pasted_images/Pasted%20image%2020260218221815.png)
 - We want to use the training data to find the best possible value(s) of $w$
 - For each input $(x_i,y_i)$ in the training set, the cost of a mistake (loss) is
 $$|y_i-w^\top x_i|$$
@@ -20,7 +20,7 @@ $$J(w)=\frac{1}{2}\sum_{i=1}^m(y_i-w^\top x_i)^2$$
 - **Least Mean Squares (LMS) Regression**
 	- Learning to minimize the mean squared error
 $$\min_w\frac{1}{2}\sum_{i=1}^m(y_i-w^\top x_i)^2$$
-![200](Pasted%20image%2020260218223231.png)
+![200](../../pasted_images/Pasted%20image%2020260218223231.png)
 - **Optimize using gradient descent**
 	- Objective function:
 $$J(w)=\frac{1}{2}(y_i-w^\top x_i)^2$$

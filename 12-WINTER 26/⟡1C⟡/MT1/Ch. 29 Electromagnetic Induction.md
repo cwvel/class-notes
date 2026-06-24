@@ -12,11 +12,11 @@ $$d\Phi_B=\vec B\cdot d\vec A=B\enspace dA\cos\phi$$
 where $\phi$ is the angle between $\vec B$ and $d\vec A$.
 Then total magnetic flux through a finite area is:
 $$\Phi_B=\int\vec B\cdot d\vec A=\int B\enspace dA\cos\phi$$
-![300](Pasted%20image%2020260120111922.png)
+![300](../../pasted_images/Pasted%20image%2020260120111922.png)
 If $\vec B$ is uniform over a flat $\vec A$, then
 $$\Phi_B=BA\cos\phi$$
 
-![500](Pasted%20image%2020260120112023.png)
+![500](../../pasted_images/Pasted%20image%2020260120112023.png)
 
 #### Faraday's Law of Induction:
 $$\mathcal{E}=-\frac{d\Phi_B}{dt}$$
@@ -40,8 +40,8 @@ The **direction** of any magnetic induction effect is such as to oppose the caus
 
 In other words the induced EMF opposes the voltage from the source.
 
-![300](Pasted%20image%2020260120113213.png)
-![300](Pasted%20image%2020260120113219.png)
+![300](../../pasted_images/Pasted%20image%2020260120113213.png)
+![300](../../pasted_images/Pasted%20image%2020260120113219.png)
 
 The magnitude of the current still depends on the circuit resistance. *More resistance = less induced current = easier for flux change to take effect.*
 **Persistent current**: Zero resistance, so induced current continues to flow after induced emf has disappeared.
@@ -58,7 +58,7 @@ Only valid if the magnetic field is constant across the length of the entire con
 $$\mathcal{E}=\oint(\vec v\times\vec B)\cdot d\vec l$$
 - Line integral over all elements of **closed conducting loop**
 ### Example
-![400](Pasted%20image%2020260120122925.png)
+![400](../../pasted_images/Pasted%20image%2020260120122925.png)
 Battery drives a current $I=\frac{V}{R}$ through the circuit.
 Because the rod is carrying a current $I$ in a uniform magnetic field $B$ (out of the page), the rod accelerates left.
 As the rod moves left with velocity $v$, it cuts magnetic field lines and develops a motional emf $\mathcal{E}=vBL$
@@ -72,16 +72,16 @@ $$\oint \vec E\cdot d\vec l=-\frac{d\Phi_B}{dt}$$
 - Line integral of electric field around path = Negative of the time rate of change of magnetic flux through path
 
 # 29.6 Eddy Currents
-![300](Pasted%20image%2020260120125544.png)
+![300](../../pasted_images/Pasted%20image%2020260120125544.png)
 "Loops" of electric current induced in conductors that experience a changing magnetic flux. Eddy currents flow in loops inside the conductor, when there is no well-defined external circuit.
 
 # 29.7 Displacement Current and Maxwell's Equations
 ## Displacement current
-![400](Pasted%20image%2020260122102559.png)
+![400](../../pasted_images/Pasted%20image%2020260122102559.png)
 
 Fictitious displacement current in the region between the plates: The changing flux through the bulging surface is equivalent to a conduction current through that surface
 Between the capacitors there is no conduction current but there is a "displacement current" that induces a magnetic field
-![Pasted image 20260122102544](Pasted%20image%2020260122102544.png)
+![Pasted image 20260122102544](../../pasted_images/Pasted%20image%2020260122102544.png)
 
 
 Definition of electric flux:
@@ -92,24 +92,24 @@ $$\oint \vec B\cdot d\vec l=\mu_0(i_C+i_D)_{encl}$$
 Also, the displacement current density:
 $$j_D=\epsilon\frac{dE}{dt}=\frac{I_D}{A}$$
 
-![300](Pasted%20image%2020260122102815.png)
+![300](../../pasted_images/Pasted%20image%2020260122102815.png)
 A capacitor being charged by a current $i_C$ has a displacement current equal to $i_C$ between the plates. This can be regarded as the source of the magnetic field between the plates.
 
 ## Maxwell's Equations of Electromagnetism
-![Pasted image 20260122102853](Pasted%20image%2020260122102853.png)
-![Pasted image 20260122102856](Pasted%20image%2020260122102856.png)
-![Pasted image 20260122102900](Pasted%20image%2020260122102900.png)
-![Pasted image 20260122102903](Pasted%20image%2020260122102903.png)
+![Pasted image 20260122102853](../../pasted_images/Pasted%20image%2020260122102853.png)
+![Pasted image 20260122102856](../../pasted_images/Pasted%20image%2020260122102856.png)
+![Pasted image 20260122102900](../../pasted_images/Pasted%20image%2020260122102900.png)
+![Pasted image 20260122102903](../../pasted_images/Pasted%20image%2020260122102903.png)
 
 ### Symmetry
-![300](Pasted%20image%2020260122102915.png)
+![300](../../pasted_images/Pasted%20image%2020260122102915.png)
 
 # 29.8 Superconductivity
 Superconductor: Sudden disappearance of all electrical resistance when the material is cooled below the critical temperature $T_c$.
 
-![200](Pasted%20image%2020260122103125.png)
+![200](../../pasted_images/Pasted%20image%2020260122103125.png)
 
-![200](Pasted%20image%2020260122103131.png)
+![200](../../pasted_images/Pasted%20image%2020260122103131.png)
 
 
-![200](Pasted%20image%2020260122103138.png)
+![200](../../pasted_images/Pasted%20image%2020260122103138.png)

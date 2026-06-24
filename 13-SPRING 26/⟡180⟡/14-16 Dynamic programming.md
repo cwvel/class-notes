@@ -4,7 +4,7 @@
 - Job $j$ starts at $s_j$, finishes at $f_j$, and has weight $w_j>0$
 - Two jobs are *compatible* if they don't overlap
 - Goal: Find max-weight subset of mutually compatible jobs
-![400](Pasted%20image%2020260514161724.png)
+![400](../pasted_images/Pasted%20image%2020260514161724.png)
 
 **Earliest finish-time first.** Greedy algorithm considering jobs in ascending order of finish time, adding job if compatible with previously chosen job. Fails for weighted version.
 
@@ -27,8 +27,8 @@ Taking the max of:
 - the optimal set of jobs *including* the $j$-th job and the value from subset of jobs compatible with $j$ (before $j$)
 
 ### Brute-force approach
-![Pasted image 20260514162221](Pasted%20image%2020260514162221.png)
-![Pasted image 20260514162238](Pasted%20image%2020260514162238.png)
+![Pasted image 20260514162221](../pasted_images/Pasted%20image%2020260514162221.png)
+![Pasted image 20260514162238](../pasted_images/Pasted%20image%2020260514162238.png)
 Runtime:
 - $T(n)=\Theta(1)$
 - $T(n)=2T(n-1)+c$
@@ -36,7 +36,7 @@ Runtime:
 
 ### Top-down DP (memoization)
 - Cache result of subproblem $j$ in $M[j]$
-![Pasted image 20260514162902](Pasted%20image%2020260514162902.png)
+![Pasted image 20260514162902](../pasted_images/Pasted%20image%2020260514162902.png)
 
 #### Trace
 
@@ -70,13 +70,13 @@ Assuming that $M$ is completed and the array $p(j)$ is completed. Then we make a
 
 Backtracking assuming $M$ is completed and array $p(j)$ values completed. In order for job to be included (from Bellman equation), we require
 $$w_j+OPT(p(j))>OPT(j-1)$$
-![400](Pasted%20image%2020260514164404.png)
+![400](../pasted_images/Pasted%20image%2020260514164404.png)
 
 **Runtime analysis.** $\#$ of recursive calls $\le n\Rightarrow O(n)$
 - To do the union step in constant time we use a bit array
 #### Bottom-up DP
 Unwind recursion
-![400](Pasted%20image%2020260519144213.png)
+![400](../pasted_images/Pasted%20image%2020260519144213.png)
 Also $O(n\log n)$
 ## Knapsack problem
 **Goal.** Pack knapsack to maximize total value of items taken
@@ -97,7 +97,7 @@ $$OPT(i,w)=\begin{cases}0&\text{if }i=0\\\\
 OPT(i-1,w)&\text{if }w_i>w\\\\
 \max\{\underbrace{OPT(i-1,w)}_\text{exclude $i$th, use previous OPT},\enspace \underbrace{v_i+OPT(i-1,w-w_i)}_\text{include $i$th and use OPT for remaining weight}\}&\text{otherwise}\end{cases}$$
 ### Algorithm
-![Pasted image 20260525234127](Pasted%20image%2020260525234127.png)
+![Pasted image 20260525234127](../pasted_images/Pasted%20image%2020260525234127.png)
 
 ### Runtime
 **Thm.** The DP algorithm solves the knapsack problem in $\Theta(nW)$ time and $\Theta(nW)$ space.
@@ -121,9 +121,9 @@ Running time $O(nV)$
 **Secondary structure.** RNA tends to loop back and form *base pairs* with itself. A set of pairs $S=\{(b_i,b_j)\}$ that satisfy:
 - *[Watson-Crick]* $S$ is a matching and each pair is a complement: $A-U$ or $C-G$
 - *[No sharp turns]* The ends of each pair are separated by at least 4 intervening bases, e.g. if $(b_i,b_j)\in S$ then $i<j-4$
-![400](Pasted%20image%2020260530003921.png)
+![400](../pasted_images/Pasted%20image%2020260530003921.png)
 - *[Non-crossing]* If $(b_i,b_j)$ and $(b_k,b_l)$ are two paris in $S$ then we cannot have $i<k<j<l$
-![200](Pasted%20image%2020260530004004.png)![190](Pasted%20image%2020260530004020.png)
+![200](../pasted_images/Pasted%20image%2020260530004004.png)![190](../pasted_images/Pasted%20image%2020260530004020.png)
 
 **Free-energy hypothesis.** RNA molecule will form the secondary structure with the minimum total free energy (approximated by number of base pairs, where more base pairs $\Rightarrow$ lower free energy)
 
@@ -139,10 +139,10 @@ Running time $O(nV)$
 	- From the non-crossing condition we get two subproblems:
 	- $OPT(i,j)=1+\max_t\{OPT(i,t-1)+OPT(t+1,j-1)\}$
 		- Take max over $t$ such that $i\le t<j-4$ and $b_t$ and $b_j$ are Watson-Crick complements
-![400](Pasted%20image%2020260530012059.png)
+![400](../pasted_images/Pasted%20image%2020260530012059.png)
 
 #### Bottom-up DP
-![Pasted image 20260530142016](Pasted%20image%2020260530142016.png)
+![Pasted image 20260530142016](../pasted_images/Pasted%20image%2020260530142016.png)
 
 Time complexity: $O(n^3)$ time and $O(n^2)$ space
 
@@ -155,7 +155,7 @@ Time complexity: $O(n^3)$ time and $O(n^2)$ space
 
 **Def.** An **alignment** $M$ is a set of ordered pairs $x_i-y_j$ such that each character appears in at most one pair and no crossings. The **cost** of an alignment $M$ is
 $$\text{cost}(M)=\underbrace{\sum_{(x_i,y_j)\in M}\alpha_{x_iy_j}}_{\text{mismatch}}+\underbrace{\sum_{i:x_i\text{ unmatched}}\delta +\sum_{j:y_j\text{ unmatched}}\delta}_{\text{gap}}$$
-![300](Pasted%20image%2020260530142329.png)
+![300](../pasted_images/Pasted%20image%2020260530142329.png)
 
 ### Problem structure
 **Def.** $OPT(i,j)$ = min cost of aligning prefixes $x_1\dots x_i$ and $y_1\dots y_j$.
@@ -178,7 +178,7 @@ i\delta&\text{if }j=0\\\\
 \delta+OPT(i,j-1)\end{cases}
 &\text{otherwise}\end{cases}$$
 
-![400](Pasted%20image%2020260530144234.png)
+![400](../pasted_images/Pasted%20image%2020260530144234.png)
 Runs in $\Theta(mn)$ time and space.
 
 **Hirschberg.** Using a combination of divide-and-conquer and dynamic programming, can be done in $O(mn)$ time and $O(m+n)$ space.
@@ -188,7 +188,7 @@ Weighted grid graph for strings $x$ and $y$, with vertices labeled $(i,j)$
 - Vertical and horizontal edges have *gap penalty* weight
 - Diagonal edges have mismatch weight
 	- Edge from $(i-1,j-1)\to(i,j)$ has mismatch of $x_i-y_j$ weight
-![300](Pasted%20image%2020260530152807.png)
+![300](../pasted_images/Pasted%20image%2020260530152807.png)
 The optimal alignment is then the shortest path from $(0,0)$ to $(m,n)$, with cost equal to the cost of the shortest path.
 The alignment can then be found using backtracking
 
