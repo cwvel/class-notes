@@ -1,0 +1,514 @@
+\documentclass[9pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=0.3in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\titleformat{\section}[block]{\normalfont\large\bfseries}{}{0pt}{}[{\vspace{2pt}\titlerule[0.5pt]}]
+\titleformat{\subsubsection}[block]{\normalfont\normalsize\bfseries}{}{0pt}{}[{\vspace{0.5pt}\titlerule[0.2pt]}]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{5pt}{3pt}
+\setlist[itemize]{leftmargin=*, noitemsep, topsep=2pt, partopsep=0pt}
+\setlist[enumerate]{leftmargin=*, noitemsep, topsep=2pt, partopsep=0pt}
+\setlength{\columnsep}{0.3in}
+\setlength{\columnseprule}{0.3pt}
+\pagestyle{empty}
+
+\begin{document}
+\begin{multicols}{2}
+
+\section*{Stable Matching \& Gale-Shapley}
+
+\textbf{Input:} $n$ hospitals $H$, each $h\in H$ ranks students; $n$ students $S$, each $s\in S$ ranks hospitals.
+\begin{itemize}
+  \item \textbf{Matching $M$:} A set of ordered pairs $h$-$s$ s.t.\ each hospital and student appears in at most one pair.
+  \item \textbf{Perfect matching:} $|M|=|H|=|S|=n$ (every vertex covered).
+  \item \textbf{Bipartite model:} vertex sets $H$ and $S$ form partitions; edges only connect $h$ to $s$.
+  \item \textbf{Unstable pair:} Given a perfect matching $M$, hospital $h$ and student $s$ form an unstable pair if $h$ prefers $s$ to its matched student AND $s$ prefers $h$ to its matched hospital. I.e., both would agree to switch.
+  \item \textbf{Stable matching:} A perfect matching with no unstable pairs. Always exists for bipartite instances, but not for non-bipartite (Roommate) instances.
+\end{itemize}
+
+\subsubsection*{Algorithm (Gale-Shapley)}
+
+\textbf{INITIALIZE} $M$ to empty matching.\\
+\textbf{WHILE} some hospital $h$ is unmatched and hasn't offered to every student:\\
+\hspace*{8pt}$s\leftarrow$ first student on $h$'s list to whom $h$ has not yet offered\\
+\hspace*{8pt}\textbf{IF} $s$ is unmatched: Add $h$-$s$ to matching $M$\\
+\hspace*{8pt}\textbf{ELSE IF} $s$ prefers $h$ to current partner $h'$:\\
+\hspace*{16pt}Replace $h'$-$s$ with $h$-$s$ in matching $M$. \textit{(Students ``trade up'')}\\
+\hspace*{8pt}\textbf{ELSE}: $s$ rejects $h$\\
+\textbf{RETURN} stable matching $M$
+\begin{itemize}
+  \item \textit{The side offering gets their optimal choice. There can be more than one stable matching, but this algorithm always returns the same stable matching.}
+\end{itemize}
+
+\subsubsection*{Proof of Correctness}
+
+\begin{itemize}
+  \item \textbf{Termination:} Hospitals offer to students in decreasing order of preference. Once a student is matched, the student never becomes unmatched, only ``trades up''. At most $n^2$ iterations.
+  \item \textbf{Perfect matching:}
+  \begin{enumerate}
+    \item \textit{GS outputs a matching:} hospitals offer only if unmatched $\Rightarrow$ matched to at most 1 student. Students only keep their best match $\Rightarrow$ matched to at most 1 hospital.
+    \item \textit{All $h$ matched:} Assume $h$ is not matched $\Rightarrow$ $h$ offered to all $n$ students $\Rightarrow$ some $s$ received no offers $\Rightarrow$ $s$ is unmatched. But unmatched $h$ implies unmatched $s$ since $|H|=|S|$. Contradiction.
+    \item \textit{All $s$ matched:} Since all $n$ hospitals get matched and each to at most one student, all $n$ students are matched.
+  \end{enumerate}
+  \item \textbf{Stability:} Consider the matching $h$-$s'$, $h'$-$s$. WTS for any pair not in $M^*$, the pair is not unstable. Suppose $(h,s)$ is an unstable pair, so $h$ prefers $s$ to $s'$ and $s$ prefers $h$ to $h'$.
+  \begin{itemize}
+    \item Case 1: $h$ never offers to $s$, but $h$ made an offer to $s'$ $\Rightarrow$ $h$ prefers $s'$ to $s$ (offers in order of preference). Contradiction.
+    \item Case 2: $h$ made an offer to $s$, but $s$ rejected $h$ $\Rightarrow$ $s$ prefers $h'$ to $h$ (students only keep preferred hospital). Contradiction. $\square$
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{Optimality}
+
+\begin{itemize}
+  \item \textbf{Valid partner:} $s$ is a valid partner for $h$ if there exists any stable matching in which $h$ and $s$ are matched.
+  \item \textbf{Hospital-optimal:} each $h$ receives its best valid partner. It is a perfect and stable matching.
+  \item \textbf{Student-pessimal:} each $s$ receives its worst valid partner.
+  \item \textbf{Claim:} All executions of GS yield a hospital-optimal assignment.
+  \item \textbf{Proof (H-optimal, contradiction):} By contradiction: assume $M^*$ is not hospital-optimal. Then $\exists$ hospital $h$ and student $s$ s.t.\ $s$ is a valid partner for $h$ and $h$ prefers $s$ over its partner in $M^*$. Since $h$ prefers $s$, $h$ must have proposed to $s$ before its assigned partner, so $s$ must have rejected $h$. Let $h$ be the first hospital rejected by a valid partner $s$.
+  \begin{enumerate}
+    \item In $M^*$, $s$ is matched with $h'$, so $s$ prefers $h'$ over $h$ (since $s$ rejected $h$).
+    \item Since $s$ is valid for $h$, $\exists$ stable $M$ with $h$-$s$ and $h'$-$s'$.
+    \item WTS $h'$-$s$ is unstable in $M$:\\
+      (a) $s$ prefers $h'$ over $h$ (rejected $h$, matched with $h'$ in $M^*$).\\
+      (b) $h'$ prefers $s$ over $s'$: since $h$ was the \emph{first} hospital rejected by a valid partner, $h'$ had not yet been rejected by any valid partner, so $h'$ had not yet proposed to any less-preferred valid partner, and since hospitals propose in order of preference, $h'$ prefers $s$ over $s'$.
+    \item $(h',s)$ is unstable in $M$, so $M$ is not stable. Contradiction. $\square$
+  \end{enumerate}
+  \item \textbf{Proof (S-pessimal):} Suppose $(h,s)\in M^*$ but $h$ is not the worst valid partner for $s$. Then $\exists$ stable $M$ with $(h',s)$ where $h\succ_s h'$. Since $(h,s)\in M^*$ and GS is $H$-optimal, $s\succ_h s'$. So $(h,s)$ is an unstable pair in $M$. Contradiction. $\square$
+  \item \textbf{Logic checks:}
+  \begin{itemize}
+    \item \textbf{Mutual first choice:} if $h$ is ranked first on $s$'s list and $s$ is ranked first on $h$'s list, then in every stable matching $M$, they are paired $(h,s)$ (else they form an unstable pair).
+    \item It is \emph{false} that every instance has a stable matching containing a mutual first-choice pair --- such pairs are not guaranteed to exist in every instance.
+  \end{itemize}
+\end{itemize}
+
+\section*{Asymptotic Notation \& Runtime}
+
+\begin{itemize}
+  \item \textbf{Big-O} (upper bound, $\leq$): function grows \emph{no faster than} a certain rate.
+  $$O(g(n))=\{f(n):\exists\,c,n_0>0\text{ s.t. }0\le f(n)\le cg(n)\;\forall n\ge n_0\}$$
+  Limit rule: $f(n)\in O(g(n))\iff\lim_{n\to\infty}\frac{f(n)}{g(n)}<\infty$
+  \item \textbf{Big-$\Omega$} (lower bound, $\geq$): function grows \emph{at least as fast as} a certain rate.
+  $$\Omega(g(n))=\{f(n):\exists\,c,n_0>0\text{ s.t. }0\le cg(n)\le f(n)\;\forall n\ge n_0\}$$
+  Limit rule: $f(n)\in\Omega(g(n))\iff\lim\frac{f}{g}>0$
+  \item \textbf{Big-$\Theta$} (tight, $=$): function grows \emph{precisely at} a certain rate.
+  $$\Theta(g(n))=\{f(n):\exists\,c_1,c_2,n_0>0\text{ s.t. }0\le c_1g(n)\le f(n)\le c_2g(n)\;\forall n\ge n_0\}$$
+  Limit rule: $f(n)\in\Theta(g(n))\iff\lim\frac{f}{g}=k\in(0,\infty)$
+\end{itemize}
+
+\subsubsection*{Properties}
+
+\begin{itemize}
+  \item $O$, $\Omega$, $\Theta$ are all reflexive and transitive. $\Theta$ is symmetric; $O$ and $\Omega$ are not.
+  \item $f(n)\in\Theta(g(n))\iff f(n)\in O(g(n))\text{ and }f(n)\in\Omega(g(n))$
+  \item $f(n)\in\Theta(g(n))\iff g(n)\in\Theta(f(n))$
+  \item $O(f(n)+g(n))=O(\max(f(n),g(n)))$ for nonneg $f,g$.
+  \item \textbf{Identity:} $a^{\log_b n}=n^{\log_b a}$.
+  \item Base change in log introduces a constant factor: $\log_b n\in\Theta(\log n)$ for all bases.
+  \item $(\log n)^c\in O(n^d)$ for all $c,d>0$ (poly beats log).
+  \item \textbf{L'H\^opital's rule:} $\displaystyle\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}$
+\end{itemize}
+
+\subsubsection*{Series \& Hierarchy}
+
+\begin{itemize}
+  \item \textbf{Geometric:} $\displaystyle\sum_{i=0}^{k}a^i=\begin{cases}\Theta(1)&a<1\\\Theta(k)&a=1\\\Theta(a^k)&a>1\end{cases}$
+  \item \textbf{Arithmetic:} $\sum_{i=1}^{n}i=\Theta(n^2)$\quad\textbf{Harmonic:} $\sum_{i=1}^{n}\tfrac{1}{i}=\Theta(\log n)$
+  \item $1\ll\log n\ll\sqrt{n}\ll n\log n\ll n^2\ll n^3\ll 2^n\ll n!$
+  \item Strategy: convert to $n^k$, $\log^k n$, $k^n$, or products. Use identity $a^{\log_b n}=n^{\log_b a}$.
+\end{itemize}
+
+\subsubsection*{Common Runtimes}
+
+\begin{itemize}
+  \item $O(1)$: constant (conditionals, arithmetic, array access).
+  \item $O(\log n)$: binary search, heap/priority queue operations.
+  \item $O(n)$: linear scan, merge two sorted lists.
+  \item $O(n\log n)$: mergesort.
+  \item $O(n^2)$: quadratic (closest pair, bubble sort).
+  \item $O(m+n)$: graph algorithms (BFS, DFS). Note $O(m+n)=O(\max(m,n))$.
+\end{itemize}
+
+\section*{Graphs}
+
+\begin{itemize}
+  \item \textbf{Notation:} $G=(V,E)$. $V$ = nodes (vertices), $n=|V|$. $E$ = edges, $m=|E|$.
+  \item \textbf{Handshaking lemma (undirected):} $\sum_{v\in V}d(v)=2|E|$.
+  \item \textbf{Digraphs:} $\sum_{v}\mathrm{outdeg}(v)=\sum_{v}\mathrm{indeg}(v)=m$.
+\end{itemize}
+
+\subsubsection*{Representations}
+
+\begin{itemize}
+  \item \textbf{Adjacency matrix:} $n\times n$ matrix with $A_{uv}=1$ if $(u,v)\in E$. Space $O(n^2)$; edge check $O(1)$; identify all edges $O(n^2)$. Symmetric for undirected. Prefer for dense graphs.
+  \item \textbf{Adjacency list:} Node-indexed array of lists (of all neighbors). Space $O(m+n)$; edge check $O(\deg(u))$; identify all edges $O(m+n)$. Prefer for sparse graphs.
+\end{itemize}
+
+\subsubsection*{Paths, Cycles, Connectivity}
+
+\begin{itemize}
+  \item \textbf{Path:} A sequence of nodes $v_1,\dots,v_k$ with the property that each consecutive pair $v_{i-1},v_i$ is joined by a different edge in $E$. \textbf{Simple} if all nodes are distinct.
+  \item \textbf{Connected:} An undirected graph is connected if for every pair of nodes $u,v$ there exists a path between $u$ and $v$.
+  \item \textbf{Cycle:} A path $v_1,\dots,v_k$ in which $v_1=v_k$ and $k\ge2$. \textbf{Simple} if all nodes are distinct except $v_1=v_k$.
+\end{itemize}
+
+\subsubsection*{Trees}
+
+\begin{itemize}
+  \item \textbf{Tree:} An undirected graph that is connected and does not contain a cycle.
+  \item \textbf{Leaf:} A node with degree 1 (in digraphs: outdegree 0).
+  \item \textbf{Lemma:} Adding an edge to a tree creates a cycle. A tree has the minimum number of edges to be connected.
+  \item \textbf{Thm:} A tree on $n$ vertices has exactly $n-1$ edges for all $n\ge1$.
+\end{itemize}
+
+\textit{Pf (induction on $n$):} Base $P(1)$: trivial (0 edges). Assume $P(n)$. Let $G$ be a tree on $n+1$ vertices. Remove leaf $v^*$ and its edge $e^*$. The subgraph $G'=(V-v^*,E-e^*)$ has $n$ vertices and is still a tree. By $P(n)$, $G'$ has $n-1$ edges. Restoring $v^*$ and $e^*$ gives $G$ with $n$ edges. $\square$
+
+\begin{itemize}
+  \item \textbf{Thm:} Let $G$ be an undirected graph on $n$ nodes. Any two of the following imply the third: (1) $G$ is connected; (2) $G$ does not contain a cycle; (3) $G$ has $n-1$ edges.
+\end{itemize}
+
+\textit{Pf sketch} (connected $+$ $n-1$ $\Rightarrow$ acyclic): Assume there is a cycle on $k$ vertices with $k$ edges. Then there exist $n-k$ vertices not on the cycle. Since $G$ is connected, each of the $n-k$ vertices has a unique edge on its shortest path to the cycle. Thus $G$ has at least $k+(n-k)=n$ edges. Contradiction. $\square$
+
+\section*{Graph Traversals}
+
+\subsubsection*{BFS (Queue, FIFO) --- Shortest Paths}
+
+BFS explores outward from $s$ in all directions, adding nodes one layer at a time.
+
+\textbf{INIT} Mark $s$ as discovered and all other vertices as undiscovered. Set $\texttt{List}[0]=\{s\}$ and $i=0$.\\
+\textbf{WHILE} $\texttt{List}[i]$ is not empty:\\
+\hspace*{8pt}Make $\texttt{List}[i+1]$ be the empty list.\\
+\hspace*{8pt}\textbf{FOR} all vertices $u$ on $\texttt{List}[i]$:\\
+\hspace*{16pt}\textbf{FOR} all neighbors $v$ of $u$:\\
+\hspace*{24pt}\textbf{IF} $v$ is undiscovered: Mark $v$ as discovered. Add $v$ to $\texttt{List}[i+1]$.\\
+\hspace*{8pt}Increment $i$.
+\begin{itemize}
+  \item \textbf{Thm:} Layer $L_i$ consists of all nodes at distance $i$ from $s$. Path $s\to t$ exists iff $t$ appears in some layer.
+  \item \textbf{Property:} For any edge $(x,y)\in E$, levels of $x$ and $y$ differ by at most 1.
+  \item \textbf{Runtime:} $O(m+n)$ (each node in one layer; each edge processed once; $\sum d(u)=2m$).
+\end{itemize}
+
+\textit{Pf (property):} Let $x\in L_i$, $y\in L_j$, $j>i+1$. When $x$ is discovered, BFS considers all neighbors of $x$, including $y$.
+\begin{itemize}
+  \item Case 1: $y$ is already discovered. Then $j\le i+1$. Contradiction.
+  \item Case 2: $y$ is discovered through $x$. Then $j=i+1$. Contradiction. $\square$
+\end{itemize}
+
+\subsubsection*{DFS (Stack, LIFO)}
+
+\textbf{INIT} Mark all vertices as undiscovered. Initialize stack to only contain $s$.\\
+\textbf{WHILE} stack is not empty:\\
+\hspace*{8pt}Pop the stack; call it $u$.\\
+\hspace*{8pt}\textbf{IF} $u$ is undiscovered:\\
+\hspace*{16pt}Mark $u$ as discovered. For all of $u$'s neighbors $v$: push $v$ onto the stack.
+\begin{itemize}
+  \item BFS always finds the shortest path from source; DFS does not. Nodes in different DFS branches are not connected in the original graph.
+  \item \textbf{Runtime:} $O(m+n)$.
+\end{itemize}
+
+\subsubsection*{Connected Components}
+
+\begin{itemize}
+  \item \textbf{Connected component:} The set of all nodes reachable from $s$. Find all components by repeatedly running BFS/DFS from an unvisited node, subtracting the found component $R$, and repeating.
+  \item \textbf{Thm:} Every graph with $v$ vertices and $e$ edges has at least $v-e$ connected components.
+\end{itemize}
+
+\textit{Pf (induction on $e$):} Base $P(0)$: $v$ vertices and 0 edges $\Rightarrow$ $v$ components. Inductive step: Let $G$ have $v$ vertices and $k+1$ edges. Remove any edge $e^*$; by IH $G'$ has $\ge v-k$ components. Add $e^*$ back:
+\begin{itemize}
+  \item Case 1: Both endpoints of $e^*$ in the same component. Count unchanged $\ge v-k$.
+  \item Case 2: Endpoints in different components; they merge. Count $=v-k-1=v-(k+1)$. $\square$
+\end{itemize}
+
+\subsubsection*{Bipartite Graphs}
+
+\begin{itemize}
+  \item \textbf{Valid vertex coloring:} Color each vertex such that no edge is monochromatic. A \textbf{$k$-coloring} uses $k$ colors. $k$-colorability is NP-complete for $k\ge3$, but polynomial for $k=2$.
+  \item \textbf{Bipartite:} $G=(V,E)$ is bipartite if vertices may be partitioned into sets $L$ and $R$ s.t.\ (1) $L\cup R=V$, (2) $L\cap R=\varnothing$, (3) every edge has one endpoint in $L$ and the other in $R$.
+  \item $G$ bipartite $\iff$ $G$ is 2-colorable $\iff$ $G$ contains no odd-length cycle. Every tree is bipartite.
+\end{itemize}
+
+\textit{Pf ($\Rightarrow$ no odd cycle):} If $G$ is bipartite, it is 2-colorable. Consider a cycle $C$ of length $k$, from $v_0,v_1,\dots,v_k$ where $v_0=v_k$. Color even indices purple and odd indices blue. Let $v_0$ be purple; then $v_k=v_0$ is also purple, so $k$ is even. $\square$
+
+\textit{Pf ($\Leftarrow$ bipartite):} Assume $G$ has no odd-length cycles. Pick any vertex $v^*$. Let $L=\{v\in V: v\text{ is even distance to }v^*\}$ and $R=\{v\in V: v\text{ is odd distance to }v^*\}$. Color $L$ purple and $R$ blue. WTS this is a valid 2-coloring (no monochromatic edge). Assume FSOC some edge $(u,v)\in E$ is monochromatic, e.g.\ both $u,v$ are purple and are even distances $2k$ and $2j$ from $v^*$. This creates an odd-length cycle of length $2k+2j+1$, contradicting our assumption. $\square$
+
+\begin{itemize}
+  \item \textbf{BFS detection:} Take the BFS layers and color each alternating layer. If any discovered neighbor $v$ has the same color as $u$, return False; otherwise True.
+\end{itemize}
+
+\subsubsection*{Directed Graphs \& Strong Connectivity}
+
+Edge $(u,v)$ leaves $u$ and enters $v$, $u\to v$.
+\begin{itemize}
+  \item \textbf{Mutually reachable:} $u$ and $v$ are mutually reachable if there is a path from $u$ to $v$ and a path from $v$ to $u$.
+  \item \textbf{Strongly connected:} Every pair of nodes is mutually reachable. If $G$ is strongly connected, then every node is reachable from $s$, and $s$ is reachable from every node.
+  \item \textbf{Strong component:} A maximal subset of mutually reachable nodes.
+  \item \textbf{Lemma:} If $u$-$s$ and $v$-$s$ are mutually reachable, then $u$-$v$ are mutually reachable (transitivity).
+  \item \textbf{Thm:} Determine if $G$ is strongly connected in $O(m+n)$: pick $s$; run BFS on $G$ and $G^{\mathrm{rev}}$ from $s$; return true iff all nodes reached in both. Correctness follows from the lemma.
+\end{itemize}
+
+\subsubsection*{DAGs \& Topological Order}
+
+\begin{itemize}
+  \item \textbf{DAG:} A directed acyclic graph is a directed graph that contains no directed cycles.
+  \item \textbf{Topological order:} An ordering of nodes $v_1,\dots,v_n$ so that for every edge $(v_i,v_j)$ we have $i<j$.
+  \item \textbf{Precedence constraints:} Edge $(v_i,v_j)$ means task $v_i$ must occur before $v_j$. If there is a cycle, the constraints can never be satisfied.
+  \item \textbf{Lemma:} $G$ has a topological ordering if and only if $G$ is a DAG.
+\end{itemize}
+
+$(\Rightarrow)$ \textit{Pf:} Assume $G$ has a topological order and a cycle containing $v_j,v_i$. Consider edge $(v_j,v_i)$: the topological ordering had $i<j$, but this edge requires $j<i$. Contradiction.
+
+$(\Leftarrow)$ \textbf{Lemma:} If $G$ is a DAG, then $G$ has a node with no entering edges.\\
+\hspace*{8pt}\textit{Pf:} Assume every node has an edge entering it. Consider starting at any node and traversing\\
+\hspace*{8pt}backward; we can continue indefinitely. We construct a walk of length $n+1$. By the\\
+\hspace*{8pt}pigeonhole principle, we must visit a node twice, creating a cycle. Contradiction.
+
+\begin{itemize}
+  \item \textbf{Algorithm ($O(m+n)$):} Find node $v$ with no incoming edges and order it first. Delete $v$ from $G$. Recursively compute a topological ordering of $G-\{v\}$ and append this order after $v$. \textit{(Correctness by induction: $G'=G-\{v\}$ is a DAG on $n-1$ nodes with a topological ordering by IH; prepend $v$.)}
+\end{itemize}
+
+\section*{Greedy Algorithms}
+
+A greedy algorithm makes a locally optimal choice, and we prove it leads to a globally optimal solution.
+
+\subsubsection*{Interval Scheduling (Max Compatible Jobs)}
+
+\begin{itemize}
+  \item \textbf{Problem:} Job $j$ starts at $s_j$ and finishes at $f_j$. Two jobs are compatible if they don't overlap. Goal: find maximum subset of mutually compatible jobs.
+  \item \textbf{Algorithm (earliest-finish-time first):}\\
+  Sort jobs by finish times, renumber so $f_1\le f_2\le\cdots\le f_n$. Initialize $S\leftarrow\varnothing$.\\
+  \textbf{FOR} $j=1$ to $n$:\\
+  \hspace*{8pt}\textbf{IF} job $j$ is compatible with $S$ (i.e.\ $s_j\ge f^*$, the most recent finish time):\\
+  \hspace*{16pt}$S\leftarrow S\cup\{j\}$; update $f^*\leftarrow f_j$\\
+  \textbf{RETURN} $S$\quad Runtime: $O(n\log n)$.
+  \item \textbf{Proof of optimality (contradiction):} Assume $S$ from the algorithm is not optimal. Let $S=\{i_1,\dots,i_k\}$ and $S^*=\{j_1,\dots,j_m\}$ with $m>k$, $S^*$ optimal. Let $r$ be the largest number of jobs for which $S$ and $S^*$ agree. Then $f_{j_{r+1}}\ge f_{i_{r+1}}$, i.e.\ $S^*$'s next job finishes no earlier than $S$'s next job. Then we can swap $j_{r+1}\leftarrow i_{r+1}$ in $S^*$: since $s_{j_{r+2}}$'s start time is after $j_{r+1}$ ends, and $f_{i_{r+1}}\le f_{j_{r+1}}$, we can swap without conflicting with later jobs in $S^*$. But then $r$ is not the largest index of agreement. Contradiction. Repeating swaps yields $S=S^*$, so $m=k$. Contradiction with $m>k$. $\square$
+\end{itemize}
+
+\subsubsection*{Interval Partitioning (Min Classrooms)}
+
+\begin{itemize}
+  \item \textbf{Problem:} Lecture $j$ starts at $s_j$ and finishes at $f_j$. Goal: find the minimum number of classrooms to schedule all lectures so that no two lectures occur at the same time in the same room.
+  \item \textbf{Depth:} The maximum number of intervals that contain any given point (= maximum number of concurrent lectures). Number of classrooms needed $\ge$ depth, so minimum classrooms needed $=$ depth.
+  \item \textbf{Algorithm (earliest-start-time first):}\\
+  Sort lectures by start times, renumber so $s_1\le s_2\le\cdots\le s_n$. $d\leftarrow0$.\\
+  \textbf{FOR} $j=1$ to $n$:\\
+  \hspace*{8pt}\textbf{IF} lecture $j$ is compatible with some classroom $k$: schedule $j$ in $k$\\
+  \hspace*{8pt}\textbf{ELSE}: allocate new classroom $d+1$, schedule $j$ there, $d\leftarrow d+1$\\
+  \textbf{RETURN} schedule\quad Runtime: $O(n\log n)$ using a priority queue.
+  \item \textbf{Observation:} The earliest-start-time-first algorithm never schedules two incompatible lectures in the same classroom.
+  \item \textbf{Proof of optimality (structural):} Let $d$ be the number of classrooms used. When classroom $d$ is opened for lecture $j$, lecture $j$ must overlap all $d-1$ lectures in the other classrooms. Thus all those lectures must end after $s_j$ $\Rightarrow$ $d$ lectures end after $s_j$ (including $j$). Since the algorithm schedules in order of start time, the other lectures must have started no later than $s_j$. All $d$ classes overlap at time $s_j$, thus all schedules use at least $d$ rooms. $\square$
+\end{itemize}
+
+\subsubsection*{Minimizing Lateness}
+
+\begin{itemize}
+  \item \textbf{Problem:} Single resource processes one job at a time. Job $j$ requires $t_j$ units of processing time and is due at time $d_j$. If $j$ starts at time $s_j$, it finishes at $f_j=s_j+t_j$. Lateness: $\ell_j=\max\{0,f_j-d_j\}$. Goal: schedule all jobs to minimize maximum lateness $L=\max_j\ell_j$.
+  \item \textbf{Inversion:} A pair of jobs $i$ and $j$ such that $d_i<d_j$ but $j$ is scheduled before $i$. The EDD schedule is the \emph{unique} idle-free schedule with no inversions. If an idle-free schedule has an inversion, then it has an adjacent inversion.
+  \item \textbf{Algorithm (earliest-deadline first):}\\
+  Sort jobs by deadlines, renumber to $d_1\le d_2\le\cdots\le d_n$. $t\leftarrow0$.\\
+  \textbf{FOR} $j=1$ to $n$:\\
+  \hspace*{8pt}Assign job $j$ to interval $[t,t+t_j]$;\; $s_j\leftarrow t$;\; $f_j\leftarrow t+t_j$;\; $t\leftarrow t+t_j$\\
+  \textbf{RETURN} intervals $[s_1,f_1],\dots,[s_n,f_n]$\quad Runtime: $O(n\log n)$.
+  \item \textbf{Observations:} There exists an optimal schedule with no idle time. The earliest-deadline-first schedule has no idle time.
+  \item \textbf{Claim:} Exchanging two adjacent, inverted jobs $i$ and $j$ reduces the number of inversions by 1 and does not increase the max lateness.\\
+  \textit{Pf:} Only $\ell_i$ can increase after the swap. New $\ell_i'=f_j-d_i$. Since $d_i<d_j$: $\ell_i'=f_j-d_i\le f_j-d_j\le\ell_j$. So new $\ell_i'\le$ old $\ell_j$; no increase. $\square$
+  \item \textbf{Proof of optimality (exchange argument):} Assume $S$ is not optimal. Let $S^*$ be optimal with fewest inversions. Assume $S^*$ has no idle time.
+  \begin{itemize}
+    \item Case 1: $S^*$ has no inversions. Then $S^*=S$, contradiction.
+    \item Case 2: $S^*$ has an inversion $i$-$j$. It must then be an adjacent inversion. Flip $j$ and $i$ to create $S'$, which is optimal (max lateness doesn't increase) and has fewer inversions. Contradiction, since $S^*$ was assumed to have the fewest inversions. $\square$
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{Greedy Analysis Strategies}
+
+\begin{itemize}
+  \item \textbf{Greedy stays ahead:} Show that after each step of the greedy algorithm, its solution is at least as good as any other algorithm's.
+  \item \textbf{Structural:} Discover a simple ``structural'' bound asserting that every possible solution must have a certain value, and show that your algorithm always achieves this bound.
+  \item \textbf{Exchange argument:} Gradually transform any solution to the one found by the greedy algorithm without hurting its quality.
+\end{itemize}
+
+\section*{Graph Algorithms \& MSTs}
+
+\subsubsection*{Dijkstra's Algorithm (SSSP, $\ell_e\ge0$)}
+
+\begin{itemize}
+  \item \textbf{Single-source shortest path:} Given a digraph $G=(V,E)$, edge lengths $\ell_e\ge0$, source $s\in V$, find the shortest directed path from $s$ to every other node. Doesn't work with negative edge weights, because it breaks the greedy assumption that taking an indirect path will result in a longer path.
+  \item \textbf{Greedy approach:} Maintain explored set $S$ with $d[u]=$ shortest $s\to u$ distance. Repeatedly choose unexplored $v\not\in S$ minimizing $\pi(v)=\min_{e=(u,v):\,u\in S}d[u]+\ell_e$. Add $v$ to $S$, set $d[v]\leftarrow\pi(v)$, $pred[v]\leftarrow e$.
+  \item \textbf{Optimization:} Maintain $\pi[v]$ for each $v\not\in S$. $\pi(v)$ can only decrease as $S$ grows. When $u$ added to $S$, update: $\pi[v]\leftarrow\min\{\pi[v],\,\pi[u]+\ell_e\}$ for each edge $e=(u,v)$.
+  \item \textbf{Algorithm:}\\
+  For each $v\ne s$: $\pi[v]\leftarrow\infty$;\; $pred[v]\leftarrow\mathrm{null}$;\; $\pi[s]\leftarrow0$.\\
+  Insert all $v\in V$ into priority queue $pq$ keyed by $\pi[v]$.\\
+  \textbf{WHILE} $pq$ is not empty:\\
+  \hspace*{8pt}$u\leftarrow$ Delete-min$(pq)$;\; add $u$ to $S$\\
+  \hspace*{8pt}\textbf{FOR} each edge $e=(u,v)\in E$ leaving $u$:\quad\textit{(edge relaxation)}\\
+  \hspace*{16pt}\textbf{IF} $\pi[v]>\pi[u]+\ell_e$:\\
+  \hspace*{24pt}Decrease key of $v$ in $pq$;\; $\pi[v]\leftarrow\pi[u]+\ell_e$;\; $pred[v]\leftarrow e$
+  \item \textbf{Runtime:} $O((m+n)\log n)$ ($n$ delete-min $+$ $m$ decrease-key, each $O(\log n)$).
+  \item \textit{Note: For undirected graphs, replace each edge with two antiparallel edges.}
+  \item \textbf{Correctness (induction on $|S|$):}\\
+  \textit{Invariant:} For each $u\in S$, $d[u]=$ length of shortest $s\to u$ path.\\
+  \textit{Inductive step:} Let $v$ be added to $S$. Suppose $\exists$ shorter path $P$ from $s$ to $v$. Let $e=(x,y)$ be the first edge of $P$ leaving $S$ ($x\in S$, $y\not\in S$). Then:
+  $$\ell(P)\ge\ell(P')+\ell_e\ge d[x]+\ell_e\ge\pi(y)\ge\pi(v)$$
+  Steps: nonneg weights; IH ($d[x]$ is shortest $s\to x$ path); definition of $\pi(y)$; algo chose $v$ before $y$. Thus $\ell(P)\ge d[v]$, so no shorter path exists. $\square$
+\end{itemize}
+
+\subsubsection*{Minimum Spanning Trees}
+
+\begin{itemize}
+  \item \textbf{Cut:} A partition of nodes into two nonempty subsets $S$ and $V-S$. The \textbf{cutset} of a cut $S$ is the set of edges with exactly one endpoint in $S$ (the edge \textbf{spans} the cut).
+  \item \textbf{Spanning tree:} A subgraph that is a tree and contains all vertices of $G$. (BFS and DFS on connected graphs produce spanning trees.)
+  \item \textbf{MST:} Given a connected undirected graph $G=(V,E)$ with edge weights $c_e$, a minimum spanning tree $(V,T)$ is a spanning tree such that the sum of the edge costs in $T$ is minimized.
+  \item \textbf{Cycle property:} For any cycle in $G$, if $e$ is the maximum cost edge in the cycle, then $e$ is not in any MST of $G$.
+  \item \textbf{Cut property:} Let $S$ be any cut. If $e$ is the minimum cost edge between $S$ and $V-S$, then every MST contains $e$.
+\end{itemize}
+
+\textit{Pf (cycle property):} Assume $e$ in MST $T^*$. Remove $e$: forms two components. $\exists$ another cycle edge $e'$ spanning the cut with $\mathrm{cost}(e')<\mathrm{cost}(e)$. Then $T=T^*-\{e\}\cup\{e'\}$ costs less. Contradiction. $\square$
+
+\textit{Pf (cut property):} Assume $e=(u,v)\not\in T$ (MST). Since $T$ is spanning, $\exists$ some edge $e^*=(u^*,v^*)$ with $u^*\in S$, $v^*\in V-S$ on the $u\to v$ path in $T$. Let $T^*=T-\{e^*\}\cup\{e\}$.
+\begin{itemize}
+  \item $T^*$ is acyclic: removing $e^*$ disconnects $T$; adding $e$ cannot create a cycle since no other tree edge connects the two cuts.
+  \item $T^*$ is connected: paths not using $e^*$ are unaffected; $e$ reconnects the graph.
+\end{itemize}
+Since $\mathrm{cost}(e)<\mathrm{cost}(e^*)$, $\mathrm{cost}(T^*)<\mathrm{cost}(T)$. Contradiction. $\square$
+
+\subsubsection*{Prim's Algorithm}
+
+Given a connected graph $G=(V,E)$ with positive weights:
+\begin{enumerate}
+  \item Choose any arbitrary starting vertex $s$ of the tree $T^*$.
+  \item At each iteration, add the lowest cost edge connecting a vertex in $T^*$ to a vertex not in $T^*$.
+  \item Stop when all vertices are included in $T^*$.
+\end{enumerate}
+
+\begin{itemize}
+  \item \textbf{Algorithm:} Initialize $S=\{s\}$, $T=\varnothing$. Repeat $n-1$ times: add to $T$ a min-cost edge with exactly one endpoint in $S$; add the other endpoint to $S$.
+  \item \textbf{Thm:} Prim's computes an MST. Loop invariant: $T$ is an MST of the vertices in $S$. Base case: $S=\{s\}$, $T=\varnothing$. Each iteration adds a min-cost edge crossing $(S, V-S)$ $\Rightarrow$ cut property $\Rightarrow$ edge is in every MST.
+  \item \textbf{Implementation} (almost identical to Dijkstra's):\\
+  $S\leftarrow\varnothing$,\; $T\leftarrow\varnothing$,\; $\pi[v]\leftarrow\infty$ for $v\ne s$,\; $\pi[s]\leftarrow0$,\; $pred[v]\leftarrow\mathrm{null}$.\\
+  Insert all $v\in V$ into $pq$ keyed by $\pi[v]$. ($\pi[v]$ tracks cost of cheapest known edge between $v$ and $S$.)\\
+  \textbf{WHILE} $pq$ not empty:\\
+  \hspace*{8pt}$u\leftarrow$ pop-min$(pq)$;\; add $u$ to $S$,\; add $pred[u]$ to $T$\\
+  \hspace*{8pt}\textbf{FOR} each edge $e=(u,v)\in E$ with $v\not\in S$:\\
+  \hspace*{16pt}\textbf{IF} $c_e<\pi[v]$:\; $\pi[v]\leftarrow c_e$;\; $pred[v]\leftarrow e$;\; decrease-key in $pq$
+  \item \textbf{Runtime:} $O(m\log n)$. Prim's gives the same MST regardless of starting vertex (if edge weights are distinct).
+\end{itemize}
+
+\subsubsection*{Kruskal's Algorithm}
+
+Given a connected graph $G=(V,E)$ with positive weights:
+\begin{enumerate}
+  \item Sort the edge weights of $E$.
+  \item At each iteration, add the minimum cost edge to $T^*$ that does not create a cycle.
+  \item Stop when all vertices are included in $T^*$.
+\end{enumerate}
+Does not maintain an MST at every iteration, unlike Prim's.
+
+\begin{itemize}
+  \item \textbf{Algorithm:} Sort $m$ edges by cost. \textbf{FOR} each $v\in V$: Make-set$(v)$. \textbf{FOR} $i=1$ to $m$: let $(u,v)=e_i$; \textbf{IF} Find-set$(u)\ne$Find-set$(v)$: add $e_i$ to $T$, Union$(u,v)$. \textbf{RETURN} $T$.
+  \item \textbf{Union-Find:} Keeps track of $n$ elements in subsets. Each element has a value, a pointer to its set, and the set size.
+  \begin{itemize}
+    \item Make-set: $O(n)$;\; Union: $O(1)$ (set pointer to larger set);\; Find-set: $O(\log n)$ (size doubles per union, so $\le\log n$ hops).
+  \end{itemize}
+  \item \textbf{Runtime:} $O(m\log n)$: sort is $O(m\log m)=O(m\log n)$ since $m\le\binom{n}{2}=O(n^2)$.
+  \item \textbf{Correctness:} Edge added: $u,v$ in different components $\Rightarrow$ min-cost edge crossing the cut $\Rightarrow$ cut property $\Rightarrow$ in every MST. Edge skipped: creates a cycle $\Rightarrow$ max-cost edge in that cycle $\Rightarrow$ cycle property $\Rightarrow$ not in any MST.
+\end{itemize}
+
+\subsubsection*{Minimum Bottleneck Spanning Tree}
+
+\begin{itemize}
+  \item \textbf{Problem:} Given a connected graph $G$ with positive edge costs, find a spanning tree that minimizes the most expensive edge.
+  \item \textbf{Solution:} The MST is the same as the minimum bottleneck spanning tree. Can be proved with an exchange argument.
+\end{itemize}
+
+
+\section*{Other Algorithms \& Runtimes}
+
+\subsubsection*{Strongly Connected Components (Kosaraju's)}
+
+\begin{itemize}
+  \item \textbf{Problem:} Find all maximal sets of mutually reachable nodes in a directed graph $G=(V,E)$.
+  \item \textbf{Algorithm:}
+  \begin{enumerate}
+    \item Run DFS on $G$; record finish times for each node.
+    \item Compute $G^{rev}$ (reverse all edges).
+    \item Run DFS on $G^{rev}$, processing nodes in decreasing finish-time order.
+    \item Each DFS tree in step 3 is one SCC.
+  \end{enumerate}
+  \item \textbf{Runtime:} $O(m+n)$ — two DFS passes plus building $G^{rev}$.
+  \item \textbf{Correctness key idea:} If $u$ finishes after $v$ in step 1, there is a path $u\to v$ in $G$, hence a path $v\to u$ in $G^{rev}$. Processing in reverse finish order ensures DFS in $G^{rev}$ does not ``escape'' the current SCC.
+  \item \textbf{Tarjan's algorithm:} Also $O(m+n)$; single DFS pass using a stack and low-link values to identify SCCs on the fly.
+\end{itemize}
+
+\subsubsection*{Median Finding (Two-Heap / Mid-Heap)}
+
+\begin{itemize}
+  \item \textbf{Problem:} Maintain a dynamic set under insertions and support $O(1)$ median queries.
+  \item \textbf{Structure:} Keep two heaps:
+  \begin{itemize}
+    \item $H_{\max}$: max-heap of the lower half of elements.
+    \item $H_{\min}$: min-heap of the upper half of elements.
+  \end{itemize}
+  Invariant: every element of $H_{\max}\le$ every element of $H_{\min}$; sizes differ by at most 1.
+  \item \textbf{Insert}($x$), $O(\log n)$:
+  \begin{enumerate}
+    \item If $x\le\mathrm{top}(H_{\max})$: push to $H_{\max}$; else push to $H_{\min}$.
+    \item Rebalance: if $|H_{\max}|-|H_{\min}|>1$, pop max of $H_{\max}$ into $H_{\min}$ (or vice versa).
+  \end{enumerate}
+  \item \textbf{Find-median,} $O(1)$: if sizes equal, average both tops; else top of the larger heap.
+  \item \textbf{Total runtime:} $O(n\log n)$ for $n$ insertions.
+\end{itemize}
+
+\subsubsection*{Shortest Paths — Variations}
+
+\begin{itemize}
+  \item \textbf{Dijkstra's on DAG:} For DAGs with non-negative weights, process vertices in topological order and relax. Runtime: $O(m+n)$ (no priority queue needed).
+\end{itemize}
+
+\subsubsection*{Topological Sort via DFS}
+
+\begin{itemize}
+  \item \textbf{Algorithm:} Run DFS on DAG $G$; append each node to the front of the output list when it finishes (post-order). Runtime: $O(m+n)$.
+  \item Equivalent to Kahn's algorithm (repeatedly remove sources), also $O(m+n)$.
+\end{itemize}
+
+\subsubsection*{Log \& Exponent Rules for Asymptotics}
+
+\begin{itemize}
+  \item \textbf{Log rules:}
+  \begin{itemize}
+    \item $\log_b(xy)=\log_bx+\log_by$;\quad $\log_b(x/y)=\log_bx-\log_by$
+    \item $\log_b(x^k)=k\log_bx$;\quad $\log_bx=\dfrac{\log x}{\log b}$ (base change)
+    \item $b^{\log_b x}=x$;\quad $\log_b(b^x)=x$
+    \item $a^{\log_b n}=n^{\log_b a}$ \textit{(swap base/exponent — very useful!)}
+    \item $\log$ is concave: $\log n^k=k\log n\in O(\log n)$ for constant $k$
+  \end{itemize}
+  \item \textbf{Exponent rules:}
+  \begin{itemize}
+    \item $a^{x+y}=a^xa^y$;\quad $a^{xy}=(a^x)^y$;\quad $(ab)^x=a^xb^x$
+    \item $2^{2n}=(2^n)^2=4^n$ — exponent in exponent means multiply
+    \item $n^c\in O(b^n)$ for any $b>1$, $c>0$ (exponential beats polynomial)
+    \item $(\log n)^c\in O(n^d)$ for any $c,d>0$ (polynomial beats log-power)
+  \end{itemize}
+  \item \textbf{Comparing functions — strategy:}
+  \begin{itemize}
+    \item Take $\log$ of both sides to compare exponentials/power towers.
+    \item Use $\lim_{n\to\infty} f(n)/g(n)$: $0\Rightarrow f\in o(g)$;\; $\infty\Rightarrow g\in o(f)$;\; $k>0\Rightarrow f\in\Theta(g)$.
+    \item L'Hôpital when limit is $0/0$ or $\infty/\infty$.
+    \item Reduce to standard form $n^k$, $\log^k n$, $k^n$ or products thereof.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{Heap Operations Summary}
+
+\begin{itemize}
+  \item Binary heap: Insert $O(\log n)$, Delete-min/max $O(\log n)$, Build-heap $O(n)$ (Floyd's method), Peek $O(1)$.
+  \item Fibonacci heap (amortized): Insert $O(1)$, Decrease-key $O(1)$, Delete-min $O(\log n)$. Enables Dijkstra's in $O(m+n\log n)$.
+\end{itemize}
+
+
+\end{multicols}
+\end{document}

@@ -1,0 +1,12 @@
+- "Complete Genomics" era
+- Brief history of genome assembly
+	- Overlap graph (Sanger reads)
+	- De Bruijn graph (Illumina reads)
+	- Overlap/string graphs (HiFi reads)
+- How do we select k-mer size for De Bruijn graph?
+	- Smaller k-mers -> very densely connected graph, many junctions
+	- Larger k-mers -> many missing kmers, disconnected graph
+- The DB graphs for large genomes (for large k) have a huge memory footprint
+	- **Condensed DB (CDB)** substitutes each non-branching path with a single edge, achieving a roughly k-fold compression ratio compared to DB
+		- The memory footprint of CDB practically doesn't grow as k increases
+	- Since the DB graph takes so much memory, we need to compute the CDB without going through the DB

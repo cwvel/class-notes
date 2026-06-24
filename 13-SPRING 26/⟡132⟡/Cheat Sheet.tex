@@ -1,0 +1,303 @@
+\documentclass[9pt,twocolumn]{extarticle}
+\usepackage[margin=0.35in,top=0.3in,bottom=0.3in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+% Tight math spacing
+\setlength{\abovedisplayskip}{2.5pt plus 1pt minus 1pt}
+\setlength{\belowdisplayskip}{2.5pt plus 1pt minus 1pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{2pt}
+\setlength{\jot}{2pt}
+
+\setlength{\columnsep}{0.17in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5pt}
+
+\titleformat{\section}{\bfseries\normalsize}{}{0em}{}
+\titlespacing*{\section}{0pt}{4pt}{1.5pt}
+
+\setlist[itemize]{nosep,topsep=0pt,parsep=0pt,leftmargin=1.2em,
+  label=\textbullet,itemsep=0pt}
+
+\newcommand{\Res}{\operatorname{Res}}
+
+\begin{document}
+\pagestyle{empty}
+\raggedright
+
+
+%────────────────────────────────────────────────
+\section{Complex Numbers}
+
+\textbf{Modulus.}
+$|z|=\sqrt{x^2+y^2}$;\; $|z_1z_2|=|z_1||z_2|$;\; $|z_1/z_2|=|z_1|/|z_2|$;\; $|z^m|=|z|^m$;\;
+$z\bar{z}=|z|^2$;\; $z^{-1}=\bar{z}/|z|^2$
+
+\textbf{Conjugation.}
+$\overline{z_1+z_2}=\bar{z}_1+\bar{z}_2$;\; $\overline{z_1z_2}=\bar{z}_1\bar{z}_2$;\;
+$\overline{(z_1/z_2)}=\bar{z}_1/\bar{z}_2$;\; $\Re z=(z+\bar{z})/2$;\; $\Im z=(z-\bar{z})/(2i)$;\;
+$|\Re z|,|\Im z|\le|z|$;\; $|z+w|^2=|z|^2+|w|^2+2\Re(z\bar{w})$
+
+\textbf{Triangle inequalities.}
+$|z_1+z_2|\le|z_1|+|z_2|$;\quad
+$|z_1-z_2|\ge|z_1|-|z_2|$;\quad
+$|z_1+z_2|\ge\bigl||z_1|-|z_2|\bigr|$
+
+\textbf{Polar form.} $z=r(\cos\theta+i\sin\theta)=re^{i\theta}$;\;
+$z^n=r^n(\cos(n\theta)+i\sin(n\theta))=r^ne^{in\theta}$ (de Moivre);\;
+Euler: $e^{i\theta}=\cos\theta+i\sin\theta$
+
+%────────────────────────────────────────────────
+\section{Complex Functions}
+
+\textbf{Exponential.} $e^z:=e^x(\cos y+i\sin y)$ for $z=x+iy$
+
+\textbf{Logarithm.} General: $\log z=\ln|z|+i(\arg z+2k\pi)$, $k\in\mathbb{Z}$. Principal branch:
+$\operatorname{Log}z=\ln|z|+i\operatorname{Arg}z$, $\operatorname{Arg}z\in(-\pi,\pi]$,
+continuous on $\mathbb{C}\setminus(-\infty,0]$.
+
+\textbf{Power function.} $z^\alpha:=e^{\alpha\log z}$;\; finitely many values iff $\alpha\in\mathbb{Q}$, otherwise infinite.
+
+\textbf{Trig functions.} $\cos z:=\dfrac{e^{iz}+e^{-iz}}{2}$;\quad $\sin z:=\dfrac{e^{iz}-e^{-iz}}{2i}$;\quad
+$\cos^2z+\sin^2z=1$;\; $2\pi$-periodic.
+
+\textbf{Hyperbolic.} $\cosh z:=\dfrac{e^z+e^{-z}}{2}$;\quad $\sinh z:=\dfrac{e^z-e^{-z}}{2}$
+
+\textbf{Square root.} $\pm\sqrt{r}\bigl(\cos(\theta/2)+i\sin(\theta/2)\bigr)$;\; two branches, discontinuous on $(-\infty,0]$.
+
+\textbf{$n$-th roots.} Solving $z^n=w=r_we^{i\theta_w}$:
+$$z=r_w^{1/n}\exp\!\left(i\frac{\theta_w+2\pi k}{n}\right),\quad k=0,\dots,n-1$$
+Solutions lie on a circle of radius $r_w^{1/n}$. Roots of unity ($z^n=1$, $r_w=1$) lie on unit circle.
+
+%────────────────────────────────────────────────
+\section{Analytic Functions}
+
+\textbf{Complex differentiability.}
+$$f'(z_0)=\lim_{z\to z_0}\frac{f(z)-f(z_0)}{z-z_0}=\lim_{h\to0}\frac{f(z_0+h)-f(z_0)}{h}$$
+$f$ is \textbf{analytic (holomorphic)} on $D$ if complex differentiable everywhere on $D$.\;
+\textbf{Goursat}: complex differentiable on $D\implies f'$ continuous, hence analytic.
+
+\textbf{Cauchy-Riemann equations.}
+$f(x+iy)=u(x,y)+iv(x,y)$ differentiable at $z_0\implies$
+$$u_x=v_y,\quad u_y=-v_x$$
+$\Rightarrow f'(z)=u_x+iv_x=v_y-iu_y$.\;
+Converse: $u,v\in C^1$ and CR holds on $D\implies f$ analytic on $D$.\;
+\textit{e.g.}\ $\bar z$: $u_x=1\ne v_y=-1$, not analytic anywhere.
+
+\textbf{Harmonic functions.} $\Delta u=u_{xx}+u_{yy}=0$.\; $f=u+iv$ analytic $\implies u,v$ harmonic.\;
+$v$ is a \textbf{harmonic conjugate} of $u$, unique up to a constant; exists when $D$ simply connected.\;
+\textit{Finding $v$:} integrate $v_y=u_x$ and $v_x=-u_y$.
+
+\textbf{Constancy.} $f$ analytic and any of $|f|$, $\Re f$, $\Im f$, $\arg f$, $\bar{f}$ also analytic $\implies f$ constant.
+
+\textbf{Fractional linear transformations (FLT / Möbius).}
+$$f(z)=\frac{az+b}{cz+d},\quad ad-bc\ne0$$
+3 degrees of freedom; uniquely determined by 3 point-value pairs.
+Composition $\leftrightarrow$ matrix multiplication; inverse is also a FLT.
+
+\textbf{Cross-ratio} (FLT-invariant):
+$$\frac{(w-w_1)(w_2-w_3)}{(w-w_3)(w_2-w_1)}=\frac{(z-z_1)(z_2-z_3)}{(z-z_3)(z_2-z_1)}$$
+$(z_0,z_1,z_2)\mapsto(0,1,\infty)$:\; $w=\dfrac{(z_1-z_2)(z-z_0)}{(z_1-z_0)(z-z_2)}$
+
+$(0,1,\infty)\mapsto(z_0,z_1,z_2)$:\; $z=\dfrac{z_2(z_1-z_0)w-z_0(z_1-z_2)}{(z_1-z_0)w-(z_1-z_2)}$
+
+%────────────────────────────────────────────────
+\section{Line Integrals}
+
+\textbf{Path integral.} $\gamma(t)=(x(t),y(t))$, $a\le t\le b$:
+$$\int_\gamma Pdx+Qdy=\int_a^b\!\bigl[P(x(t),y(t))\cdot x'(t)+Q(x(t),y(t))\cdot y'(t)\bigr]\,dt$$
+
+\textbf{Green's theorem.} $D$ bounded, $\partial D$ piecewise-smooth, $P,Q\in C^1$:
+$$\int_{\partial D}Pdx+Qdy=\iint_D\!\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dxdy$$
+
+\textbf{Complex line integral.} $\gamma$ piecewise $C^1$, $h(z)$ continuous:
+$$\int_\gamma h(z)\,dz=\int_a^b h(x(t)+iy(t))\cdot(x'(t)+iy'(t))\,dt$$
+
+\textbf{Key integrals.} $\gamma=$ CCW unit circle:
+$$\int_\gamma z^n\,dz=\begin{cases}2\pi i&n=-1\\0&n\ne-1\end{cases}
+\quad
+\int_\gamma\frac{dz}{z-z_0}=2\pi i\cdot R\;\;(R=\text{winding \#})$$
+
+\textbf{ML-inequality.}
+$$\left|\int_\gamma h(z)\,dz\right|\le M\cdot L,\quad
+M=\max_{z\in\gamma}|h(z)|,\quad L=\operatorname{len}(\gamma)$$
+
+\textbf{Mean value property.} $u$ harmonic on $D\supseteq\overline{D(z_0,r)}$:
+$$u(z_0)=\frac{1}{2\pi}\int_0^{2\pi}u(z_0+re^{i\theta})\,d\theta$$
+Holds for analytic functions as well.
+
+\textbf{Maximum principle.}
+$f$ nonconstant analytic $\implies|f(z)|$ has no interior max;\;
+$\max_{\bar{D}}|f|=\max_{\partial D}|f|$. Analogously for nonconstant harmonic $u$.\;
+\textit{Pf.} Harmonic: if $u(z_0)=M=\max$, MVT forces $u\equiv M$ on circles around $z_0$;\; $\{u=M\}$ open, $\{u<M\}$ open by continuity, $D$ connected $\Rightarrow u\equiv M$.\; Modulus: let $h=e^{-i\theta}f$ ($\theta=\arg f(z_0)$); $\Re h\le|h|\le M$, $\Re h(z_0)=M$;\; harmonic max $\Rightarrow\Re h\equiv M\Rightarrow\Im h=0\Rightarrow f$ const.
+
+%────────────────────────────────────────────────
+\section{Complex Integration}
+
+\textbf{FTC I.} $f(z)$ continuous on $D$ with analytic primitive $F(z)$, $F'(z)=f(z)$:
+$$\int_\gamma f(z)\,dz=F(B)-F(A)$$
+Path-independent; zero for closed curves.\; $f'(z)\equiv0$ on $D\implies f$ constant.
+
+\textbf{FTC II.} $f$ analytic on simply connected $D\implies$ primitive $F(z)=\int_\gamma f(\zeta)\,d\zeta$
+exists ($\gamma$ any path from $z_0$ to $z$).\; Equivalently: $f$ has a primitive $\iff\oint_\gamma f\,dz=0$
+for every closed loop.
+
+\textbf{Cauchy's theorem.} $D$ bounded, $f$ analytic on $D\cup\partial D$:
+$$\int_{\partial D}f(z)\,dz=0$$
+\textit{Pf.} $\oint f\,dz=\oint(u\,dx{-}v\,dy)+i\oint(v\,dx{+}u\,dy)$;\; Green's: $=\iint({-}v_x{-}u_y)+i\iint(u_x{-}v_y)=0$ by C-R.
+
+\textbf{Cauchy integral formula.} $f$ analytic on $D\cup\partial D$, $z\in D$:
+$$f(z)=\frac{1}{2\pi i}\int_{\partial D}\frac{f(w)}{w-z}\,dw$$
+$$f^{(m)}(z)=\frac{m!}{2\pi i}\int_{\partial D}\frac{f(w)}{(w-z)^{m+1}}\,dw,\quad m\ge0$$
+
+\textbf{Cauchy's estimate.} $f$ analytic on $\overline{D(z_0,r)}$, $|f(z)|\le M$ on $\partial D(z_0,r)$:
+$$\left|f^{(m)}(z_0)\right|\le\frac{m!\,M}{r^m}$$
+
+\textbf{Liouville's theorem.} $f$ entire and bounded $\implies f$ constant.\;
+\textit{FTA proof}: if degree-$n$ poly has no root, $g=1/f$ is bounded entire $\Rightarrow$ constant: contradiction.
+
+\textbf{Morera's theorem} (converse of Cauchy's). $f$ continuous on $D$;
+$\int_{\partial R}f(z)\,dz=0$ for every rectangle $R\subseteq D\implies f$ analytic on $D$.
+
+%────────────────────────────────────────────────
+\section{Sequences and Series of Functions}
+
+\textbf{Pointwise convergence.} $(f_n(z))$ converges pointwise to $f(z)$ on $E$ if
+$\lim_{n\to\infty}f_n(z)=f(z)$ for each $z\in E$.
+
+\textbf{Uniform convergence.} $(f_n(z))$ converges uniformly to $f(z)$ on $E$,
+written $f_n(z)\rightrightarrows f(z)$, if
+$$\lim_{n\to\infty}\!\left(\sup_{z\in E}|f_n(z)-f(z)|\right)=0$$
+
+\textbf{Normal convergence.} $(f_n(z))$ converges normally to $f(z)$ on domain $D$ if
+$f_n(z)\rightrightarrows f(z)$ on every closed disk $\overline{D(z_0,r)}\subseteq D$.
+
+\textbf{Theorems.}
+\begin{itemize}
+  \item $(f_n(z))$ continuous, $f_n(z)\rightrightarrows f(z)$ on $E\implies f(z)$ continuous
+  \item $(f_n(z))$ analytic, $f_n(z)\rightrightarrows f(z)$ on $D\implies f(z)$ analytic
+  \item \textbf{Weierstrass}: $(g_n(z))$ analytic, $\sum g_n(z)$ converges normally to $g(z)$ on $D$
+        $\implies g(z)$ analytic and $\bigl(\sum_{n=0}^\infty g_n(z)\bigr)^{(k)}=\sum_{n=0}^\infty g_n^{(k)}(z)$ (term-by-term differentiation)
+\end{itemize}
+
+\textbf{Weierstrass M-test.} $|g_n(z)|\le M_n$ on $E$, $\sum M_n<\infty\implies\sum g_n(z)$
+converges uniformly on $E$.
+
+\textbf{Root test.} $\sum a_k$ converges absolutely if $\limsup_k|a_k|^{1/k}<1$;\; diverges if $>1$;\; inconclusive if $=1$.
+
+\textbf{Ratio test.} $\sum a_k$ converges absolutely if $\lim_k|a_{k+1}/a_k|<1$;\; diverges if $>1$;\; inconclusive if $=1$.
+
+%────────────────────────────────────────────────
+\section{Power Series}
+
+\textbf{Radius of convergence.} For $\sum_{k=0}^\infty a_k(z-z_0)^k$:\;
+$R=\bigl(\limsup_k\sqrt[k]{|a_k|}\bigr)^{-1}$ (Cauchy-Hadamard);\;
+$R=\lim_{k\to\infty}|a_k/a_{k+1}|$ (ratio test, if limit exists).
+Converges normally on $D(z_0,R)$; diverges outside $\overline{D(z_0,R)}$.\;
+\textit{Pf (C-H).} Apply root test to $\sum a_k(z{-}z_0)^k$:\; $\limsup|a_k(z{-}z_0)^k|^{1/k}=|z{-}z_0|\cdot\limsup|a_k|^{1/k}<1\iff|z{-}z_0|<R$.
+
+\textbf{Analyticity.} $f(z)=\sum_{k=0}^\infty a_kz^k$ is analytic on $|z|<R$, with $a_k=f^{(k)}(0)/k!$.
+
+\textbf{Taylor expansion.} $f$ analytic on $D(z_0,R)$:
+$$f(z)=\sum_{k=0}^\infty\frac{f^{(k)}(z_0)}{k!}(z-z_0)^k,\qquad
+  a_k=\frac{1}{2\pi i}\oint_{|\zeta-z_0|=r}\frac{f(\zeta)}{(\zeta-z_0)^{k+1}}\,d\zeta$$
+$|a_k|\le M/r^k$ by Cauchy's estimate;\; $R=\mathrm{dist}(z_0,\text{nearest non-removable singularity})$ (poles/essential only; removable don't count since $f$ extends analytically through them).
+
+\textbf{Power series arithmetic} (both centered at $z_0$):\;
+Sum: $\sum(a_k\pm b_k)(z-z_0)^k$.\;
+Product: $\sum c_k(z-z_0)^k$, $c_k=a_0b_k+a_1b_{k-1}+\dots+a_kb_0$.
+
+\textbf{Schwarz lemma.} $f$ analytic on $\mathbb{D}$, $|f(z)|\le1$, $f(0)=0\implies|f(z)|\le|z|$
+for all $z\in\mathbb{D}$.\; If $|f(z_0)|=|z_0|$ for some $z_0\ne0\implies f(z)=e^{i\theta}z$.
+
+\textbf{Zeros.} $f$ analytic on $D$, $f(z_0)=0$: either $f(z)\equiv0$ on $D$, or $z_0$ is an
+\textbf{isolated zero of order $N$} (first nonzero $a_N$):\; $f(z)=(z-z_0)^Ng(z)$, $g(z_0)\ne0$.
+
+\textbf{Identity theorem.} $f(z),g(z)$ analytic on $D$; if $f(z_k)=g(z_k)$ for a sequence
+$z_k$ with $\lim_{k\to\infty}z_k=z_0\in D\implies f(z)\equiv g(z)$ on $D$.
+
+%────────────────────────────────────────────────
+\section{Laurent Series and Singularities}
+
+\textbf{Laurent series.} $f$ analytic on $A_{\rho,\sigma}(z_0)=\{\rho<|z-z_0|<\sigma\}$
+has a unique Laurent series converging normally to $f$ on each such annulus:$f(z)=\sum_{k=-\infty}^\infty a_k(z-z_0)^k$
+$$a_k=\frac{1}{2\pi i}\int_{\partial D(z_0,r)}\frac{f(w)}{(w-z_0)^{k+1}}\,dw,\quad r\in(\rho,\sigma)$$
+Same $f$ has \emph{different} Laurent series on different annuli centered at $z_0$.
+
+\textbf{Isolated singularity.} $f$ analytic on $\mathring D(z_0,R)=A_{0,R}(z_0)$ but not at $z_0$.
+
+\textbf{Removable singularity.} $a_k=0$ for all $k<0$; equivalently: $\lim_{z\to z_0}f(z)$ exists;
+equivalently: $f$ locally bounded.
+\textit{Riemann's theorem}: $|f(z)|<M$ on $\mathring D(z_0,\delta)\implies z_0$ removable.
+
+\textbf{Pole of order $N$.} $a_{-N}\ne0$, $a_k=0$ for $k<-N$;\; equivalently:
+$f(z)=g(z)/(z-z_0)^N$, $g$ analytic, $g(z_0)\ne0$;\; equivalently: $|f(z)|\to\infty$.
+For $f=P/Q$: pole order $=$ mult.\ of zero of $Q$ $-$ mult.\ of zero of $P$.
+Principal part: $g(z)=(z-z_0)^mf(z)$ analytic $\implies a_{k-m}=g^{(k)}(z_0)/k!$.
+
+\textbf{Essential singularity.} $a_k\ne0$ for infinitely many $k<0$.
+\textit{Casorati-Weierstrass}: $f(\mathring D(z_0,r))$ is dense in $\mathbb{C}$, i.e. for any $w\in\mathbb{C}$
+and $\varepsilon>0$, $\exists\,z\in\mathring D(z_0,r)$ s.t. $|f(z)-w|<\varepsilon$.
+
+%────────────────────────────────────────────────
+\section{Residue Theory}
+
+\textbf{Residue.} $\Res[f;z_0]=a_{-1}=\dfrac{1}{2\pi i}\oint_{|z-z_0|=r}f(z)\,dz$,\; $0<r<R$
+
+\textbf{Residue theorem.} $f$ analytic on $D\setminus\{z_1,\dots,z_n\}$, extends continuously to $\partial D$:
+$$\int_{\partial D}f(z)\,dz=2\pi i\sum_{k=1}^n\Res[f;z_k]$$
+\textit{Pf.} Excise disks $D_k$ around $z_k$; Cauchy on $D\setminus\bigcup\overline{D_k}$:\; $\oint_{\partial D}=\sum_k\oint_{\partial D_k}$.\; Each $\oint_{\partial D_k}$: integrate Laurent termwise; only $n=-1$ survives ($\oint(z{-}z_k)^n dz=2\pi i$ iff $n=-1$), giving $2\pi i\,a_{-1}$.
+
+\textbf{Four rules for computing residues.}
+
+\textit{Rule 1} (simple pole at $z_0$):\; $\Res[f;z_0]=\lim_{z\to z_0}(z-z_0)f(z)$
+
+\textit{Rule 2} (pole of order $N$ at $z_0$):
+$$\Res[f;z_0]=\frac{1}{(N-1)!}\lim_{z\to z_0}\frac{d^{N-1}}{dz^{N-1}}\bigl[(z-z_0)^Nf(z)\bigr]$$
+
+\textit{Rule 3} ($f(z),g(z)$ analytic, $g(z)$ has simple zero at $z_0$):
+$\Res[f(z)/g(z);z_0]=f(z_0)/g'(z_0)$
+
+\textit{Rule 4} ($g(z)$ analytic, simple zero at $z_0$): $\Res[1/g(z);z_0]=1/g'(z_0)$
+
+\textbf{Real integrals.} $P,Q$ polynomials, $\deg P\le\deg Q-2$, $Q(x)\ne0$ on $\mathbb{R}$:
+$$\int_{-\infty}^\infty\frac{P(x)}{Q(x)}\,dx=2\pi i\!\!\sum_{\substack{Q(z_k)=0\\\Im z_k>0}}\Res\!\left[\frac{P(z)}{Q(z)};z_k\right]$$
+For $\cos(ax)$/$\sin(ax)$: replace with $e^{iaz}$, apply residue theorem, take $\Re$/$\Im$ part.
+
+\textbf{Jordan's lemma.} $a>0$, $\gamma_R=$ upper semicircle: $|e^{iaz}|=e^{-a\Im z}\le1$ on $\gamma_R$
+(since $\Im z\ge0$);\; $\bigl|\int_{\gamma_R}\tfrac{P}{Q}e^{iaz}dz\bigr|\to0$ as $R\to\infty$ when $\deg Q>\deg P$.
+
+%────────────────────────────────────────────────
+\section{Common Taylor Series}
+{\footnotesize
+$f(z)=\displaystyle\sum_{k=0}^\infty\frac{f^{(k)}(z_0)}{k!}(z-z_0)^k
+=f(z_0)+f'(z_0)(z-z_0)+\tfrac{f''(z_0)}{2!}(z-z_0)^2+\cdots$
+
+$e^z=\displaystyle\sum_{k=0}^\infty\frac{z^k}{k!}=1+z+\frac{z^2}{2!}+\frac{z^3}{3!}+\cdots$
+
+$\sin z=\displaystyle\sum_{k=0}^\infty\frac{(-1)^kz^{2k+1}}{(2k+1)!}=z-\frac{z^3}{3!}+\frac{z^5}{5!}-\cdots\;\cos z=\displaystyle\sum_{k=0}^\infty\frac{(-1)^kz^{2k}}{(2k)!}=1-\frac{z^2}{2!}+\frac{z^4}{4!}$
+
+$\dfrac{1}{1-z}=\displaystyle\sum_{k=0}^\infty z^k=1+z+z^2+z^3+\cdots\;(|z|<1)$
+
+$\operatorname{Log}(1+z)=\displaystyle\sum_{k=1}^\infty\frac{(-1)^{k-1}z^k}{k}=z-\frac{z^2}{2}+\frac{z^3}{3}-\cdots\;(|z|<1)$
+
+$\sinh z=\displaystyle\sum_{k=0}^\infty\frac{z^{2k+1}}{(2k+1)!}=z+\frac{z^3}{3!}+\frac{z^5}{5!}+\cdots\;\cosh z=\displaystyle\sum_{k=0}^\infty\frac{z^{2k}}{(2k)!}=1+\frac{z^2}{2!}+\frac{z^4}{4!}+\cdots$
+}
+
+%────────────────────────────────────────────────
+\section{Miscellaneous}
+
+\textbf{Exact vs.\ closed.} $Pdx+Qdy$ is \textit{closed} if $P_y=Q_x$; \textit{exact} if it has a primitive.
+Exact $\implies$ closed;\; on simply connected $D$: closed $\iff$ exact.
+
+\textbf{Fundamental theorem of algebra.} Every nonconstant polynomial has a complex root;\;
+degree-$n$ polynomial has exactly $n$ roots (counting multiplicity).
+
+\textbf{Riemann mapping theorem.} Any simply connected domain $D\ne\mathbb{C}$ is conformally equivalent to $\mathbb{D}$.
+
+\textbf{Winding number.} $\displaystyle\int_\gamma\frac{dz}{z-z_0}=2\pi i\cdot R$,\; $R=$ number of CCW loops around $z_0$.
+
+\end{document}

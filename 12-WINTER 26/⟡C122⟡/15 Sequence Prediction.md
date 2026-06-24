@@ -1,0 +1,12 @@
+- Limitations of binding predictions based on PWM scanning
+	- Many motifs are not actually bound, and there is additional information in sequence context for predicting binding
+	- Regulatory sequences often contain more than one binding instance of a TF
+		- Results in *homotypic clusters of motifs of the same TF*
+	- Properties of regulatory sequences may not be captured by a PWM
+		- Regulatory sequences often bound by *combinations of TFs* resulting in *heterotypic clusters of motifs of different TFs*
+		- Spatial and positional constraints - distinct motif grammars not captured
+- Suppose we have a ChIP-seq experiment for a TF, what is another strategy we could use to predict TF binding?
+	- Through supervised machine learning models
+	- **Classifier:** DNA sequence $\xrightarrow{\text{CLASSIFIER}}$ Label based on biochemical assay (positive = bound, negative = not bound)
+		- How could such a classifier be used for variant effect prediction?
+			- Compare prediction probability for reference and mutation

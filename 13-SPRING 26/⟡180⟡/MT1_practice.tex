@@ -1,0 +1,202 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+
+\titleformat{\section}[block]{\normalfont\large\bfseries}{}{0pt}{}[{\vspace{2pt}\titlerule[0.5pt]}]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+\setlist[enumerate]{leftmargin=*, topsep=4pt, itemsep=2pt, partopsep=0pt}
+\setlist[itemize]{leftmargin=*, topsep=4pt, itemsep=2pt, partopsep=0pt}
+
+\newcounter{prob}
+\newcommand{\problem}[2]{%
+  \stepcounter{prob}%
+  \medskip\noindent\textbf{Problem \theprob} \textit{(#1)}\textbf{.} #2\par\smallskip
+}
+\newcommand{\solution}[1]{%
+  \medskip\noindent\textbf{Solution \theprob.}\addtocounter{prob}{1}\par\smallskip #1\par\bigskip
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries CS 180 --- Midterm 1 Practice Problems}
+\end{center}
+
+\section*{Problems}
+
+\setcounter{prob}{1}
+
+\problem{Asymptotic Notation}{
+Using the \emph{formal definition} of $\Theta$, prove that
+$$f(n) = 4n^2 + n\log n + 7\sqrt{n}$$
+is $\Theta(n^2)$. (You must exhibit explicit constants $c_1, c_2, n_0$.)
+}
+
+\problem{Function Ranking}{
+Rank the following functions in strictly increasing order of asymptotic growth rate. Justify the two most non-obvious comparisons with a limit argument.
+$$2^{1000}, \quad \log^4 n, \quad n^{1/2}, \quad n\log n, \quad n^{\log n}, \quad 2^n, \quad n!$$
+}
+
+\problem{Runtime Analysis}{
+Give a tight ($\Theta$) bound on the runtime of the following pseudocode as a function of $n$. Justify your answer.
+\begin{quote}
+\textbf{FOR} $i = 1$ to $n$:\\
+\hspace*{16pt}$j \leftarrow i$\\
+\hspace*{16pt}\textbf{WHILE} $j \ge 1$: \quad $j \leftarrow \lfloor j/2 \rfloor$
+\end{quote}
+}
+
+\problem{Cycle Detection}{
+Given an undirected graph $G = (V, E)$, design an $O(m+n)$ algorithm to determine whether $G$ contains a cycle, and if so, output one. Prove correctness and state the runtime.
+}
+
+\problem{Stable Matching}{
+Prove that if hospital $h$ and student $s$ are each other's first choice (i.e.\ $s$ is ranked first on $h$'s preference list and $h$ is ranked first on $s$'s preference list), then $h$ and $s$ are matched together in \emph{every} stable matching.
+}
+
+\problem{DAG Longest Path}{
+Given a DAG $G = (V, E)$ with non-negative edge weights $w_e$ and a source vertex $s$, design an $O(m+n)$ algorithm to compute, for every vertex $v$, the weight of the longest (maximum total weight) path from $s$ to $v$. (Define this as $-\infty$ if $v$ is unreachable from $s$.) Prove correctness and state the runtime.
+}
+
+\problem{Unique MST}{
+Prove that if all edge weights in a connected undirected graph $G$ are \emph{distinct}, then $G$ has a \emph{unique} minimum spanning tree.
+}
+
+\newpage
+
+% Reset counter for solutions
+\setcounter{prob}{0}
+
+\section*{Solutions}
+
+%--- Solution 1 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 1.}\par\smallskip
+
+We exhibit constants satisfying the $\Theta$ definition directly.
+
+\textbf{Upper bound} ($O(n^2)$, find $c_2$): For $n \ge 1$, note $\log n \le n$ and $\sqrt{n} \le n$, so
+$$f(n) = 4n^2 + n\log n + 7\sqrt{n} \le 4n^2 + n \cdot n + 7n = 12n^2.$$
+Hence $f(n) \le 12n^2$ for all $n \ge 1$, giving $c_2 = 12$.
+
+\textbf{Lower bound} ($\Omega(n^2)$, find $c_1$): Since all terms are non-negative,
+$$f(n) \ge 4n^2.$$
+Hence $f(n) \ge 4n^2$ for all $n \ge 1$, giving $c_1 = 4$.
+
+With $c_1 = 4$, $c_2 = 12$, $n_0 = 1$ we have $c_1 n^2 \le f(n) \le c_2 n^2$ for all $n \ge n_0$, so $f(n) \in \Theta(n^2)$. $\square$
+
+\bigskip
+
+%--- Solution 2 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 2.}\par\smallskip
+
+Order (increasing):
+$$2^{1000} \;\ll\; \log^4 n \;\ll\; n^{1/2} \;\ll\; n\log n \;\ll\; n^{\log n} \;\ll\; 2^n \;\ll\; n!$$
+
+\textbf{Justification of $n\log n \ll n^{\log n}$:} Take logs of both:
+$$\log(n\log n) = \log n + \log\log n \approx \log n, \qquad \log(n^{\log n}) = \log^2 n.$$
+Since $\lim_{n\to\infty} \log^2 n / \log n = \lim_{n\to\infty}\log n = \infty$, we have $\log^2 n \gg \log n$, so $n^{\log n} \gg n\log n$.
+
+\textbf{Justification of $n^{\log n} \ll 2^n$:} Take logs:
+$$\log(n^{\log n}) = \log^2 n, \qquad \log(2^n) = n.$$
+Since $\lim_{n\to\infty} \log^2 n / n = 0$ (polynomial beats log), we have $2^n \gg n^{\log n}$. $\square$
+
+\bigskip
+
+%--- Solution 3 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 3.}\par\smallskip
+
+The total work is $T(n) = \sum_{i=1}^{n} W(i)$ where $W(i)$ is the number of WHILE iterations for a given $i$.
+
+Each iteration halves $j$ until $j < 1$, so $W(i) = \lfloor \log_2 i \rfloor + 1$. Thus
+$$T(n) = \sum_{i=1}^{n} \bigl(\lfloor\log_2 i\rfloor + 1\bigr) = n + \sum_{i=1}^{n} \lfloor\log_2 i\rfloor.$$
+
+\textbf{Claim:} $\sum_{i=1}^{n}\lfloor\log_2 i\rfloor = \Theta(n\log n)$.
+
+\textit{Pf:} Note $\lfloor\log_2 i\rfloor \ge \log_2 i - 1$, so $\sum_{i=1}^{n}\lfloor\log_2 i\rfloor \ge \sum_{i=1}^{n}(\log_2 i - 1) = \log_2(n!) - n = \Omega(n\log n)$ by Stirling ($\log(n!) = \Theta(n\log n)$). Similarly $\lfloor\log_2 i\rfloor \le \log_2 i$, giving the $O(n\log n)$ bound.
+
+Therefore $T(n) = n + \Theta(n\log n) = \Theta(n\log n)$. $\square$
+
+\bigskip
+
+%--- Solution 4 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 4.}\par\smallskip
+
+\textbf{Algorithm:} Run DFS from an arbitrary source. Maintain a ``discovered'' set and for each discovered node, track its DFS-tree parent. When processing node $u$ and examining neighbor $v$:
+\begin{itemize}
+  \item If $v$ is undiscovered: mark $v$ discovered, set $\mathrm{parent}[v] \leftarrow u$, recurse.
+  \item If $v$ is already discovered and $v \ne \mathrm{parent}[u]$: output the cycle $u \to \cdots \to v \to u$ (trace back via parent pointers from $u$ to $v$, then use edge $(v,u)$).
+\end{itemize}
+If DFS completes without finding such a $v$, report no cycle.
+
+\textbf{Correctness:}
+\begin{itemize}
+  \item \textit{If a cycle is reported:} The back edge $(u,v)$ together with the tree path from $v$ to $u$ forms a genuine cycle. (\checkmark)
+  \item \textit{If no cycle is reported:} In an undirected DFS, every non-tree edge is a back edge to an ancestor. If no back edge to a non-parent was found, the graph is a forest, hence acyclic. (\checkmark)
+\end{itemize}
+
+\textbf{Runtime:} DFS visits each vertex and edge once: $O(m+n)$. Tracing the cycle takes at most $O(n)$ additional time. Total: $O(m+n)$. $\square$
+
+\bigskip
+
+%--- Solution 5 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 5.}\par\smallskip
+
+\textbf{Claim:} In every stable matching $M$, $h$ and $s$ are matched.
+
+\textit{Pf.} Suppose for contradiction that in some stable matching $M$, $h$ is not matched to $s$. Then $h$ is matched to some $s' \ne s$ and $s$ is matched to some $h' \ne h$.
+
+\begin{itemize}
+  \item $h$ prefers $s$ to $s'$: since $s$ is $h$'s top choice and $s' \ne s$.
+  \item $s$ prefers $h$ to $h'$: since $h$ is $s$'s top choice and $h' \ne h$.
+\end{itemize}
+
+Both $h$ and $s$ would rather be matched to each other than their current partners, so $(h, s)$ is an unstable pair in $M$. This contradicts $M$ being a stable matching. $\square$
+
+\bigskip
+
+%--- Solution 6 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 6.}\par\smallskip
+
+\textbf{Algorithm:}
+\begin{enumerate}
+  \item Compute a topological ordering $v_1, v_2, \dots, v_n$ of $G$ in $O(m+n)$.
+  \item Initialize $dist[s] \leftarrow 0$ and $dist[v] \leftarrow -\infty$ for all $v \ne s$.
+  \item For each $v_i$ in topological order: for each edge $e = (v_i, u)$, if $dist[v_i] \ne -\infty$ and $dist[v_i] + w_e > dist[u]$, set $dist[u] \leftarrow dist[v_i] + w_e$.
+  \item Return $dist[v]$ for all $v$.
+\end{enumerate}
+
+\textbf{Correctness:} We claim that after processing $v_i$, $dist[v_i]$ equals the weight of the longest path from $s$ to $v_i$.
+
+\textit{Proof by induction on topological order.} When we process $v_i$, every predecessor $u$ of $v_i$ (every $u$ with an edge $u \to v_i$) satisfies $u = v_j$ for some $j < i$ (by definition of topological order) and was already processed. By the inductive hypothesis, $dist[u]$ is correct. Since we take the max over all incoming edges, $dist[v_i]$ is correctly set to the longest path. $\square$
+
+\textbf{Runtime:} Topological sort takes $O(m+n)$. The relaxation step visits each vertex and each edge exactly once: $O(m+n)$. Total: $O(m+n)$. $\square$
+
+\bigskip
+
+%--- Solution 7 ---
+\stepcounter{prob}
+\noindent\textbf{Solution 7.}\par\smallskip
+
+\textbf{Proof.} Suppose for contradiction that $G$ has two distinct MSTs $T_1 \ne T_2$ (both of minimum total weight). Let $e$ be the \emph{minimum-weight} edge in the symmetric difference $T_1 \triangle T_2$; since weights are distinct, $e$ is unique. WLOG $e \in T_1 \setminus T_2$.
+
+Adding $e = (u,v)$ to $T_2$ creates a unique cycle $C$ in $T_2 + e$. The path from $u$ to $v$ in $T_2$ (together with $e$) forms $C$. Since $T_1$ is acyclic and $e \in T_1$, the $u$-$v$ path in $T_1$ differs from the one in $T_2$, so $C$ contains at least one edge $f \in T_2 \setminus T_1$. Because $e$ is the minimum-weight edge in $T_1 \triangle T_2$ and $f \in T_2 \setminus T_1 \subseteq T_1 \triangle T_2$, and all weights are distinct:
+$$w(e) < w(f).$$
+
+Now let $T_2' = T_2 - \{f\} + \{e\}$. Removing $f$ from the cycle $C$ and adding $e$ back gives a spanning tree (still connected and acyclic). Its cost satisfies
+$$\mathrm{cost}(T_2') = \mathrm{cost}(T_2) - w(f) + w(e) < \mathrm{cost}(T_2).$$
+But $T_2$ is an MST, so no spanning tree can have smaller cost. Contradiction. $\square$
+
+\end{document}

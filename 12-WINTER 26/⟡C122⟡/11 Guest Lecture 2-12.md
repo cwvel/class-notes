@@ -1,0 +1,70 @@
+# Machine learning for large-scale genomic data
+- Complex traits and genomic data
+	- **Complex traits** are a phenotype resulting from the influence of multiple genes working together (as opposed to one genetic mutation)
+- **Biobanks** are a recent endeavor by multiple countries around the world
+	- Human datasets
+	- How do we use them to explore the link between genetics and complex traits?
+	- Challenges with working with biobanks
+		- Bias in the dataset from who/where the samples are collected from
+		- Noise 
+			- Sequencing errors, measurement errors, missing data
+			- Categorization of disease and phenotypes varies or is inconsistent across health systems and countries
+			- Inherent bias from who chooses/is able to visit their hospital, and findings cannot generalize to everyone due to lack of representative sampling
+		- Due to the scale of the dataset, it is very computationally expensive time and memory-wise to analyze
+			- Since the data is stored on the cloud, it directly costs you financially to load and analyze it
+- **Challenges of working with Biobanks**
+	- Statistical
+		- How can we build the best (most realistic and accurate) model that gives us the statistics that we want taking into account the biases that generated the data
+	- Computational costs
+	- Privacy
+- Example biobank data
+	- Each row is an individual
+	- Each cell in the matrix represents how many alleles that individual carries for a specific SNP
+		- From 0, 1, 2
+	- Along with phenotype of that individual
+		- Phenotype can be anything you want to measure
+- **Missing data in biobanks**
+	- Many individuals in the dataset are not measured for the phenotype you want to study
+		- These are usually the traits that are hard to measure, and also tend to be more clinically important (like psychiatric disorders -- depression, for example)
+	- If we throw out all the missing samples, then we have a much smaller sample size
+	- Solution: **Imputation**
+		- Using some statistical model to fill in the missing data of the indivdual based on the information you do have
+- ==Phenotype imputation== is the method used to predict all the missing data in the phenotype matrix
+	- Supervised learning problem
+	- You want a method that is
+		- Expressive
+		- Scalable
+		- Leverages structure in missingness (there usually is a reason why the data is missing -- missingness is not random)
+			- **AutoComplete**
+				- **Autoencoder** maps the high-dimension onto a lower dimension vector (encoder) and tries to reconstruct it as accurately as possible (decoder)
+					- Autoencoder tries to learn the *encoder* and *decoder* function
+					- If you have a missing value and pass the matrix through the autoencoder, it will try to reconstruct what the missing value should be
+					- Loss function compares the difference between original (ground truth) and reconstructed
+				- **Copy masking**
+					- We mask entries based on the patterns in the data, not just randomly, to train our autoencoder
+				- AutoComplete is accurate and its imputed phenotypes have led to the discovery of novel genetic factors (that would not have been detected without the use of imputed data)
+- Population structure problem
+	- How related are the individuals in the matrix, and what does it tell us about the population the individuals come from
+	- We can figure out ancestry and underlying relationships of the individuals in the matrix
+		- This is useful because many diseases are specific to certain populations/ethnicities
+	- **Inferring population structure**
+		- **PCA:** How can I map data from high dimensions to low dimenions, and plot them to visually see where they lie
+			- A study applied to genotypes of individuals was able to separate them accurately geographically
+			- However, PCA is infeasible for large genetic datasets
+				- Uses SVD: $\mathcal{O}(MN\min(M,N))\approx O(MN^2)$
+				- For biobanks, $M\approx 10^6, N\approx 10^5$
+			- Can be thought of as an algorithm or a statistical model
+				- As a statistical model, what are you trying to predict? The **principal components** and their scores are the maximum likelihood estimates
+				- We can estimate the parameters of the statistical model
+		- **Probabilisitic PCA**
+			- Estimates PCs and PC scores
+			- Uses the EM algorithm for estimation
+				- Efficient, iterative approach
+			- Is accurate and scalable (can apply to large datasets)
+			- **Fine-scale population structure**
+				- Lower PC = More fine resolution
+			- **Genetic architecture of complex traits**
+				- What is the "underlying function" that maps genetic variation to phenotypic variation?
+			- Heritability and variance components
+				- Model: Write the phenotype as a linear combination of all genetic mutations (SNPs) and a environmental variance component (noise - everything that cannot be modeled by the genetic variance)
+					- This model is not determined on the large dataset (?)
